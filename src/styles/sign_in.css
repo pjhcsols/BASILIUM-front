@@ -1,0 +1,282 @@
+
+
+.body{
+    height: 100vh;
+    width: 100vw;
+    background-Image: url(../imgs/background_img.png);
+    background-size: 'cover';
+    background-repeat : no-repeat;
+    background-position: 'center';
+    margin:0;
+    padding-top: 10vh;
+    padding-right: 15vw;
+}
+
+.mainDiv{
+    float:right;
+    margin:0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainLogo{
+    margin: 0; padding: 0;
+    font-size: 5rem;
+    color: white;
+}
+
+.subLogo{
+    margin-top: 1vh;
+    padding: 0;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 5vh;
+}
+.loginBox{
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+.btnBox{
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 25vw;
+    border-radius: 20px 20px 0 0;
+    border: none;
+    margin: 0;   padding:0;
+    flex-direction: row;
+    display: flex;
+}
+
+.signInArea{
+    background-color: white;
+    color: black;
+    height: 5vh;
+    width: 12.5vw;
+    border-radius: 20px 20px 0px 0px;
+    text-align: center;
+    border: none;
+    margin: 0;
+    padding:0;
+}
+
+
+.signUpBtn{
+    margin: 0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 12.5vw;
+    border-radius: 0 20px 0 0;
+    border: none;
+}
+
+.qryBox{
+    margin: 0; padding-top:5%;
+    flex-direction: column;
+    display: flex;
+    height: 50vh;
+    width: 25vw;
+    background-color: white;
+    border-radius: 0 0 20px 20px;
+    align-items: center;
+}
+
+
+.pwdSet{
+    margin: 0; padding-top:3%;
+    flex-direction: column;
+    display: flex;
+}
+
+.emailSet{
+    margin: 0; padding-top:3%;
+    flex-direction: column;
+    display: flex;
+}
+
+.emailimg{
+    margin: 0; padding:0;
+}
+.emailBox{
+    margin: 0;  padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.emailImgBox{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 2vw;
+    border: none;
+    background-Image: url(../imgs/email_logo.png);
+    background-size: 'cover';
+    background-repeat : no-repeat;
+    background-position: 'center';
+    border-radius: 10px 0 0 10px;
+}
+
+.emailInp{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 18vw;
+    border-radius: 0 10px 10px 0;
+    border: none;
+}
+
+.pwdBox{
+    margin:0; padding:0;
+    display: flex; flex-direction: row;
+}
+
+.pwdImgBox{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 2vw;
+    border-radius: 10px 0 0 10px;
+    border: none;
+}
+
+.pwdseeBox{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 2vw;
+    border-radius: 0 10px 10px 0;
+    border: none;
+}
+
+.pwdInp{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 16vw; 
+    border: none;
+}
+
+.emailTxt{
+    padding:0; margin:0;
+    float:left;
+}
+
+.pwdTxt{
+    padding:0; margin:0;
+    float: left;
+}
+.pwdReset{
+    padding:0; margin:0;
+    float: right;
+    background-color: white;
+    border: none;
+    color: blue;
+}
+.loginBtn{
+    padding: 0; margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    height: 5vh;
+    width: 20vw; 
+    border: none;
+    background-color: #18122B;
+    border-radius: 10px 10px 10px 10px;
+    align-items: center;
+    justify-items: center;
+}
+
+.loginTxt{
+    color: white;
+    font-weight: bold;
+}
+
+.errorDiv{
+    padding: 0; margin: 0;
+    height: 4vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.errorTxt{
+    padding: 0; margin: 0;
+    font-size: small;
+    color:red;
+}
+
+.apiLogin{
+    padding: 0;
+    margin-top: 1vh;
+    width: 20vw;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.apiSet{
+    padding: 0;
+    margin-top: 1vh;
+    width: 18vw;
+    height:auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.kakaoLogin{
+    padding: 0; margin: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.naverLogin{
+    padding: 0; margin: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.googleLogin{
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.kakaoBtn{
+    padding: 0; margin:0;
+    width: 2vw;
+    height: 4vh;
+    border: none;
+    background-Image: url(../imgs/kakao_logo.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.naverBtn{
+    padding: 0; margin:0;
+    width: 2vw;
+    height: 4vh;
+    border: none;
+    background-Image: url(../imgs/naver_logo.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.googleBtn{
+    padding: 1; margin:0;
+    width: 2vw;
+    height: 4vh;
+    background-Image: url(../imgs/google_logo.png);
+    background-color: white;
+    background-size: 80%;
+    background-position: center;
+    background-repeat : no-repeat;
+    border-radius: 10px 10px 10px 10px;
+}
