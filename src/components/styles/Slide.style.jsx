@@ -16,7 +16,7 @@ export const SlideLeftContainer = styled.div`
     width: 35%;
     position: absolute;
     margin: 0 auto;
-    top: 30%;
+    top: 40%;
     left: 10%;
     z-index: 2;
 `
@@ -25,7 +25,7 @@ export const SlideRightContainer = styled.div`
     width: 85%;
     position: absolute;
     margin: 0 auto;
-    top: 30%;
+    top: 40%;
     left: 30%;
     z-index: 2;
 `

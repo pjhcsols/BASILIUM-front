@@ -49,11 +49,11 @@ function Header() {
       <HeaderLeftLinkContainer>
         <IndividualLinkContainer>
           <NavLink to={"/about"} style={{"text-decoration": "none"}}>
-            <SpanContainer>ABOUT</SpanContainer>
+            <SpanContainer>About</SpanContainer>
           </NavLink> 
         </IndividualLinkContainer>
         <IndividualLinkContainer>
-          <NavLink to={"Store"} style={{"text-decoration": "none"}}>
+          <NavLink to={"/store"} style={{"text-decoration": "none"}}>
             <SpanContainer>Store</SpanContainer>
           </NavLink>
         </IndividualLinkContainer>
@@ -68,12 +68,12 @@ function Header() {
       </LogoContainer>
       <HeaderRightLinkContainer>
         <IndividualLinkContainer>
-          <NavLink to={"Store"} style={{"text-decoration": "none"}}>
+          <NavLink to={"/store"} style={{"text-decoration": "none"}}>
             <SpanContainer>Store</SpanContainer>
           </NavLink>
         </IndividualLinkContainer>
         <IndividualLinkContainer>
-          <NavLink to={"Search"} style={{"text-decoration": "none"}}>
+          <NavLink to={"/search"} style={{"text-decoration": "none"}}>
             <SpanContainer>Search</SpanContainer>
           </NavLink>
         </IndividualLinkContainer>

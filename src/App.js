@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
 import MainHome from './components/Main/MainHome'
 import Header from './components/Header/header';
+import ShoppingList from './components/ShoppingList/List.jsx/ShoppingList';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainHome />}/>
         <Route path="/mypage" />
-        <Route path="/shop" />
+        <Route path="/store" element={<ShoppingList />}/>
          <Route path="/shopping" />
         <Route path="/login" />
         <Route path="/register" />

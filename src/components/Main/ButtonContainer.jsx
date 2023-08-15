@@ -12,7 +12,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 function ButtonContainer(props) { 
   const navi = useNavigate()
   const NavigatetoStore = () =>{
-    navi("./shop")
+    navi("/store")
   }
   return (
     <ButtonStyle onClick={NavigatetoStore}>

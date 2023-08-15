@@ -12,15 +12,26 @@ import { motion } from 'framer-motion'
 
 function ThirdSlide() {
   return (
-    <motion.div>
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 50},
+        visible: { opacity: 1, y: 0}
+      }}
+      initial= "hidden"
+      animate= "visible"
+      transition={{
+        duration: 0.5,
+        delay: 0.25
+      }}
+    >
       <ThirdContainer>
         <TitleContainer>
           <TitleSpan>
             BASILIUM AI service<br/>
           </TitleSpan>
-          <TitleSpan>
+          <Subscription>
             You can see the 3D architecture of clothes
-          </TitleSpan>
+          </Subscription>
         </TitleContainer>
         <IMGBox>
           <SubscriptionBox>

@@ -10,7 +10,7 @@ export const HeaderContainer = styled.nav`
     width: 100%;
     height: ${props => (props.isScroll ? "100px" : "80px")};
     opacity: ${props => (props.isScroll ? "0%" : "100%")};
-    transition: all 0.2s ease-in-out;
+    transition: all 5s ease-out;
     z-index: 5;
 `
 
@@ -52,18 +52,18 @@ export const SpanContainer = styled.span`
     font-size: 15px;
     font-weight: 100;
     color: #fff;
-    transition: 0.3s ease-in-out;
+    transition: 0.5 ease-in-out;
     &:hover, active{
         color: #9b9b9f;
     }
     &:hover::after, active:after{
         content: "";
-        width: 10%;
+        width: 20%;
         height: 2px;
         background: #9b9b9f;
         position: absolute;
         bottom: 25px;
-        left: 45%;
+        left: 40%;
     }
 `
 

@@ -22,11 +22,13 @@ export const TitleContainer = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: white;
 `
 
 export const TitleSpan = styled.span`
-    
-
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 45px;
+    color: white;
 `
 
 export const SubscriptionBox = styled.div`
@@ -36,11 +38,13 @@ export const SubscriptionBox = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: white;
 `
 
 export const Subscription = styled.span`
-    
-
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    color: white;
 `
 
 export const IMGBox = styled.div`

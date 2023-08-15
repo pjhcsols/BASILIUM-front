@@ -19,7 +19,7 @@ import {
 import { AnimatePresence } from 'framer-motion';
 import { SlideButton, SlideButtonContainer } from '../styles/SlideButton.style'
 
-
+// Using useEffect that 
 function MainSlide() {
     const components = [FirstSegment, SecondSlide, ThirdSlide]
     const [page, setPage] = useState(0);
@@ -70,7 +70,16 @@ function MainSlide() {
                         </SlideButtonContainer>
                     </SlideLeftContainer>
                     <TotalScreenSlide>
-                        {components[page]()}
+                        <AnimatedSlideBox
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={boxVariants}
+                        >
+                            {
+                                components[page]()
+                            }
+                        </AnimatedSlideBox>
                     </TotalScreenSlide>
                     <SlideRightContainer>
                         <SlideButtonContainer>
