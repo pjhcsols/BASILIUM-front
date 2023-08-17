@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/sign_in.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const Sign_in = () => {
   const [inputs, setInputs] = useState({
     email: "",
@@ -24,7 +25,12 @@ const Sign_in = () => {
     navigate("/sign_up");
   };
 
-  const Login = () => {};
+const serverUrl="http://172.30.1.65:8080/v1/normalUser/signup";
+  const Login = () => {
+        const request =axios.post(serverUrl,inputs).then(response => {
+          console.log('응답 데이터:', response.data); })
+
+  };
 
   return (
     <div className="body">
@@ -51,7 +57,7 @@ const Sign_in = () => {
               <p className="emailTxt">이메일</p>
               <div className="emailBox">
                 <div className="emailImgBox">
-                  <img className="emailimg" />
+                  <div className="emailimg" />
                 </div>
                 <input
                   className="emailInp"
@@ -71,7 +77,9 @@ const Sign_in = () => {
               </div>
 
               <div className="pwdBox">
-                <div className="pwdImgBox"></div>
+                <div className="pwdImgBox">
+                  <div className="pwdImg" />
+                </div>
                 <input
                   className="pwdInp"
                   type="text"

@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "../styles/sign_up.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Sign_up = () => {
   const [inputs, setInputs] = useState({
-    phoneNum: "",
-    email: "",
-    pwd: "",
-    pwdchk: "",
-    name: "",
+    id: "",
+    password: "",
+    emailaddress: "",
+    phoneNumber: "",
+    userGrade:0,
+    name:"",
+    age:0,
+    address:"",
   });
-  const { phoneNum, email, pwd, pwdchk, name } = inputs;
+  const { id,password,emailaddress,phoneNumber,userGrade,name,age,address } = inputs;
   const onChange = (e) => {
     const value = e.target.value;
     const id = e.target.id;
@@ -26,7 +30,15 @@ const Sign_up = () => {
     navigate("/sign_In");
   };
 
-  const signUpSend = () => {};
+  const serverUrl="http://172.30.1.65:8080/v1/normalUser/signup";
+
+  const signUpSend = async () => {
+    await axios.post(serverUrl,{"id": emailaddress,"password": password,"emailAddress":emailaddress,"phoneNumber":phoneNumber,"userGrade":1,
+      "name": name,"age": 0,"address":"null" }).then(response => {
+      console.log('응답 데이터:', response.data); }).catch(err => console.log(err))
+  };
+
+  const identification = () => {};
 
   return (
     <div className="body2">
@@ -55,13 +67,13 @@ const Sign_up = () => {
               <p className="phoneTxt">전화번호</p>
               <div className="phoneBox">
                 <div className="phoneImgBox">
-                  <img className="phoneimg" />
+                  <div className="phoneImg" />
                 </div>
                 <input
                   className="phoneInp"
                   type="text"
-                  id="phoneNum"
-                  value={phoneNum}
+                  id="phoneNumber"
+                  value={phoneNumber}
                   onChange={onChange}
                   placeholder="전화번호를 입력해주세요."
                 />
@@ -71,18 +83,19 @@ const Sign_up = () => {
 
               <div>
                 <p className="emailTxt">이메일</p>
-                <button className="identification">본인인증</button>
+                <button className="identification"
+                onClick={identification}>본인인증</button>
               </div>
 
               <div className="emailBox">
                 <div className="emailImgBox">
-                  <img className="emailimg" />
+                  <div className="emailimg" />
                 </div>
                 <input
                   className="emailInp"
                   type="text"
-                  id="email"
-                  value={email}
+                  id="emailaddress"
+                  value={emailaddress}
                   onChange={onChange}
                   placeholder="이메일을 입력해주세요."
                 />
@@ -95,12 +108,14 @@ const Sign_up = () => {
               </div>
 
               <div className="pwdBox">
-                <div className="pwdImgBox"></div>
+                <div className="pwdImgBox">
+                  <div className="pwdImg"/>
+                </div>
                 <input
                   className="pwdInp"
                   type="text"
-                  id="pwd"
-                  value={pwd}
+                  id="password"
+                  value={password}
                   onChange={onChange}
                   placeholder="비밀번호를 입력해주세요."
                 />
@@ -114,13 +129,15 @@ const Sign_up = () => {
               </div>
 
               <div className="pwdchkBox">
-                <div className="pwdchkImgBox"></div>
+                <div className="pwdchkImgBox">
+                  <div className="pwdchkImg"></div>
+                </div>
                 <input
                   className="pwdchkInp"
                   type="text"
                   id="pwdchk"
-                  value={pwdchk}
-                  onChange={onChange}
+                  //value={pwdchk}
+                  //onChange={onChange}
                   placeholder="비밀번호를 확인해주세요."
                 />
                 <div className="pwdchkseeBox"></div>
@@ -131,7 +148,7 @@ const Sign_up = () => {
               <p className="nameTxt">이름</p>
               <div className="nameBox">
                 <div className="nameImgBox">
-                  <img className="nameimg" />
+                  <div className="nameimg" />
                 </div>
                 <input
                   className="nameInp"
