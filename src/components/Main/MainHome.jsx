@@ -42,7 +42,7 @@ function MainHome() {
             <ScrollPage>
               <Animator animation={batch(Sticky(), Fade(), MoveIn(0, 200))} style={{"z-index": "-2"}}>
                 <Section2>
-                  <SecondPage />
+                  
                 </Section2>
               </Animator>
             </ScrollPage>

@@ -8,9 +8,9 @@ export const HeaderContainer = styled.nav`
     gap: 100px;
     flex-direction: row;
     width: 100%;
-    height: ${props => (props.isScroll ? "100px" : "80px")};
+    height: ${props => (props.isScroll ? "0px" : "100px")};
     opacity: ${props => (props.isScroll ? "0%" : "100%")};
-    transition: all 5s ease-out;
+    transition: all 1s ease-out;
     z-index: 5;
 `
 
@@ -116,7 +116,7 @@ export const LogoContainer = styled.div`
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 910px;
+    left: 900px;
 `
 
 export const Logo = styled.img`
