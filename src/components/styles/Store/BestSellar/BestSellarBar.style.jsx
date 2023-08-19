@@ -1,31 +1,31 @@
 import styled from 'styled-components'
+import { SwiperSlide } from 'swiper/react'
 
-export const BSlide = styled.div`
+export const SlideBar = styled.div`
     position: absolute;
     width: 100%;
-    height: 50%;
-    left: 20%;
+    height: 60%;
     top: 10%;
-    justify-content: center;
-    align-items: center;
+`
+
+export const BSlide = styled.div`
+    width: 100%;
+    height: 50%;
 `
 
 export const SwiperContainer = styled(SwiperSlide)`
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 50%;
-    left: 50%;
+    height: 100%;
     justify-content: center;
     align-items: center;
 `
-
 
 export const ButtonContainer = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
     bottom: 100%;
-    left: 20%;
 `
 
 export const LeftButtonContainer = styled.button`

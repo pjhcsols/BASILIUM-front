@@ -11,10 +11,8 @@ export const Backgroundiv = styled.div`
 
 export const StoreContainer = styled.div`
     position: relative;
-    width: 68.75%;
     height: 1000px;
     justify-content: center;
     align-items: center;
     background: #212529;
 `
-

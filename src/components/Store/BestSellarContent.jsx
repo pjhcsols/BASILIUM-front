@@ -1,9 +1,16 @@
 import React from 'react'
 
+import { 
+  BestSellarContainer
+} from '../styles/Store/BestSellar/BestSellarContent.style'
+
+import ManToMan from '../../assets/Goods/ManToMan.jpg'
+import BestsellarObj from './BestsellarObj'
+
 function BestSellarContent() {
   return (
     <BestSellarContainer>
-        <BestSellarObj 
+        <BestsellarObj
             src={ ManToMan }
             title={"Basilium"}
             content={"클래식 B 루즈핏 티셔츠"}
