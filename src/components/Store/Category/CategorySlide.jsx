@@ -1,16 +1,29 @@
 import React from 'react'
 import CategoryBox from './CategoryBox'
 import { 
-    ExBg 
+    ExBg,
+    NextButtonBox,
+    PrevButtonBox,
+    SlideBox
 } from '../../styles/Store/Category/CategorySlide.style'
 
+import Huku from '../../../assets/Goods/Huku.jpeg'
+import GrayHuku from '../../../assets/Goods/GrayHuku.jpeg'
+import WhiteHat from '../../../assets/Goods/WhiteHat.jpeg'
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from "swiper/react"
+import {
+    EffectCoverflow,
+    Pagination,
+    Navigation 
+} from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import { ReactComponent as PrevButton} from '../../../assets/SVG/caret-back-outline.svg';
+import { ReactComponent as NextButton} from '../../../assets/SVG/caret-forward-outline.svg';
 
 function CategorySlide() {
   return (
@@ -26,24 +39,55 @@ function CategorySlide() {
                     rotate: 0,
                     stretch: 0,
                     depth: 100,
-                    modifier: 2.5,
                 }}
+                style={{
+                    'width': '100%',
+                    'height': '100%'
+                }}
+                pagination={{ el: '.swiper-pagination', clickable:'true'}}
+                navigation={{
+                    nextEl: '.swiper-button-next-category',
+                    prevEl: '.swiper-button-prev-category',
+                    clickable: true
+                }}
+                modules={[EffectCoverflow, Pagination, Navigation]}
             >
-                <SwiperSlide>
+                <SlideBox>
+                    <CategoryBox 
+                        src={Huku}
+                        category={"Upper"}
+                        content={"상의"}
+                    />
+                </SlideBox>
+                <SlideBox>
+                    <CategoryBox 
+                        src={GrayHuku}
+                        category={"Under"}
+                        content={"하의"}
+                    />
+                </SlideBox>
+                <SlideBox>
+                    <CategoryBox 
+                        src={WhiteHat}
+                        category={"Hat"}
+                        content={"모자"}
+                    />
+                </SlideBox>
+                <SlideBox>
                     <CategoryBox />
-                </SwiperSlide>
-                <SwiperSlide>
+                </SlideBox>
+                <SlideBox>
                     <CategoryBox />
-                </SwiperSlide>
-                <SwiperSlide>
+                </SlideBox>
+                <SlideBox>
                     <CategoryBox />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryBox />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <CategoryBox />
-                </SwiperSlide>
+                </SlideBox>
+                <PrevButtonBox>
+                    <PrevButton className='swiper-button-prev-category'/>
+                </PrevButtonBox>
+                <NextButtonBox>
+                    <NextButton className='swiper-button-next-category'/>
+                </NextButtonBox>
             </Swiper>
         </ExBg>
     </>

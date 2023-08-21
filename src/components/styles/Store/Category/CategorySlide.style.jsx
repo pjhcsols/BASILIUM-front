@@ -1,16 +1,23 @@
 import styled from 'styled-components'
+import { SwiperSlide } from 'swiper/react'
 
 export const ExBg = styled.div`
     width: 100%;
     height: 100%;
-    position: relative;
     align-items: center;
     justify-content: center;
-    background: #212529;
+    background: #FFF;
 `
 
-export const SlideContainer = styled.div`
-    width: 68.75%;
-    height: 30%;
+export const SlideBox = styled(SwiperSlide)`
+    width: 100%;
+    height: 100%;
+`
 
+export const PrevButtonBox = styled.button`
+    width: 100%;
+`
+
+export const NextButtonBox = styled.button`
+    width: 100%;
 `

@@ -29,7 +29,7 @@ export const ButtonContainer = styled.div`
 `
 
 export const LeftButtonContainer = styled.button`
-    width: 3%;
+    width: 1.5%;
     height: 4%;
     position: absolute;
     top: 30%;

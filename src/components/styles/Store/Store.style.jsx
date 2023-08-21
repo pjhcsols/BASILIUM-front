@@ -16,3 +16,13 @@ export const StoreContainer = styled.div`
     align-items: center;
     background: #212529;
 `
+
+export const CategoryContainer = styled.div`
+    width: 100%;
+    height: 20%;
+    position: relative;
+    top: 60%;
+    justify-content: center;
+    align-items: center;
+    background: #212529;
+`
