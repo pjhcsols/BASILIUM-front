@@ -16,16 +16,6 @@ export const NavBar = styled.div`
     z-index: 5;
 `
 
-// export const Section1 = styled.div`
-//     width: 1920px;
-//     height: 1000px;
-//     background-image: url(${BG});
-//     background-position: top center;
-//     background-size: cover;
-//     background-attachment: fixed;
-//     z-index: -1;
-// `
-
 export const Background = styled.div`
     position: relative;
     width: 1920px;

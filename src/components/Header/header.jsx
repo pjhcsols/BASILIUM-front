@@ -18,11 +18,13 @@ import {
   XBox
 } from '../styles/Header.style.jsx';
 
-function Header() {
+function Header(props) {
   const [extendHeader, setExtendHeader] = useState(false);
 
   return (
-    <HeaderContainer>
+    <HeaderContainer
+      isScroll={props}
+    >
       <OpenLinkButton
         onClick={() => {
           setExtendHeader((curr)=> !curr);

@@ -6,18 +6,22 @@ import {
     StoreContainer,
     Backgroundiv,
     CategoryContainer,
+    SlideBarContainer,
 } from '../styles/Store/Store.style'
 import CategorySlide from './Category/CategorySlide'
+import { SlideBar } from '../styles/Store/BestSellar/BestSellarBar.style'
 
 function MainStore() {
   return (
     <Backgroundiv>
-        <StoreContainer>
-             <BestSellarBar />
-             <CategoryContainer>
-                <CategorySlide />
-             </CategoryContainer>
-        </StoreContainer>
+      <StoreContainer>
+        <SlideBarContainer>
+            <BestSellarBar />
+        </SlideBarContainer>
+        <CategoryContainer>
+          <CategorySlide />
+        </CategoryContainer>
+      </StoreContainer>
     </Backgroundiv>
   )
 }

@@ -9,7 +9,6 @@ import{
     ShopLogo,
 } from '../../styles/ShoppingList/ShoppingList.style'
 
-import Header from '../Header/Header'
 import Logo from '../../../assets/LOGO.jpg'
 import { NavLink } from 'react-router-dom'
 import ListPage from './ListPage'
@@ -33,9 +32,6 @@ function ShoppingList({matches}) {
                 />
             </NavLink>
         </LogoContainer>
-        <HeaderBox>
-            <Header />
-        </HeaderBox>
         <ListPage />
         <Routes>
             <Route exact path="/shop" component={<Upper />}/> 

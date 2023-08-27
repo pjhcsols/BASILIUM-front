@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const BestSellarBox = styled.div`
-    width: 720px;
-    height: 480px;
-    margin: 0 auto;
     position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@ export const BestSellarBox = styled.div`
     align-items: center;
     justify-content: center;
     background: #F5F9FA;
-    border-radius: 50px;
+    border: none;
 `
 
 export const IMGBox = styled.div`
@@ -21,16 +21,29 @@ export const IMGBox = styled.div`
     width: 40%;
     height: 70%;
     top: 5%;
-    align-items: center;
-    justify-content: center;
+    left: 20%;
     background-image: url(${props => props.src});
+    background-repeat: no-repeat;
+`
+
+export const TitleTexture = styled.a`
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    left: 10%;
+    top: 18%;
+    text-decoration: none;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 60px;
+    font-weight: bold;
 `
 
 export const SubscriptionBox = styled.div`
     width: 100%;
-    height: 30%;
+    height: 50%;
     position: absolute;
-    top: 75%;
+    top: 13%;
+    left: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,20 +51,10 @@ export const SubscriptionBox = styled.div`
     flex-wrap: wrap;
 `
 
-export const TitleTexture = styled.span`
-    position: absolute;
-    width: 100%;
-    height: 15%;
-    top: 75%;
-    font-family: "Noto Sans KR", sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-`
-
 export const SubscriptionText = styled.span`
     width: 100%;
     height: 10%;
     font-family: "Noto Sans KR", sans-serif;
-    font-size: 10px;
-    font-weight: lighter;
+    font-size: 18px;
+    font-weight: Bolder;
 `

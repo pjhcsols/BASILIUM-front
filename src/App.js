@@ -12,7 +12,7 @@ import {
 import MainHome from './components/Main/MainHome'
 import ShoppingList from './components/Store/List/ShoppingList';
 import MainStore from './components/Store/MainStore';
-import CategorySlide from './components/Store/Category/CategorySlide';
+import Detail from './components/Store/IndividualGoods/Detail';
 
 function App() {
   return (
@@ -21,9 +21,9 @@ function App() {
         <Route path="/" element={<MainHome />} />
         <Route path="/store" element={<ShoppingList />} />
         <Route path="/shopping" element={<MainStore />} />
-        <Route path="/login" element={<CategorySlide />}/>
+        <Route path="/login" />
         <Route path="/register" />
-        <Route path="/shopcart" />
+        <Route path="/shopcart" element={<Detail />}/>
         <Route path="/recentshop" />
         <Route path="/purchase" />
         <Route path="/likeshop" />

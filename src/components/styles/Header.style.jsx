@@ -8,8 +8,15 @@ export const HeaderContainer = styled.nav`
     gap: 100px;
     flex-direction: row;
     width: 100%;
-    height: ${props => (props.isScroll ? "0px" : "100px")};
-    opacity: ${props => (props.isScroll ? "0%" : "100%")};
+    height: ${props => (props.isScroll ? "80px" : "100px")};
+    background-color: ${ props => {
+        if(props.isScroll === "scrolling down"){
+            return '#212529'
+        }else{
+            return 'none'
+        }
+    }};
+    opacity: 100%;
     transition: all 1s ease-out;
     z-index: 5;
 `
@@ -19,7 +26,7 @@ export const HeaderLeftLinkContainer = styled.div`
     width: 30%;
     height: 100%;
     position: absolute;
-    left: 380px;
+    left: 20%;
     font-family: 'Noto Sans KR';
     display: flex;
     align-items: center;
@@ -34,7 +41,7 @@ export const HeaderRightLinkContainer = styled.div`
     position: absolute;
     align-items: center;
     justify-content: center;
-    left: 960px;
+    left: 50%;
 `
 
 export const IndividualLinkContainer = styled.li`
@@ -116,7 +123,7 @@ export const LogoContainer = styled.div`
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 900px;
+    left: 47%;
 `
 
 export const Logo = styled.img`

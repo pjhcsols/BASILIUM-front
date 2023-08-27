@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../Header/header'
 import SecondPage from './SecondPage'
 import MainSlide from './MainSlide'
+import MainStore from '../Store/MainStore'
 
 import {
   Homepage, Background, Section2
@@ -21,12 +22,41 @@ import { FullPage, Slide } from 'react-full-page'
 
 
 function MainHome() {
-  const [isScroll, setIsScroll] = useState(false);
+  const [isScroll, setIsScroll] = useState("scrolling down");
+
+  useEffect(()=>{
+    const threshold = 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
+    const updateScrollDir = () =>{
+      const scrollY = window.pageYOffset;
+      if(Math.abs(scrollY - lastScrollY) < threshold){
+        ticking = false;
+        return;
+      }
+      setIsScroll(scrollY > lastScrollY ? "scrolling down" : "scrolling up");
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if(!ticking){
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    console.log(isScroll);
+    return () => window.removeEventListener("scroll",onScroll);
+  }, [isScroll]);
 
   return (
     <Homepage>
-      <Header />
-      <FullPage controls>
+      <Header 
+        isScroll={true}
+      />
+      <FullPage>
         <Slide>
           <ScrollContainer>
             <ScrollPage>
@@ -42,7 +72,7 @@ function MainHome() {
             <ScrollPage>
               <Animator animation={batch(Sticky(), Fade(), MoveIn(0, 200))} style={{"z-index": "-2"}}>
                 <Section2>
-                  
+                  <MainStore />
                 </Section2>
               </Animator>
             </ScrollPage>

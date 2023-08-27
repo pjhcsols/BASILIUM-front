@@ -67,12 +67,11 @@ function BestSellarBar() {
                         <BestSellarContent />
                     </BSlide>
                 </SwiperContainer>
-
                 <ButtonContainer>
                     <LeftButtonContainer>
                         <LeftButton
                             style={{
-                                "color": "white",
+                                "color": "black",
                             }}
                             className='swiper-button-prev'
                         />
@@ -81,7 +80,7 @@ function BestSellarBar() {
                     <RightButtonContainer>
                         <RightButton 
                             style={{
-                                "color":"white"
+                                "color":"black"
                             }}
                             className='swiper-button-next'
                         />

@@ -1,27 +1,32 @@
 import styled from 'styled-components'
-import { Swiper, SwiperSlide } from "swiper/react"
 
 export const Backgroundiv = styled.div`
     width: 100%;
-    height: 100%;
+    height: 930px;
+    margin: 0 auto;
+    position: relative;
     justify-content: center;
     align-items: center;
     background: #212529;
 `
 
 export const StoreContainer = styled.div`
-    position: relative;
-    height: 1000px;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
     background: #212529;
 `
 
+export const SlideBarContainer = styled.div`
+    position: relative;
+    height: 50%;
+    top: 8%;
+`
+
+
 export const CategoryContainer = styled.div`
     width: 100%;
-    height: 20%;
+    height: 30%;
+    top: 8%;
     position: relative;
-    top: 60%;
     justify-content: center;
     align-items: center;
     background: #212529;
