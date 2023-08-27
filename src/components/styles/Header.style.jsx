@@ -8,8 +8,14 @@ export const HeaderContainer = styled.nav`
     gap: 100px;
     flex-direction: row;
     width: 100%;
-    height: ${props => (props.isScroll ? "80px" : "100px")};
-    background-color: ${ props => {
+    height: ${(props) => {
+        if(props.isScroll === "scrolling down"){
+            return '80px'
+        }else{
+            return '100px'
+        }
+    }};
+    background-color: ${ (props) => {
         if(props.isScroll === "scrolling down"){
             return '#212529'
         }else{

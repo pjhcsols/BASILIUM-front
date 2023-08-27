@@ -13,6 +13,8 @@ import MainHome from './components/Main/MainHome'
 import ShoppingList from './components/Store/List/ShoppingList';
 import MainStore from './components/Store/MainStore';
 import Detail from './components/Store/IndividualGoods/Detail';
+import Listing from './components/Admin/Listing';
+import Goods from './components/Store/IndividualGoods/Goods';
 
 function App() {
   return (
@@ -25,10 +27,11 @@ function App() {
         <Route path="/register" />
         <Route path="/shopcart" element={<Detail />}/>
         <Route path="/recentshop" />
-        <Route path="/purchase" />
+        <Route path="/purchase" element={<Goods />}/>
         <Route path="/likeshop" />
         <Route path="/loading" />
         <Route path="/modeling" />
+        <Route path="/brands" element={<Listing />}/>
       </Routes>
     </Router>
   );

@@ -5,16 +5,25 @@ import {
     ExplainIMG,
     SubscriptionContainer
 } from '../../styles/IndividualGoods/Subscription.style'
+import { NavLink } from 'react-router-dom'
 
 function Subscription(props) {
     const count = props.count
     return (
         <SubscriptionContainer>
             <ButtonNav>
-                <ButtonText>상세정보</ButtonText>
-                <ButtonText>리뷰</ButtonText>
-                <ButtonText>Q&A</ButtonText>
-                <ButtonText>반품&교환정보</ButtonText>
+                <NavLink>
+                    <ButtonText>상세정보</ButtonText>
+                </NavLink>
+                <NavLink>
+                    <ButtonText>리뷰</ButtonText>
+                </NavLink>
+                <NavLink>
+                    <ButtonText>Q&A</ButtonText>
+                </NavLink>
+                <NavLink>
+                    <ButtonText>반품&교환정보</ButtonText>
+                </NavLink>
             </ButtonNav>
             <ExplainBox>
                 <ExplainIMG 

@@ -24,6 +24,7 @@ export const Background = styled.div`
     background-position: top center;
     background-size: cover;
     background-attachment: fixed;
+    object-fit: cover;
     z-index: -1;
 `
 
@@ -35,11 +36,4 @@ export const Section2 = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-`
-
-export const LatticeContainer = styled.div`
-    width: 1320px;
-    height: 3000px;
-    display: flex;
-    flex-direction: column;
 `

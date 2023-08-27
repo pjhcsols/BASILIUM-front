@@ -29,19 +29,35 @@ export const ButtonText = styled.p`
 `
 
 export const DetailInfo = styled.div`
-    
+    width: 25%;
+    height: 100%;
+    &::hover{
+
+    }
 `
 
 export const ReviewInfo = styled.div`
-    
+    width: 25%;
+    height: 100%;
+    &::hover{
+
+    }
 `
 
 export const QnaInfo = styled.div`
-    
+    width: 25%;
+    height: 100%;
+    &::hover{
+
+    }
 `
 
 export const RequestInfo = styled.div`
-    
+    width: 25%;
+    height: 100%;
+    &::hover{
+
+    }
 `
 
 export const ExplainBox = styled.div`
@@ -60,5 +76,7 @@ export const ExplainIMG = styled.div`
 `
 
 export const ExpandButton = styled.button`
+    width: 50%;
+    height: 5%;
     
 `

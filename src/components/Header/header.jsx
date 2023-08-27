@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { ReactComponent as Category } from '../../assets/SVG/category.svg'
 import { ReactComponent as Xbar } from '../../assets/SVG/Xbar.svg'
@@ -20,10 +20,9 @@ import {
 
 function Header(props) {
   const [extendHeader, setExtendHeader] = useState(false);
-
   return (
     <HeaderContainer
-      isScroll={props}
+      isScroll={props.isScroll}
     >
       <OpenLinkButton
         onClick={() => {

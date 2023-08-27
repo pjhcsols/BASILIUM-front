@@ -22,7 +22,7 @@ import { FullPage, Slide } from 'react-full-page'
 
 
 function MainHome() {
-  const [isScroll, setIsScroll] = useState("scrolling down");
+  const [isScroll, setIsScroll] = useState("scrolling up");
 
   useEffect(()=>{
     const threshold = 0;
@@ -34,7 +34,8 @@ function MainHome() {
         ticking = false;
         return;
       }
-      setIsScroll(scrollY > lastScrollY ? "scrolling down" : "scrolling up");
+      console.log(scrollY, lastScrollY)
+      setIsScroll(Math.abs(scrollY - lastScrollY) > 10 ? "scrolling down" : "scrolling up");
       lastScrollY = scrollY > 0 ? scrollY : 0;
       ticking = false;
     };
@@ -47,30 +48,29 @@ function MainHome() {
     };
 
     window.addEventListener("scroll", onScroll);
-    console.log(isScroll);
     return () => window.removeEventListener("scroll",onScroll);
   }, [isScroll]);
 
   return (
     <Homepage>
       <Header 
-        isScroll={true}
+        isScroll={isScroll}
       />
       <FullPage>
         <Slide>
           <ScrollContainer>
-            <ScrollPage>
+            <ScrollPage>   
               <Animator animation={batch(Sticky(), Fade(), MoveOut(0, -200))}>
-                  <MainSlide />
-                  <Background />
+                <MainSlide />
+                <Background />
               </Animator>
             </ScrollPage>
-          </ScrollContainer>
+          </ScrollContainer>  
         </Slide>
         <Slide>
           <ScrollContainer>
             <ScrollPage>
-              <Animator animation={batch(Sticky(), Fade(), MoveIn(0, 200))} style={{"z-index": "-2"}}>
+              <Animator animation={batch(Sticky(), Fade(), MoveIn(0, 200))} >
                 <Section2>
                   <MainStore />
                 </Section2>
