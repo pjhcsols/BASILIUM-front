@@ -15,6 +15,8 @@ import MainStore from './components/Store/MainStore';
 import Detail from './components/Store/IndividualGoods/Detail';
 import Listing from './components/Admin/Listing';
 import Goods from './components/Store/IndividualGoods/Goods';
+import BlockIMG from './components/Test/BlockIMG';
+
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
         <Route path="/shopcart" element={<Detail />}/>
         <Route path="/recentshop" />
         <Route path="/purchase" element={<Goods />}/>
-        <Route path="/likeshop" />
+        <Route path="/likeshop" element={<BlockIMG />}/>
         <Route path="/loading" />
         <Route path="/modeling" />
         <Route path="/brands" element={<Listing />}/>

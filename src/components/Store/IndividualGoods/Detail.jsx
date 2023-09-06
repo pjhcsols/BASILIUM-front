@@ -25,15 +25,15 @@ import {ReactComponent as CartIMG} from '../../../assets/SVG/ShoppingCartIMG.svg
 
 
 function Detail(props) {
-  const IMGprop = props.src
+  const IMGprop = props.data.productPhotoUrl
 
   return (
     <GoodsBG>
       <DescriptionBox>
         <SetsumeBox>
           <MainBox>
-            <Title>{props.title}클래식 B 주르핏 티셔츠</Title>
-            <CategoryButton>{props.category}상의</CategoryButton>
+            <Title>{props.data.productName}</Title>
+            <CategoryButton>{props.data.productDesc}</CategoryButton>
           </MainBox>
           <TextBox>
             <ImgBox>
@@ -45,8 +45,8 @@ function Detail(props) {
               <TitleBox>
                 <Title>Product Info.</Title>
                 <br/>
-                <Title>{props.title}클래식 B 주르핏 티셔츠</Title>
-                <Subtitle>{props.price}45,000원</Subtitle>
+                <Title>{props.data.productName}</Title>
+                <Subtitle>{props.data.productPrice}</Subtitle>
               </TitleBox>
               <SharedBox>
                 <HeartBtn />
@@ -55,8 +55,8 @@ function Detail(props) {
               <DeliveryBox>
                 <Title>Delivery Info.</Title>
                 <br />
-                <Subtitle>출고 예정일: {props.Dayofrelease}</Subtitle>
-                <Subtitle>배송정보: {props.Dayofarrive}</Subtitle>
+                <Subtitle>출고 예정일: 23-08-30</Subtitle>
+                <Subtitle>배송정보: 23-08-31</Subtitle>
               </DeliveryBox>
               <ButtonContainer>
                 <Navigation to="/shoppingcart">

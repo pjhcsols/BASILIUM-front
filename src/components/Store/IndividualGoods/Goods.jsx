@@ -1,68 +1,86 @@
-import React, { useEffect, useState } from 'react'
-import { 
-  ButtonContainer,
-  BuyButton,
-  CartButton,
-  DescriptionBox,
-  GoodsBG,
-  IMGBox,
-  Subtitle,
-  TitleBox,
-} from '../../styles/IndividualGoods/Detail.style'
-import { 
-  useNavigate 
-} from 'react-router-dom'
+import React, { useCallback, useEffect, useState } from 'react'
 import Detail from './Detail'
-import API, { base_url } from '../../Backend/Axios'
+import API from '../../Backend/Axios'
 
 function Goods() {
-  const [Shopping, SetShopping] = useState({
-      "productCategoryId": 0,
-      "productName": "",
-      "productPrice": 0,
-      "productDesc": "",
-      "productPhotoUrl": "",
-  });
-  SetShopping({
-    "productCategoryId": 40,
-    "productName": "Hi",
-    "productPrice": 50000,
-    "productDesc": "hi",
-    "productPhotoUrl": "hello",
+  const [shopobj, setshopobj] = useState({
+    'productId': null,
+    "productCategoryId": 1,
+    'productName': "",
+    'productPrice': 0,
+    'productDesc': "",  // Description
+    'productPhotoUrl': "",
   })
-  useEffect(()=>{
-    API.post(`${base_url}`,{
-      "productCategoryId": Shopping.productCategoryId,
-      "productName": Shopping.productName,
-      "productPrice": Shopping.productPrice,
-      "productDesc": Shopping.productDesc,
-      "productPhotoUrl": Shopping.productPhotoUrl
-    }).then(response => {
-      console.log(response);
-    }).catch(error => {
-      console.log(error);
-    });
-    API.get(`${base_url}`)
-      .then(response => {
-        console.log(response);
-        SetShopping({
-          "productCategoryId": response,
-          "productName": "클래식 B 주르핏 티셔츠",
-          "productPrice": 45000,
-          "productDesc": "야호",
-          "productPhotoUrl": "/asset/hello.svg"
-        })
-    }).catch(error => {
-      console.log(error);
+
+  const AxiosDataReceived = useCallback(() => {
+    API.post('/products/add',{
+      'productId': null,
+      "productCategoryId": 1,
+      'productName': "클래식 B 주르핏 티셔츠",
+      'productPrice': 45000,
+      'productDesc': "상의",  // Description
+      'productPhotoUrl': '/BASILIUM-front/src/assets/Goods/Huku.jpeg',
     })
-  },[])
+    .then(response => {
+      console.log(response.data)
+      console.log("안녕 난 포스트")
+    }).catch(error => {
+      console.log(error.response.data)
+    })
+    API.get('/products')
+    .then(response => {
+      console.log(response)
+      setshopobj({
+        'productName': response.data[0].productName,
+        "productCategoryId": 1,
+        'productPrice': response.data[0].productPrice,
+        'productDesc': response.data[0].productDesc,
+        'productPhotoUrl': response.data[0].productPhotoUrl
+      })
+      console.log(response)
+      console.log("안녕 난 겟")
+    }).catch(error => {
+      console.log(error.response.data)
+    })
+  })
+
+  useEffect(()=>{
+    AxiosDataReceived()
+  }, [])
+  const onClickfunc = (e) => {
+    API.post('/products/add',{
+      'productId': null,
+      "productCategoryId": 1,
+      'productName': "클래식 B 주르핏 티셔츠",
+      'productPrice': 45000,
+      'productDesc': "상의",  // Description
+      'productPhotoUrl': '/BASILIUM-front/src/assets/Goods/Huku.jpeg',
+    })
+    .then(response => {
+      console.log(response.data)
+    }).catch(error => {
+      console.log(error.response.data)
+    })
+    API.get('/products')
+    .then(response => {
+      setshopobj({
+        'productName': response.data.productName,
+        "productCategoryId": 1,
+        'productPrice': response.data.productPrice,
+        'productDesc': response.data.productDesc,
+        'productPhotoUrl': response.data.productPhotoUrl
+      })
+      console.log(response)
+    })
+  }
 
   return (
     <>
       <Detail 
-        
+        data={shopobj}
       />
     </>
+    
   )
 }
 
