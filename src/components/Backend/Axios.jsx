@@ -3,7 +3,7 @@ import axios from 'axios'
 
 //test : https://my-json-server.typicode.com/typicode/demo/posts
 //const real = http://172.28.80.1:8080 
-export const base_url = "http://172.20.19.202:8080";
+export const base_url = "http://172.30.1.100:8080";
 
 const API = axios.create({
     BASE_URL: base_url,
@@ -27,15 +27,15 @@ export const UploadImageAPI = axios.create({
     headers: { 
         'Content-Type': 'multipart/form-data; charset=UTF-8' 
     },
-    timeout: 5000,
+    timeout: 50000,
 })
 
 export const DownloadFiles = axios.create({
     BASE_URL: base_url,
     headers: { 
-        "Content-type": "application/json; charset=UTF-8" 
+        "Content-type": "multipart/form-data; charset=UTF-8" 
     },
-    timeout: 5000,
+    timeout: 50000,
 })
 
 export const BuyingAPI = axios.create({
@@ -44,6 +44,22 @@ export const BuyingAPI = axios.create({
         "Content-type" : "application/json; charset=UTF-8" 
     },
     timeout: 5000,
+})
+
+export const CountingAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-type" : "application/json; charset=UTF-8"
+    },
+    timeout: 5000,
+})
+
+export const BasiliumAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type": "application/json; charset=UTF-8"
+    },
+    timeout: 5000
 })
 
 export default API

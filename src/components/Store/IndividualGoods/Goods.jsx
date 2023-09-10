@@ -1,8 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Detail from './Detail'
-import API from '../../Backend/Axios'
+import API, { DownloadFiles, UploadImageAPI } from '../../Backend/Axios'
+import Loading from '../../Loading'
+
 
 function Goods() {
+  const [isLoading, setIsLoading] = useState(null)
   const [shopobj, setshopobj] = useState({
     'productId': null,
     "productCategoryId": 1,
@@ -12,6 +15,49 @@ function Goods() {
     'productPhotoUrl': "",
   })
 
+  const formData = new FormData()
+
+  // ImagesList 
+  const [ImagesList, setImagesList] = useState([])
+  const [ShowImageList, SetShowImageList] = useState([])
+
+  // According to Axios, Post some Image data.
+  const reader = new FileReader()
+
+  const ImageEncoding = (images) =>{
+      for(let i = 0;i<ImagesList.length;i++){
+          reader.readAsDataUrl(ImagesList[i])
+          new Promise((resolve)=>{
+              reader.onload = () => {
+                  SetShowImageList(reader.result)
+                  resolve()
+              }
+          })   
+      }
+      setIsLoading(false)
+  }
+
+  const UploadImageFile = () => {
+      DownloadFiles
+          .get('/getProductPhotos', {
+              productid : 1
+          })
+          .then(data => {
+              console.log(data)
+              const DataArr = Array.from(data)
+              DataArr.forEach(element => {
+                  console.log(element)
+                  setImagesList([...element])
+              })
+          })
+          .catch(error => {
+              console.log("useEffect DownloadFiles Error")
+              console.log(error)
+          }
+      )
+      ImageEncoding()
+  }
+
   const AxiosDataReceived = useCallback(() => {
     API.post('/products/add',{
       'productId': null,
@@ -19,7 +65,7 @@ function Goods() {
       'productName': "클래식 B 주르핏 티셔츠",
       'productPrice': 45000,
       'productDesc': "상의",  // Description
-      'productPhotoUrl': '/BASILIUM-front/src/assets/Goods/Huku.jpeg',
+      'productPhotoUrl': '',
     })
     .then(response => {
       console.log(response.data)
@@ -45,40 +91,22 @@ function Goods() {
   })
 
   useEffect(()=>{
+    setIsLoading(true)
     AxiosDataReceived()
+    UploadImageFile()
+    ImageEncoding()
   }, [])
-  const onClickfunc = (e) => {
-    API.post('/products/add',{
-      'productId': null,
-      "productCategoryId": 1,
-      'productName': "클래식 B 주르핏 티셔츠",
-      'productPrice': 45000,
-      'productDesc': "상의",  // Description
-      'productPhotoUrl': '/BASILIUM-front/src/assets/Goods/Huku.jpeg',
-    })
-    .then(response => {
-      console.log(response.data)
-    }).catch(error => {
-      console.log(error.response.data)
-    })
-    API.get('/products')
-    .then(response => {
-      setshopobj({
-        'productName': response.data.productName,
-        "productCategoryId": 1,
-        'productPrice': response.data.productPrice,
-        'productDesc': response.data.productDesc,
-        'productPhotoUrl': response.data.productPhotoUrl
-      })
-      console.log(response)
-    })
-  }
 
   return (
     <>
-      <Detail 
-        data={shopobj}
-      />
+      {
+        isLoading ? 
+        <Loading />
+        :
+        <Detail 
+          data={shopobj}
+        />
+      }
     </>
     
   )

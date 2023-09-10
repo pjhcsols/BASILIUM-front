@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { UploadImageAPI, DownloadFiles } from '../Backend/Axios'
+import API, { UploadImageAPI, DownloadFiles } from '../Backend/Axios'
 
 const BG = styled.div`
     width: 100%;
@@ -43,9 +43,53 @@ function BlockIMG() {
         }
     }
 
+    /*const UploadObj = () => {
+        API
+            .post('product/upload', )
+            .then(response => {
+                alert("객체 보냄")
+                console.log(response)
+            })
+            .catch(error => {
+                alert("객체 보내기 안됨")
+                console.log(error)
+            })
+    }*/
+
+    const Test = () => {
+        const Obj = {
+            "productId": null,
+            "productCategoryId": 1,
+            "productName": "클래식 B 주르핏 티셔츠",
+            "productPrice": 45000,
+            "productDesc": "상의", // Description
+        }
+        const ObjJson = JSON.stringify(Obj)
+        UploadImageAPI
+            .get('/products')
+            .then(response => {
+                console.log(" 이거 됐네요 ! ")
+                console.log(response)
+            })
+            .catch(error => {
+                console.log("이거..에러가 심상치않은데요?")
+                console.log(error)
+            })
+    }
+
     const onFileChanges = (e) => {
         e.preventDefault()
+        Test()
         if(e.target.files){
+            const HardObj = {
+                "productId": null,
+                "productCategoryId": 1,
+                "productName": "클래식 B 주르핏 티셔츠",
+                "productPrice": 45000,
+                "productDesc": "상의", // Description
+            }
+            const HardObjJson = JSON.stringify(HardObj)
+            formData.append('product',HardObjJson)
             // formData use the key and data to include 
             // for 문 확인하면서 데이터 넣기
             //setImagesList(e.target.files)
@@ -55,6 +99,9 @@ function BlockIMG() {
                 console.log(element)
                 formData.append('files',element)
             });
+            formData.forEach((element)=>{
+                console.log(element)
+            })
             console.log("====useState====")
             console.log(UploadedFile)
             console.log("====form Data====")
@@ -116,7 +163,7 @@ function BlockIMG() {
 
     return (
         <BG>
-            <form 
+            <form
                 encType="multipart/form-data"
                 onSubmit={UploadBtn}
             >

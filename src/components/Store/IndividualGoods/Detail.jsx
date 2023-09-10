@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { 
   ButtonContainer,
   BuyButton,
@@ -23,10 +23,8 @@ import {
 } from '../../styles/IndividualGoods/Detail.style'
 import {ReactComponent as CartIMG} from '../../../assets/SVG/ShoppingCartIMG.svg'
 
-
 function Detail(props) {
   const IMGprop = props.data.productPhotoUrl
-
   return (
     <GoodsBG>
       <DescriptionBox>

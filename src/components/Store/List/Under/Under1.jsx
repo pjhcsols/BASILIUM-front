@@ -7,10 +7,11 @@ import {
   Subscription, 
   Title 
 } from '../../../styles/ShoppingList/Upper/Under.style'
-
 import { motion } from 'framer-motion'
+import { NavLink } from 'react-router-dom'
 
-function Under1() {
+
+function Under1(props) {
   return (
     <motion.div
         initial={{opacity: 0}}
@@ -18,17 +19,19 @@ function Under1() {
         exit={{opacity: 0}}
     >
         <ItemsContainer>
-            <ItemBox>
-                <IMGBox>
-                    <Item />
-                    <Title>
-                        클래식 B 주르핏 티셔츠
-                    </Title>
-                    <Subscription>
-                        45,000원
-                    </Subscription>
-                </IMGBox>
-            </ItemBox>
+            <NavLink to='/purchase'>
+                <ItemBox>
+                    <IMGBox>
+                        <Item />
+                        <Title>
+                            클래식 B 주르핏 티셔츠
+                        </Title>
+                        <Subscription>
+                            45,000원
+                        </Subscription>
+                    </IMGBox>
+                </ItemBox>
+            </NavLink>
             <ItemBox>
                 <IMGBox>
                     <Item />

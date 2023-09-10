@@ -22,6 +22,7 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.9",
     "react-scroll-motion": "^0.3.2",
+    "react-spinners": "^0.13.8",
     "styled-components": "^6.0.7",
     "swiper": "^10.2.0",
     "web-vitals": "^2.1.4"
@@ -53,5 +54,6 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
-  "proxy": "http://172.20.19.202:8080"
+  "proxy": "http://172.30.1.100:8080",
+  "secure": false
 }

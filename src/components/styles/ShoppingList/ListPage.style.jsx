@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 
-export const ListPageContainer = styled.div`
+export const ListPageBG = styled.div`
+    width: 100%;
+    height: 1000px;
     position: relative;
-    width: 1320px;
-    height: 950px;
-    top: 7%;
-    left: 15%;
-    overflow: hidden;
+`
+
+export const ListPageContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
 `

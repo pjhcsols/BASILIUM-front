@@ -16,6 +16,7 @@ import Detail from './components/Store/IndividualGoods/Detail';
 import Listing from './components/Admin/Listing';
 import Goods from './components/Store/IndividualGoods/Goods';
 import BlockIMG from './components/Test/BlockIMG';
+import ListPage from './components/Store/List/ListPage';
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
         <Route path="/login" />
         <Route path="/register" />
         <Route path="/shopcart" element={<Detail />}/>
-        <Route path="/recentshop" />
+        <Route path="/recentshop" element={<ListPage />}/>
         <Route path="/purchase" element={<Goods />}/>
         <Route path="/likeshop" element={<BlockIMG />}/>
         <Route path="/loading" />
