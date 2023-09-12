@@ -25,11 +25,6 @@ function Subscription(props) {
                     <ButtonText>반품&교환정보</ButtonText>
                 </NavLink>
             </ButtonNav>
-            <ExplainBox>
-                <ExplainIMG 
-                
-                />
-            </ExplainBox>
         </SubscriptionContainer>
     )
 }

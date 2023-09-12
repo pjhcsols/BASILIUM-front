@@ -1,7 +1,13 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Card = styled.div`
+    position: relative;
+    top: 20%;
+    left: 20%;
     display: block;
+    width: 50%;
+    height: 400px;
 `
 
 export const CardBg = styled.div`
@@ -10,8 +16,16 @@ export const CardBg = styled.div`
     background-image: url(${props => props.src});
 `
 
-export const Linkdiv = styled.div`
+export const Linkdiv = styled(NavLink)`
     cursor: pointer;
+    text-decoration: none;
+    z-index: 1;
+    &:hover{
+        background: #212530;
+    }
+    &:after{
+        background: #D9D9D9;
+    }
 `
 
 export const CardContent = styled.div`

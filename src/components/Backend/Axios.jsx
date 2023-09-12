@@ -65,7 +65,31 @@ export const BasiliumAPI = axios.create({
 export const BestSellarAPI = axios.create({
     BASE_URL: base_url,
     headers: {
-        "Content-Type" : "application/json; carset=UTF-8"
+        "Content-Type" : "application/json; charset=UTF-8"
+    },
+    timeout: 5000
+})
+
+export const ListAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type" : "application/json; charset=UTF-8"
+    },
+    timeout: 5000
+})
+
+export const UploadShoppingCart = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type" : "application/json; charset=UTF-8"
+    },
+    timeout: 5000
+})
+
+export const UploadBuyingCart = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type" : "application/json; charset=UTF-8"
     },
     timeout: 5000
 })

@@ -27,3 +27,9 @@ export const BasiliumImg = styled.img`
     height: 100%;
     overflow: hidden;
 `
+
+export const NOTFOUNDtext = styled.h3`
+    font-family: 'Black Hans Sans', sans-serif;
+    font-weight: bold;
+    font-size: 45px;
+`

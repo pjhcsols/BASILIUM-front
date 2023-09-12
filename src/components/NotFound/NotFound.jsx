@@ -45,6 +45,11 @@ function NotFound() {
                 <Basilium>
                     <BasiliumImg />
                 </Basilium>
+                <h3>
+                    404<br/>
+                    NOT<br/>
+                    FOUND
+                </h3>
             </NotFoundImagediv>
         </NotFoundBG>
     )

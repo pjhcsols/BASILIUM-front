@@ -1,6 +1,13 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { 
+  useCallback, 
+  useEffect, 
+  useState 
+} from 'react'
 import Detail from './Detail'
-import API, { DownloadFiles, UploadImageAPI } from '../../Backend/Axios'
+import API, { 
+  DownloadFiles, 
+  UploadImageAPI 
+} from '../../Backend/Axios'
 import Loading from '../../Loading'
 
 

@@ -9,8 +9,8 @@ import { CountingAPI, DownloadFiles } from '../../Backend/Axios'
 import Loading from '../../Loading'
 import ShopObj from './ShopObj'
 
-function ListPage() {
-  // Relate with loading
+function ListPage(props) {
+  // Related with loading
   const [isLoading, setIsLoading] = useState(null)
   
   // Related with Object List
@@ -30,6 +30,9 @@ function ListPage() {
   // Related with Pagination
   const [contentInfo, setContentInfo] = useState([])
 
+  // Related with ProductID
+  const [ProductID, setProductID] = useState(0)
+
   // Image Encoding and Showing List
   const ImageEncoding = (images) =>{
     for(let i = 0;i<ImagesList.length;i++){
@@ -46,7 +49,7 @@ function ListPage() {
 
   const CountingGoods = () => {
     CountingAPI
-      .get('countPhotos/1')
+      .get(`countPhotos/${ProductID}`)
       .then(count => {
         setImageCount(count)
       })
@@ -57,7 +60,7 @@ function ListPage() {
 
   const DownloadImageFunction = () => {
     DownloadFiles
-      .get(`/downloadProductPhotos/1`, {
+      .get(`/downloadProductPhotos/${ProductID}`, {
           num : 1
       })
       .then(data => {

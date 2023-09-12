@@ -25,6 +25,22 @@ import {ReactComponent as CartIMG} from '../../../assets/SVG/ShoppingCartIMG.svg
 
 function Detail(props) {
   const IMGprop = props.data.productPhotoUrl
+  
+  const [ProductID, setProductID] = useState(props.productID)
+
+  const UploadShoppingCart = () => {
+    UploadShoppingCart
+      .post(`/product/shoppingcart/`,
+        ProductID
+      )
+      .then(data => {
+        console.log(data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
   return (
     <GoodsBG>
       <DescriptionBox>
@@ -57,12 +73,10 @@ function Detail(props) {
                 <Subtitle>배송정보: 23-08-31</Subtitle>
               </DeliveryBox>
               <ButtonContainer>
-                <Navigation to="/shoppingcart">
-                  <CartButton>
-                    <CartIMG />
-                    <Title>장바구니</Title>
-                  </CartButton>
-                </Navigation>
+                <CartButton onClick={UploadShoppingCart}>
+                  <CartIMG />
+                  <Title>장바구니</Title>
+                </CartButton>
                 <Navigation to="/buy">
                   <BuyButton>
                   <Title>바로 구매</Title>

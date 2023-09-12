@@ -5,8 +5,6 @@ import {
   Router,
   Routes,
   Route,
-  BrowserRouter,
-  useLocation
 } from 'react-router-dom';
 
 import MainHome from './components/Main/MainHome'
@@ -17,6 +15,7 @@ import Listing from './components/Admin/Listing';
 import Goods from './components/Store/IndividualGoods/Goods';
 import BlockIMG from './components/Test/BlockIMG';
 import ListPage from './components/Store/List/ListPage';
+import NotFound from './components/NotFound/NotFound';
 
 
 function App() {
@@ -35,6 +34,7 @@ function App() {
         <Route path="/loading" />
         <Route path="/modeling" />
         <Route path="/brands" element={<Listing />}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
