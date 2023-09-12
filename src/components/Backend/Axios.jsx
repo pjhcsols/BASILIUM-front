@@ -62,4 +62,12 @@ export const BasiliumAPI = axios.create({
     timeout: 5000
 })
 
+export const BestSellarAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type" : "application/json; carset=UTF-8"
+    },
+    timeout: 5000
+})
+
 export default API

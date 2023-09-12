@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const HeaderContainer = styled.nav`
-    position: relative;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,21 +9,21 @@ export const HeaderContainer = styled.nav`
     flex-direction: row;
     width: 100%;
     height: ${(props) => {
-        if(props.isScroll === "scrolling down"){
-            return '80px'
+        if(props.isScroll === true){
+            return '70px'
         }else{
             return '100px'
         }
     }};
-    background-color: ${ (props) => {
-        if(props.isScroll === "scrolling down"){
+    background: ${ (props) => {
+        if(props.isScroll === true){
             return '#212529'
         }else{
             return 'none'
         }
     }};
     opacity: 100%;
-    transition: all 1s ease-out;
+    transition: all 0.3s ease-out;
     z-index: 5;
 `
 

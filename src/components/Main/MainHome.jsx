@@ -10,53 +10,43 @@ import {
 
 import { 
   Animator, 
-  Fade, 
-  MoveIn, 
+  Fade,
   MoveOut, 
   ScrollContainer, 
   ScrollPage, 
   Sticky,
   batch,
 } from 'react-scroll-motion'
-import { FullPage, Slide } from 'react-full-page'
+import { 
+  FullPage, 
+  Slide 
+} from 'react-full-page'
 
 
 function MainHome() {
-  const [isScroll, setIsScroll] = useState("scrolling up");
+  const [isScrollingDown, setIsScrollingDown] = useState(false)
 
   useEffect(()=>{
-    const threshold = 0;
-    let lastScrollY = window.pageYOffset;
-    let ticking = false;
-    const updateScrollDir = () =>{
-      const scrollY = window.pageYOffset;
-      if(Math.abs(scrollY - lastScrollY) < threshold){
-        ticking = false;
-        return;
-      }
-      console.log(scrollY, lastScrollY)
-      setIsScroll(Math.abs(scrollY - lastScrollY) > 10 ? "scrolling down" : "scrolling up");
-      lastScrollY = scrollY > 0 ? scrollY : 0;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if(!ticking){
-        window.requestAnimationFrame(updateScrollDir);
-        ticking = true;
+    const handleScroll = () => {
+      if(window.scrollY > 500){
+        setIsScrollingDown(true);
+      }else{
+        setIsScrollingDown(false);
       }
     };
+    window.addEventListener('scroll', handleScroll);
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll",onScroll);
-  }, [isScroll]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <Homepage>
-      <Header 
-        isScroll={isScroll}
-      />
       <FullPage>
+        <Header 
+          isScroll={isScrollingDown}
+        />
         <Slide>
           <ScrollContainer>
             <ScrollPage>   
@@ -70,11 +60,9 @@ function MainHome() {
         <Slide>
           <ScrollContainer>
             <ScrollPage>
-              <Animator animation={batch(Sticky(), Fade(), MoveIn(0, 200))} >
-                <Section2>
-                  <MainStore />
-                </Section2>
-              </Animator>
+              <Section2>
+                <MainStore />
+              </Section2>
             </ScrollPage>
           </ScrollContainer>
         </Slide>

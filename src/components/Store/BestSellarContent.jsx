@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { 
   BestSellarContainer
@@ -8,6 +8,9 @@ import ManToMan from '../../assets/Goods/ManToMan.jpg'
 import BestsellarObj from './BestsellarObj'
 
 function BestSellarContent() {
+  useEffect(()=>{
+
+  }, [])
   return (
     <BestSellarContainer>
         <BestsellarObj

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Backgroundiv = styled.div`
     width: 100%;
-    height: 930px;
+    height: 100vh;
     margin: 0 auto;
     position: relative;
     justify-content: center;
@@ -17,16 +17,17 @@ export const StoreContainer = styled.div`
 
 export const SlideBarContainer = styled.div`
     position: relative;
+    margin: 0 auto;
+    width: 80%;
     height: 50%;
-    top: 8%;
+    top: 7%;
 `
-
 
 export const CategoryContainer = styled.div`
     width: 100%;
     height: 30%;
-    top: 8%;
     position: relative;
+    top: 6%;
     justify-content: center;
     align-items: center;
     background: #212529;

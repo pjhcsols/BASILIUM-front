@@ -3,17 +3,12 @@ import BG from '../../assets/BG_modified.png'
 
 export const Homepage = styled.div`
     width: 100%;
-    height: 3000px;
+    height: 200vh;
     margin: 0 auto;
     padding: 0;
     display: flex;
     flex-direction: column;
     background-color: #212529;
-`
-
-export const NavBar = styled.div`
-    position: fixed;
-    z-index: 5;
 `
 
 export const Background = styled.div`
@@ -30,7 +25,7 @@ export const Background = styled.div`
 
 export const Section2 = styled.div`
     width: 1920px;
-    height: 1000px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -14,9 +14,9 @@ function Loading() {
     >
         <div
             style={{
-                position: "fixed",
-                top: "50%",
-                left: "50%",
+                position: "relative",
+                top: "30%",
+                left: "100%",
                 transform: "translate(-50%, -50%)",
             }}
         >

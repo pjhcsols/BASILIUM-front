@@ -21,6 +21,7 @@ function CategorySlide() {
   return (
     <>
         <ExBg>
+            <CategoryBox />
             <PrevButtonBox>
               <PrevButton
                 style={{
@@ -35,7 +36,6 @@ function CategorySlide() {
                 }}
               />
             </NextButtonBox>
-            <CategoryBox />
         </ExBg>
     </>
   )

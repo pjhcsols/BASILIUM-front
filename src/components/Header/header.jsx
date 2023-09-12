@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { 
+  useEffect, 
+  useState 
+} from 'react'
 
 import { ReactComponent as Category } from '../../assets/SVG/category.svg'
 import { ReactComponent as Xbar } from '../../assets/SVG/Xbar.svg'
@@ -19,7 +22,8 @@ import {
 } from '../styles/Header.style.jsx';
 
 function Header(props) {
-  const [extendHeader, setExtendHeader] = useState(false);
+  const [extendHeader, setExtendHeader] = useState(false)
+
   return (
     <HeaderContainer
       isScroll={props.isScroll}
