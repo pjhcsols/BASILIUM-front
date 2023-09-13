@@ -4,6 +4,7 @@ import {
     Scrollerdiv,
 } from '../../styles/Store/Category/CategoryBox.style'
 import "react-multi-carousel/lib/styles.css";
+import { useNavigate } from 'react-router-dom';
 
 import { 
     responsive,
@@ -12,13 +13,17 @@ import {
 import CategoryObj from './CategoryObj';
 
 function CategoryBox() {
-    const ProductIDRef = useRef(null)
+    const navi = useNavigate()
+    const onClickCategory = (e) => {
+        const CategoryID = e.target.id
+        
+    }
+
     const product = CategoryList.map((item) => (
         <CategoryObj
             src={item.src}
             title={item.title}
             subtitle={item.subtitle}
-            ref={ProductIDRef}
         />
     ));
 

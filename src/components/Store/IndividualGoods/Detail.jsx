@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import {useNavigate } from 'react-router-dom'
 import { 
   ButtonContainer,
   BuyButton,
@@ -11,8 +12,6 @@ import {
   IMG, 
   ImgBox,
   MainBox,
-  Navigation,
-  Price,
   SetsumeBox,
   SharedBox,
   Subtitle,
@@ -22,22 +21,67 @@ import {
   TitleBox
 } from '../../styles/IndividualGoods/Detail.style'
 import {ReactComponent as CartIMG} from '../../../assets/SVG/ShoppingCartIMG.svg'
+import { UploadBuyingAPI, UploadShoppingCartAPI } from '../../Backend/Axios'
 
 function Detail(props) {
   const IMGprop = props.data.productPhotoUrl
-  
+  const navi = useNavigate()
   const [ProductID, setProductID] = useState(props.productID)
 
+  const useConfirm = (message = null, onConfirm, onCancel) => {
+    if(!onConfirm || typeof onConfirm != "function"){
+      return ;
+    }
+    if(onCancel || typeof onCancel != "function"){
+      return ;
+    }
+
+    const confirmAction = () => {
+      if(window.confirm(message)){
+        onConfirm()
+      }else{
+        onCancel()
+      }
+    }
+    return confirmAction
+  }
+
+  const GoShoppingcart = (e) => {
+    e.preventDefault()
+    navi("/shoppingcart")
+  }
+  const CancelConfirm = (e) => {
+    e.preventDefault()
+  }
+
+  const ConfirmShopping = useConfirm(
+    "장바구니에 넣었습니다.\
+    이동하시겠습니까?",
+    GoShoppingcart,
+    CancelConfirm
+  )
+
   const UploadShoppingCart = () => {
-    UploadShoppingCart
-      .post(`/product/shoppingcart/`,
-        ProductID
-      )
+    UploadShoppingCartAPI.post(`/product/shoppingcart/`,ProductID)
       .then(data => {
         console.log(data)
+        ConfirmShopping()
       })
       .catch(error => {
         console.log(error)
+      })
+  }
+
+  const BuyGoods = () => {
+    UploadBuyingAPI.post(`/product/purchase`,ProductID)
+      .then(data => {
+        console.log(data)
+        navi("/product/purchase")
+      })
+      .catch(error => {
+        console.log(error)
+        alert("구매 페이지로 이동이 불가합니다.\
+        문의: basilium")
       })
   }
 
@@ -77,11 +121,9 @@ function Detail(props) {
                   <CartIMG />
                   <Title>장바구니</Title>
                 </CartButton>
-                <Navigation to="/buy">
-                  <BuyButton>
-                  <Title>바로 구매</Title>
-                  </BuyButton>
-                </Navigation>
+                <BuyButton onClick={BuyGoods}>
+                <Title>바로 구매</Title>
+                </BuyButton>
               </ButtonContainer>
             </TextureBox>
           </TextBox>

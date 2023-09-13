@@ -1,6 +1,7 @@
 import React from 'react'
 import { 
     ButtonNav,
+    ButtonText,
     ExplainBox,
     ExplainIMG,
     SubscriptionContainer

@@ -139,6 +139,7 @@ export const CartButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     gap: 10px;
     border: 1px solid #fff;
     box-sizing: border-box;
@@ -150,6 +151,7 @@ export const BuyButton = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
+    cursor: pointer;
     justify-content: center;
     border: 1px solid #fff;
     box-sizing: border-box;

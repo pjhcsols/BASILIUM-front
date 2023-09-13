@@ -28,31 +28,31 @@ export const UploadImageAPI = axios.create({
         'Content-Type': 'multipart/form-data; charset=UTF-8' 
     },
     timeout: 50000,
-})
+});
 
 export const DownloadFiles = axios.create({
     BASE_URL: base_url,
     headers: { 
-        "Content-type": "multipart/form-data; charset=UTF-8" 
+        "Content-Type": "multipart/form-data; charset=UTF-8" 
     },
     timeout: 50000,
-})
+});
 
 export const BuyingAPI = axios.create({
     BASE_URL: base_url,
     headers: { 
-        "Content-type" : "application/json; charset=UTF-8" 
+        "Content-Type" : "application/json; charset=UTF-8"
     },
     timeout: 5000,
-})
+});
 
 export const CountingAPI = axios.create({
     BASE_URL: base_url,
     headers: {
-        "Content-type" : "application/json; charset=UTF-8"
+        "Content-Type" : "application/json; charset=UTF-8"
     },
     timeout: 5000,
-})
+});
 
 export const BasiliumAPI = axios.create({
     BASE_URL: base_url,
@@ -60,7 +60,7 @@ export const BasiliumAPI = axios.create({
         "Content-Type": "application/json; charset=UTF-8"
     },
     timeout: 5000
-})
+});
 
 export const BestSellarAPI = axios.create({
     BASE_URL: base_url,
@@ -68,7 +68,7 @@ export const BestSellarAPI = axios.create({
         "Content-Type" : "application/json; charset=UTF-8"
     },
     timeout: 5000
-})
+});
 
 export const ListAPI = axios.create({
     BASE_URL: base_url,
@@ -78,18 +78,42 @@ export const ListAPI = axios.create({
     timeout: 5000
 })
 
-export const UploadShoppingCart = axios.create({
+export const UploadShoppingCartAPI = axios.create({
     BASE_URL: base_url,
     headers: {
         "Content-Type" : "application/json; charset=UTF-8"
     },
     timeout: 5000
-})
+});
 
-export const UploadBuyingCart = axios.create({
+export const UploadBuyingAPI = axios.create({
     BASE_URL: base_url,
     headers: {
         "Content-Type" : "application/json; charset=UTF-8"
+    },
+    timeout: 5000
+});
+
+export const ReviewAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type": "multipart/form-data; charset=UTF-8" 
+    },
+    timeout: 5000
+});
+
+export const DetailGoodsAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type": "multipart/form-data; charset=UTF-8" 
+    },
+    timeout: 5000
+});
+
+export const QandAAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type": "application/json; charset=UTF-8; multipart/form-data;" 
     },
     timeout: 5000
 })

@@ -9,6 +9,7 @@ import API, {
   UploadImageAPI 
 } from '../../Backend/Axios'
 import Loading from '../../Loading'
+import Subscription from './Subscription'
 
 
 function Goods() {
@@ -110,12 +111,12 @@ function Goods() {
         isLoading ? 
         <Loading />
         :
-        <Detail 
-          data={shopobj}
-        />
+        <>
+          <Detail data={shopobj} />
+          <Subscription />
+        </>
       }
     </>
-    
   )
 }
 
