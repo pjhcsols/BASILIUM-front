@@ -5,15 +5,15 @@ import Main from "./pages/Main";
 import Sign_in from "./pages/Sign_in";
 import Sign_up from "./pages/Sign_up";
 import MyPage from "./pages/myPage/myPage";
-import OrderDetails from './components/OrderDetails';
-import DeliveryTest from './pages/DeliveryTest';
+import OrderDetails from "./components/OrderDetails";
+import DeliveryTest from "./pages/DeliveryTest";
+import ImageAIPage from "./pages/imageAIPage/imageAIPage";
 function App() {
   return (
     <div>
       <nav>
         <Link to="/">Main</Link> |<Link to="/sign_in">Sign_in</Link> |
-        <Link to="/sign_up">Sign_up</Link> |
-        <Link to="/my_page">MyPage</Link> |
+        <Link to="/sign_up">Sign_up</Link> |<Link to="/my_page">MyPage</Link> |
         <Link to="/OrderDetails">OrderDetails</Link> |
       </nav>
 
@@ -24,8 +24,9 @@ function App() {
         <Route path="/sign_in" element={<Sign_in />} />
         <Route path="/sign_up" element={<Sign_up />} />
         <Route path="/my_page" element={<MyPage />} />
-        <Route path= "/OrderDetails" element={<OrderDetails/>} />
-        <Route path= "/DeliveryTest" element={<DeliveryTest/>} />
+        <Route path="/OrderDetails" element={<OrderDetails />} />
+        <Route path="/DeliveryTest" element={<DeliveryTest />} />
+        <Route path="/image_ai_page" element={<ImageAIPage />} />
       </Routes>
     </div>
   );
