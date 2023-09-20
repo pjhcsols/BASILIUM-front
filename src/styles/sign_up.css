@@ -1,0 +1,255 @@
+.body2{
+    height: 150vh;
+    width: 100vw;
+    background-Image: url(../imgs/background-2.png);
+    background-size: 'cover';
+    background-repeat : no-repeat;
+    background-position: 'center';
+    margin:0;
+    padding-top: 10vh;
+    padding-right: 15vw;
+}
+.signUpBox2{
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+.btnBox2{
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 25vw;
+    border-radius: 20px 20px 0 0;
+    border: none;
+    margin: 0;   padding:0;
+    flex-direction: row;
+    display: flex;
+}
+
+.signUpArea2{
+    background-color: white;
+    color: black;
+    height: 5vh;
+    width: 12.5vw;
+    border-radius: 20px 20px 0px 0px;
+    text-align: center;
+    border: none;
+    margin: 0;
+    padding:0;
+}
+
+.signInBtn2{
+    margin: 0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 12.5vw;
+    border-radius: 20px 0 0 0;
+    border: none;
+}
+
+.qryBox2{
+    margin: 0; padding-top:5%;
+    flex-direction: column;
+    display: flex;
+    height: 68vh;
+    width: 25vw;
+    background-color: white;
+    border-radius: 0 0 20px 20px;
+    align-items: center;
+}
+
+.phoneimg{
+    margin: 0; padding:0;
+}
+.phoneBox{
+    margin: 0;  padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.phoneImgBox{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 2vw;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phoneInp{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 18vw;
+    font-size: 17px;
+    border-radius: 0 10px 10px 0;
+    border: none;
+}
+
+.phoneTxt{
+    padding:0; margin:0;
+}
+
+.pwdchkSet{
+    margin: 0; padding-top:2%;
+    flex-direction: column;
+    display: flex;
+}
+.pwdchkBox{
+    margin:0; padding:0;
+    display: flex; flex-direction: row;
+}
+
+.pwdchkImgBox{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 2vw;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pwdchkseeBox{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 2vw;
+    border-radius: 0 10px 10px 0;
+    border: none;
+}
+
+.pwdchkInp{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 16vw; 
+    font-size: 17px;
+    border: none;
+}
+
+.pwdchkTxt{
+    padding:0; margin:0;
+    float: left;
+}
+
+.identification{
+    padding:0; margin:0;
+    float: right;
+    background-color: white;
+    border: none;
+    color: blue;
+}
+
+.emailSet2{
+    margin: 0; padding-top:1%;
+    flex-direction: column;
+    display: flex;
+}
+
+.pwdSet2{
+    margin: 0; padding-top:1%;
+    flex-direction: column;
+    display: flex;
+}
+
+.nameSet{
+    margin: 0; padding-top:1%;
+    flex-direction: column;
+    display: flex;
+}
+
+
+.nameimg{
+    margin: 0; padding:0;
+}
+.nameBox{
+    margin: 0;  padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.nameImgBox{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 2vw;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nameInp{
+    margin:0; padding:0;
+    background-color: #D9D9D9;
+    height: 5vh;
+    width: 18vw;
+    border-radius: 0 10px 10px 0;
+    font-size: 17px;
+    border: none;
+}
+
+
+.nameTxt{
+    padding:0; margin:0;
+    float: left;
+}
+
+
+.signUpTxt{
+    color: white;
+    font-weight: bold;
+}
+.signUpSendBtn{
+    padding: 0; margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    height: 5vh;
+    width: 20vw; 
+    border: none;
+    background-color: #746C6C;
+    border-radius: 10px 10px 10px 10px;
+    align-items: center;
+    justify-items: center;
+}
+
+.nameimg{
+    margin: 0; padding:0;
+    background-Image: url(../imgs/men_logo.png);
+    background-size: 100%;
+    background-repeat : no-repeat;
+    background-position: 'center';
+    width:1.2vw;
+    height: 2.6vh;
+   
+}
+
+.pwdchkImg{
+    margin: 0; padding:0;
+    background-Image: url(../imgs/lockchk_logo.png);
+    background-size: 100%;
+    background-repeat : no-repeat;
+    background-position: 'center';
+    width:1.5vw;
+    height: 3.0vh;
+}
+
+
+.phoneImg{
+    margin: 0; padding:0;
+    background-Image: url(../imgs/phone_logo.png);
+    background-size: 100%;
+    background-repeat : no-repeat;
+    background-position: 'center';
+    width:0.9vw;
+    height: 3.2vh;
+}
+

@@ -1,0 +1,148 @@
+/* 쇼핑 리스트 전체 컨테이너 */
+.shopListContainer {
+  width: 1283px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 73px;
+}
+
+.shopListContainer .title {
+  color: #000000;
+  font-size: 40px;
+  font-weight: bold;
+
+  width: 1283px;
+}
+
+.shopListContainer .thickDivider {
+  width: 1280px;
+  background-color: #000000;
+  height: 3px;
+}
+
+.shopListContainer .indexBox {
+  width: 1283px;
+  height: 73px;
+
+  display: flex;
+  align-items: center;
+}
+
+.shopListContainer .indexProductInfo {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-right: 170px;
+  text-align: center;
+}
+
+.shopListContainer .indexShopDate {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-right: 123px;
+  text-align: center;
+}
+
+.shopListContainer .indexInvoice {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-right: 123px;
+  text-align: center;
+}
+
+.shopListContainer .indexPrice {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-right: 117px;
+  text-align: center;
+}
+
+.shopListContainer .indexStatus {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  text-align: center;
+}
+
+.shopListContainer .thinDivider {
+  width: 1280px;
+  background-color: #000000;
+  height: 1px;
+}
+
+/* 쇼핑 목록 */
+
+.shopItemContainer {
+  width: 1283px;
+  height: 443px;
+
+  display: flex;
+  align-items: center;
+}
+
+.shopItemContainer .productInfoBox {
+  width: 223px;
+  height: 390px;
+  margin-right: 170px;
+}
+
+.shopItemContainer .productInfoBox .image {
+  width: 220px;
+  height: 300px;
+  background-color: #d9d9d9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shopItemContainer .productInfoBox .description {
+  color: #000000;
+  font-size: 25px;
+  font-weight: light;
+}
+
+.shopItemContainer .shopDate {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+
+  margin-right: 123px;
+  text-align: center;
+}
+
+.shopItemContainer .price {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+
+  margin-right: 117px;
+  text-align: center;
+}
+
+.shopItemContainer .status {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+
+  text-align: center;
+}

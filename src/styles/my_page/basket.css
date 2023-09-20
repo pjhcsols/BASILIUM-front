@@ -1,0 +1,191 @@
+/* 장바구니 전체 컨테이너 */
+.basketContainer {
+  width: 1283px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 111px;
+}
+
+.basketContainer .titleBox {
+  width: 1283px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.basketContainer .titleBox .title {
+  color: #000000;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.basketContainer .titleBox .payButton {
+  width: 150px;
+  height: 50px;
+  background-color: #746c6c;
+  border-radius: 10px;
+
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.basketContainer .thickDivider {
+  width: 1280px;
+  background-color: #000000;
+  height: 3px;
+}
+
+.basketContainer .indexBox {
+  width: 1283px;
+  height: 73px;
+
+  display: flex;
+  align-items: center;
+}
+
+.basketContainer .indexProductInfo {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-right: 160px;
+  text-align: center;
+}
+
+.basketContainer .indexPrice {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-right: 20px;
+  text-align: center;
+}
+
+.basketContainer .indexCount {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-right: 13px;
+  text-align: center;
+}
+
+.basketContainer .indexTotalPrice {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  margin-right: 23px;
+  text-align: center;
+}
+
+.basketContainer .indexSelect {
+  width: 220px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+
+  text-align: center;
+}
+
+.basketContainer .thinDivider {
+  width: 1280px;
+  background-color: #000000;
+  height: 1px;
+}
+
+.basketContainer .bottomRow {
+  width: 1280px;
+
+  display: flex;
+  justify-content: end;
+}
+
+.basketContainer .bottomRow .deleteButton {
+  width: 133px;
+  height: 37px;
+
+  color: #746c6c;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 25px;
+  font-weight: bold;
+
+  border: none;
+  background-color: transparent;
+}
+
+/* 장바구니 목록 컨테이너 */
+
+.basketItemContainer {
+  width: 1283px;
+  height: 443px;
+
+  display: flex;
+  align-items: center;
+}
+
+.basketItemContainer .productInfoBox {
+  width: 223px;
+  height: 390px;
+  margin-right: 160px;
+}
+
+.basketItemContainer .productInfoBox .image {
+  width: 220px;
+  height: 300px;
+  background-color: #d9d9d9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.basketItemContainer .productInfoBox .description {
+  color: #000000;
+  font-size: 25px;
+  font-weight: light;
+}
+
+.basketItemContainer .price {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+
+  margin-right: 20px;
+  text-align: center;
+}
+
+.basketItemContainer .count {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+
+  margin-right: 13px;
+  text-align: center;
+}
+
+.basketContainer .totalPrice {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+
+  margin-right: 23px;
+  text-align: center;
+}
+
+.basketContainer .select {
+  width: 220px;
+  display: flex;
+  justify-content: center;
+}

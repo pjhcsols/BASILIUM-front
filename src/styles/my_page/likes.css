@@ -1,0 +1,94 @@
+.likesContainer {
+  width: 1283px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 111px;
+}
+
+.likesContainer .titleBox {
+  width: 1283px;
+  display: flex;
+
+  margin-bottom: 10px;
+}
+
+.likesContainer .titleBox .heartIcon {
+  width: 50px;
+  height: 50px;
+
+  margin: 0px 21px;
+}
+
+.likesContainer .titleBox .title {
+  color: #000000;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.likesContainer .thickDivider {
+  width: 1280px;
+  background-color: #000000;
+  height: 3px;
+}
+
+/* 좋아요 목록 한 줄 컨테이너 */
+
+.likesItemRow {
+  width: 1280px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 18.79px;
+}
+
+/* 좋아요 목록 컨테이너 */
+
+.likesItemContainer {
+  width: 240px;
+  height: 456px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.likesItemContainer .imageBox {
+  width: 220px;
+  height: 370px;
+
+  position: relative;
+}
+
+.likesItemContainer .imageBox .image {
+  width: 220px;
+  height: 370px;
+
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.likesItemContainer .imageBox .heart {
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  bottom: 9px;
+  right: 10px;
+}
+
+.likesContainer .description {
+  color: #000000;
+  font-size: 22px;
+  font-weight: light;
+  margin-top: 9px;
+}
+
+.likesContainer .price {
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 2px;
+}

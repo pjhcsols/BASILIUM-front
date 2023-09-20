@@ -1,43 +1,33 @@
-import './App.css';
-
-import { 
-  BrowserRouter as 
-  Router,
-  Routes,
-  Route,
-} from 'react-router-dom';
-
-import MainHome from './components/Main/MainHome'
-import ShoppingList from './components/Store/List/ShoppingList';
-import MainStore from './components/Store/MainStore';
-import Detail from './components/Store/IndividualGoods/Detail';
-import Listing from './components/Admin/Listing';
-import Goods from './components/Store/IndividualGoods/Goods';
-import BlockIMG from './components/Test/BlockIMG';
-import ListPage from './components/Store/List/ListPage';
-import NotFound from './components/NotFound/NotFound';
-import Purchase from './components/Buying/Purchase';
-
-
+import "./App.css";
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Main from "./pages/Main";
+import Sign_in from "./pages/Sign_in";
+import Sign_up from "./pages/Sign_up";
+import MyPage from "./pages/myPage/myPage";
+import OrderDetails from './components/OrderDetails';
+import DeliveryTest from './pages/DeliveryTest';
 function App() {
   return (
-    <Router>
+    <div>
+      <nav>
+        <Link to="/">Main</Link> |<Link to="/sign_in">Sign_in</Link> |
+        <Link to="/sign_up">Sign_up</Link> |
+        <Link to="/my_page">MyPage</Link> |
+        <Link to="/OrderDetails">OrderDetails</Link> |
+      </nav>
+
+      {/*Routers*/}
+
       <Routes>
-        <Route path="/" element={<MainHome />} />
-        <Route path="/store" element={<MainStore />} />
-        <Route path="/shopping" element={<ShoppingList />} />
-        <Route path="/login" />
-        <Route path="/register" />
-        <Route path="/shopcart" element={<Detail />}/>
-        <Route path="/recentshop" element={<ListPage />}/>
-        <Route path="/purchase" element={<Goods />}/>
-        <Route path="/likeshop" element={<BlockIMG />}/>
-        <Route path="/loading" element={<Purchase />}/>
-        <Route path="/modeling" />
-        <Route path="/brands" element={<Listing />}/>
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/sign_in" element={<Sign_in />} />
+        <Route path="/sign_up" element={<Sign_up />} />
+        <Route path="/my_page" element={<MyPage />} />
+        <Route path= "/OrderDetails" element={<OrderDetails/>} />
+        <Route path= "/DeliveryTest" element={<DeliveryTest/>} />
       </Routes>
-    </Router>
+    </div>
   );
 }
 
