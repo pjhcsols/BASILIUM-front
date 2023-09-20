@@ -10,14 +10,9 @@ import {
 import MainHome from './components/Main/MainHome'
 import ShoppingList from './components/Store/List/ShoppingList';
 import MainStore from './components/Store/MainStore';
-import Detail from './components/Store/IndividualGoods/Detail';
-import Listing from './components/Admin/Listing';
 import Goods from './components/Store/IndividualGoods/Goods';
-import BlockIMG from './components/Test/BlockIMG';
-import ListPage from './components/Store/List/ListPage';
 import NotFound from './components/NotFound/NotFound';
 import Purchase from './components/Buying/Purchase';
-
 
 function App() {
   return (
@@ -25,16 +20,15 @@ function App() {
       <Routes>
         <Route path="/" element={<MainHome />} />
         <Route path="/store" element={<MainStore />} />
-        <Route path="/shopping" element={<ShoppingList />} />
+        <Route path="/shopping/*" element={<ShoppingList />}>
+          <Route path=":itemid" element={<Goods />} />
+        </Route>
         <Route path="/login" />
         <Route path="/register" />
-        <Route path="/shopcart" element={<Detail />}/>
-        <Route path="/recentshop" element={<ListPage />}/>
-        <Route path="/purchase" element={<Goods />}/>
-        <Route path="/likeshop" element={<BlockIMG />}/>
-        <Route path="/loading" element={<Purchase />}/>
-        <Route path="/modeling" />
-        <Route path="/brands" element={<Listing />}/>
+        <Route path="/shopcart" element={} />
+        <Route path="/purchase/:userid" element={<Purchase />}/>
+        <Route path="/mypage" element={} />
+        <Route path="/modeling" element={} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
