@@ -79,7 +79,6 @@ function BlockIMG() {
 
     const onFileChanges = (e) => {
         e.preventDefault()
-        Test()
         if(e.target.files){
             const HardObj = {
                 "productId": null,
@@ -168,7 +167,7 @@ function BlockIMG() {
                 onSubmit={UploadBtn}
             >
                 <input 
-                    name="imageFile"
+                    name="strProduct"
                     type="file"
                     accpet="image/*" 
                     multiple

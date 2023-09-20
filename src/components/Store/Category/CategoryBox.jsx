@@ -15,8 +15,9 @@ import CategoryObj from './CategoryObj';
 function CategoryBox() {
     const navi = useNavigate()
     const onClickCategory = (e) => {
-        const CategoryID = e.target.id
-        
+        console.log(e)
+        const CategoryID = e.id
+//        navi(`/shopping/${CategoryID}`)
     }
 
     const product = CategoryList.map((item) => (
@@ -24,6 +25,7 @@ function CategoryBox() {
             src={item.src}
             title={item.title}
             subtitle={item.subtitle}
+            onClick={onClickCategory(item)}
         />
     ));
 
@@ -31,11 +33,8 @@ function CategoryBox() {
         <Scrollerdiv>
             <Carouseldiv
                 responsive={responsive}
-                showDots={true}
                 draggable={false}
-                infinite={true}
                 stopOnHover={true}
-                itemCount={5}
             >
                 {product}
             </Carouseldiv>

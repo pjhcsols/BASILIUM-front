@@ -1,5 +1,6 @@
 import React from 'react'
 import { 
+  AIPostContainer,
   IMGBox,
   Subscription,
   SubscriptionBox,
@@ -25,34 +26,36 @@ function ThirdSlide() {
       }}
     >
       <ThirdContainer>
-        <TitleContainer>
-          <TitleSpan>
-            BASILIUM AI service<br/>
-          </TitleSpan>
-          <Subscription>
-            You can see the 3D architecture of clothes
-          </Subscription>
-        </TitleContainer>
-        <IMGBox>
-          <SubscriptionBox>
+        <AIPostContainer>
+          <TitleContainer>
+            <TitleSpan>
+              BASILIUM AI service<br/>
+            </TitleSpan>
             <Subscription>
-              360 view of clothes<br/>
+              You can see the 3D architecture of clothes
             </Subscription>
-            <Subscription>
-              의류를 3D로 간접체험 가능
-            </Subscription>
-          </SubscriptionBox>
-        </IMGBox>
-        <IMGBox>
-          <SubscriptionBox>
-            <Subscription>
-              3D Modeling<br/>
-            </Subscription>
-            <Subscription>
-              자신을 3D 모델로 의류 적용 가능
-            </Subscription>
-          </SubscriptionBox>
-        </IMGBox>
+          </TitleContainer>
+          <IMGBox>
+            <SubscriptionBox>
+              <Subscription>
+                360 view of clothes<br/>
+              </Subscription>
+              <Subscription>
+                의류를 3D로 간접체험 가능
+              </Subscription>
+            </SubscriptionBox>
+          </IMGBox>
+          <IMGBox>
+            <SubscriptionBox>
+              <Subscription>
+                3D Modeling<br/>
+              </Subscription>
+              <Subscription>
+                자신을 3D 모델로 의류 적용 가능
+              </Subscription>
+            </SubscriptionBox>
+          </IMGBox>
+        </AIPostContainer>
       </ThirdContainer>
     </motion.div>
   )

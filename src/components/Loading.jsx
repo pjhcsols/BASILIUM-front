@@ -7,7 +7,7 @@ function Loading() {
   return (
     <div
       style={{
-        width: "100%",
+        width: "100vw",
         height: "100vh",
         background: "#212529",
       }}
@@ -16,7 +16,7 @@ function Loading() {
             style={{
                 position: "relative",
                 top: "30%",
-                left: "100%",
+                left: "85%",
                 transform: "translate(-50%, -50%)",
             }}
         >

@@ -10,10 +10,9 @@ import {
 } from '../../styles/Store/Category/CategoryObj.style'
 
 function CategoryObj(props) {
-    const CategoryList = props
     return (
         <Card>
-            <Linkdiv to={CategoryList.ref}>
+            <Linkdiv to={props.ref}>
                 <CardContent>
                     <CardBg
                         src={props.src}

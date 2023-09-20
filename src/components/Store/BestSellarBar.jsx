@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 import BestSellarContent from './BestSellarContent'
-import BestSellarAPI from '../Backend/Axios'
+import BestSellarAPI, { DownloadFiles } from '../Backend/Axios'
 import Loading from '../Loading'
 
 import { Swiper } from "swiper/react"
@@ -30,23 +31,67 @@ import { ReactComponent as RightButton } from '../../assets/SVG/arrow-forward-ou
 function BestSellarBar() {
     const [isLoading, setIsLoading] = useState(true)
     
-    const [BestSellarList, setBestSellarList] = useState([])
+    const [BestSellarList, setBestSellarList] = useState([{
+        "productID" : null,
+        "productCategoryId" : '',
+        "productName": '',
+        "productPrice" : 0,
+        "productDesc": '',
+    }])
 
     const GetBestSellar = () => {
         BestSellarAPI
-            .get('/product/bestsellar')
+            .get('/products/bestSelling')
             .then(data => {
-                const DataList = Array.from(data)
-                setBestSellarList(DataList)
-                setIsLoading(false)
+                setBestSellarList(data.data)
             })
             .catch(error => {
                 console.log(error)
             })
     }
 
+    // ImagesList 
+    const [ImagesList, setImagesList] = useState([])
+    const [ShowImageList, SetShowImageList] = useState()
+
+    // According to Axios, Post some Image data.
+    const reader = new FileReader()
+
+    // Using blob
+    const ImageEncoding = (images) =>{
+        reader.readAsDataURL(images)
+        reader.onload = () => {
+            console.log(reader.result)
+            SetShowImageList(reader.result || null)
+        }
+        setIsLoading(false)
+    }
+
+    const UploadImageFile = () => {
+        const ListLength = BestSellarList.length
+        DownloadFiles
+            .get(`/products/downloadProductPhotos/${1}?num=1`,{
+                responsetype: 'arraybuffer'
+            })
+            .then(res => {
+                console.log(res)
+                const blob = new Blob([res.data], {type: "text/plain"})
+                return blob
+            })
+            .then(data => {
+                let file = new File([data], data.type)
+                ImageEncoding(file)
+            })
+            .catch(error => {
+                console.log("useEffect DownloadFiles Error")
+                console.log(error)
+            }
+        )
+    }
+    
     useEffect(()=>{
         GetBestSellar()
+        UploadImageFile()
     }, [])
 
     return (
@@ -79,22 +124,21 @@ function BestSellarBar() {
                         clickable: true
                     }}
                     modules={[EffectCoverflow, Pagination, Navigation]}
-                >
-                    <SwiperContainer>
-                        <BSlide>
-                            <BestSellarContent />
-                        </BSlide>
-                    </SwiperContainer>
-                    <SwiperContainer>
-                        <BSlide>
-                            <BestSellarContent />
-                        </BSlide>
-                    </SwiperContainer>
-                    <SwiperContainer>
-                        <BSlide>
-                            <BestSellarContent />
-                        </BSlide>
-                    </SwiperContainer>
+                >   
+                    {
+                        BestSellarList.map((bestSellarList, index) => (
+                                <SwiperContainer key={index}>
+                                    <BSlide>
+                                        <BestSellarContent
+                                            src={ShowImageList}
+                                            title={bestSellarList.productName}
+                                            contnet={bestSellarList.productDesc}
+                                            price={bestSellarList.productPrice}
+                                        />
+                                    </BSlide>
+                                </SwiperContainer>
+                        ))
+                    }
                     <ButtonContainer>
                         <LeftButtonContainer>
                             <LeftButton
@@ -104,7 +148,6 @@ function BestSellarBar() {
                                 className='swiper-button-prev'
                             />
                         </LeftButtonContainer>
-                        
                         <RightButtonContainer>
                             <RightButton 
                                 style={{

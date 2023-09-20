@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react'
 import FirstSegment from './FirstSlide/FirstSlide'
 import SecondSlide from './FirstSlide/SecondSlide'
 import ThirdSlide from './FirstSlide/ThirdSlide'
-import SlideLeft from './SlideLeft'
-import SlideRight from './SlideRight'
-import {ReactComponent as RightBar} from '../../assets/SVG/RightBar.svg'
-import {ReactComponent as LeftBar} from '../../assets/SVG/LeftBar.svg'
+import {
+    ReactComponent as RightBar
+} from '../../assets/SVG/RightBar.svg'
+import {
+    ReactComponent as LeftBar
+} from '../../assets/SVG/LeftBar.svg'
 
 import {
     Wrapper,
@@ -16,8 +18,13 @@ import {
     TotalScreenSlide
 } from '../styles/Slide.style'
 
-import { AnimatePresence } from 'framer-motion';
-import { SlideButton, SlideButtonContainer } from '../styles/SlideButton.style'
+import { 
+    AnimatePresence 
+} from 'framer-motion';
+import { 
+    SlideButton, 
+    SlideButtonContainer 
+} from '../styles/SlideButton.style'
 
 // Using useEffect that 
 function MainSlide() {

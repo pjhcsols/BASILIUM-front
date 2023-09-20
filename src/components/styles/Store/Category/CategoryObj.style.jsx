@@ -4,10 +4,10 @@ import styled from 'styled-components'
 export const Card = styled.div`
     position: relative;
     top: 20%;
-    left: 20%;
+    margin: 0 auto;
     display: block;
-    width: 50%;
-    height: 400px;
+    width: 170px;
+    height: 300px;
 `
 
 export const CardBg = styled.div`

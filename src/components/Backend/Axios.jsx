@@ -3,7 +3,7 @@ import axios from 'axios'
 
 //test : https://my-json-server.typicode.com/typicode/demo/posts
 //const real = http://172.28.80.1:8080 
-export const base_url = "http://172.30.1.100:8080";
+export const base_url = "http://172.20.19.195:8080";
 
 const API = axios.create({
     BASE_URL: base_url,
@@ -24,16 +24,16 @@ export const FileAPI = axios.create({
 
 export const UploadImageAPI = axios.create({
     BASE_URL: base_url,
-    headers: { 
-        'Content-Type': 'multipart/form-data; charset=UTF-8' 
-    },
+    // headers: { 
+    //     'Content-Type': 'application/json; multipart/form-data; charset=UTF-8' 
+    // },
     timeout: 50000,
 });
 
 export const DownloadFiles = axios.create({
     BASE_URL: base_url,
     headers: { 
-        "Content-Type": "multipart/form-data; charset=UTF-8" 
+        "Content-Type": "multipart/form-data; charset=UTF-8" ,
     },
     timeout: 50000,
 });

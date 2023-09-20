@@ -16,6 +16,7 @@ import Goods from './components/Store/IndividualGoods/Goods';
 import BlockIMG from './components/Test/BlockIMG';
 import ListPage from './components/Store/List/ListPage';
 import NotFound from './components/NotFound/NotFound';
+import Purchase from './components/Buying/Purchase';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
         <Route path="/recentshop" element={<ListPage />}/>
         <Route path="/purchase" element={<Goods />}/>
         <Route path="/likeshop" element={<BlockIMG />}/>
-        <Route path="/loading" />
+        <Route path="/loading" element={<Purchase />}/>
         <Route path="/modeling" />
         <Route path="/brands" element={<Listing />}/>
         <Route path="*" element={<NotFound />} />

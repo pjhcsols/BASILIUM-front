@@ -9,8 +9,8 @@ import shoes from '../../../assets/Section_2/shoes.png'
 export const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 3,
-        slidesToSlide: 2
+        items: 5,
+        slidesToSlide: 1
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },

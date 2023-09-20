@@ -7,17 +7,14 @@ import {
 import ManToMan from '../../assets/Goods/ManToMan.jpg'
 import BestsellarObj from './BestsellarObj'
 
-function BestSellarContent() {
-  useEffect(()=>{
-
-  }, [])
+function BestSellarContent(props) {
   return (
     <BestSellarContainer>
         <BestsellarObj
-            src={ ManToMan }
-            title={"Basilium"}
-            content={"클래식 B 루즈핏 티셔츠"}
-            price={"42,000원"}
+            src={ props.src }
+            title={ props.title }
+            content={ props.content }
+            price={ props.price }
         />
     </BestSellarContainer>
   )

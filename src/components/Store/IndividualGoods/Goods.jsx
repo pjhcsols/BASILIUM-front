@@ -5,8 +5,7 @@ import React, {
 } from 'react'
 import Detail from './Detail'
 import API, { 
-  DownloadFiles, 
-  UploadImageAPI 
+  DownloadFiles,
 } from '../../Backend/Axios'
 import Loading from '../../Loading'
 import Subscription from './Subscription'

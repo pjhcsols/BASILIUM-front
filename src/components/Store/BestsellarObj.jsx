@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { 
   BestSellarBox, 
   SubscriptionText,
@@ -8,9 +8,12 @@ import {
 } from '../styles/Store/BestSellar/BestSellarObj.style'
 
 function BestsellarObj(props) {
+  useEffect(()=>{
+    console.log(props)
+  },[])
   return (
     <BestSellarBox>
-        <IMGBox src={props.src}/>
+      <IMGBox src={props.src}/> 
         <TitleTexture>
             {props.title}
         </TitleTexture>
