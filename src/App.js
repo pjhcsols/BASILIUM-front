@@ -19,19 +19,17 @@ import MyPage from './pages/myPage/myPage'
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainHome />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/store" element={<MainStore />} />
-        <Route path="/shopping" element={<ShoppingList />} />
-        <Route path="/login" element={<Sign_in />}/>
-        <Route path="/register" element={<Sign_up />}/>
-        <Route path="/modeling" element={<ImageAIPage />}/>
-        <Route path="/brands" element={<Listing />}/>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<MainHome />} />
+      <Route path="/mypage" element={<MyPage />} />
+      <Route path="/store" element={<MainStore />} />
+      <Route path="/shopping" element={<ShoppingList />} />
+      <Route path="/login" element={<Sign_in />}/>
+      <Route path="/register" element={<Sign_up />}/>
+      <Route path="/modeling" element={<ImageAIPage />}/>
+      <Route path="/brands" element={<Listing />}/>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
