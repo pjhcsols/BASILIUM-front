@@ -14,6 +14,8 @@ const Sign_up = () => {
     age:0,
     address:"",
   });
+
+  const [errorM,setErrorM] = useState("");
   const { id,password,emailaddress,phoneNumber,userGrade,name,age,address } = inputs;
   const onChange = (e) => {
     const value = e.target.value;
@@ -24,18 +26,22 @@ const Sign_up = () => {
       [id]: value,
     });
   };
-
+  
   const navigate = useNavigate();
   const signIn = () => {
-    navigate("/sign_In");
+    navigate("/login");
   };
 
-  const serverUrl="http://172.30.1.65:8080/v1/normalUser/signup";
+  const serverUrl="http://172.20.56.248:8080/v1/normalUser/signup";
 
   const signUpSend = async () => {
     await axios.post(serverUrl,{"id": emailaddress,"password": password,"emailAddress":emailaddress,"phoneNumber":phoneNumber,"userGrade":1,
       "name": name,"age": 0,"address":"null" }).then(response => {
-      console.log('응답 데이터:', response.data); }).catch(err => console.log(err))
+      console.log('응답 데이터:', response.data); 
+      navigate('/login');
+  
+    
+    }).catch(err => console.log(err));
   };
 
   const identification = () => {};
@@ -160,7 +166,9 @@ const Sign_up = () => {
                 />
               </div>
             </div>
-
+            <div className="errorMessage">
+              {errorM}
+            </div>
             <button className="signUpSendBtn" onClick={signUpSend}>
               <p className="signUpTxt" style={{ fontSize: 15 }}>
                 회원가입

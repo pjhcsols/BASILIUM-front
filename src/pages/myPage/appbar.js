@@ -1,6 +1,6 @@
 import "../../styles/my_page/appbar.css";
 
-export default function AppBar() {
+export default function AppBar(props) {
   return (
     <div className="appBarContainer">
       <div className="title">My Page</div>
@@ -10,8 +10,8 @@ export default function AppBar() {
         </div>
         <div className="profileBox">
           <div className="nickName">User’s Nickname</div>
-          <div className="email">sample@naver.com</div>
-          <div className="name">김아무개</div>
+          <div className="email">{props.id}</div>
+          <div className="name">{props.name}</div>
         </div>
         <button className="button">프로필 편집</button>
         <div style={{ width: 34 }} />
