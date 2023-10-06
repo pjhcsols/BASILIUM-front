@@ -27,6 +27,15 @@ export const HeaderContainer = styled.nav`
     z-index: 5;
 `
 
+export const HeaderLinkContainer = styled.div`
+    width: 1320px;
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+
+    margin: 0px auto;
+`
 
 export const HeaderLeftLinkContainer = styled.div`
     width: 30%;
@@ -47,7 +56,7 @@ export const HeaderRightLinkContainer = styled.div`
     position: absolute;
     align-items: center;
     justify-content: center;
-    left: 50%;
+    right: 20%;
 `
 
 export const IndividualLinkContainer = styled.li`
@@ -129,7 +138,8 @@ export const LogoContainer = styled.div`
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 47%;
+    left: 50%;
+    transform: translateX(-50%);
 `
 
 export const Logo = styled.img`

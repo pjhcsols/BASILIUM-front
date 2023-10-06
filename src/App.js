@@ -16,6 +16,8 @@ import Sign_in from './pages/Sign_in';
 import Sign_up from './pages/Sign_up';
 import ImageAIPage from './pages/imageAIPage/ImageAIPage';
 import MyPage from './pages/myPage/myPage'
+import Purchase from './components/Buying/Purchase';
+import Goods from './components/Store/IndividualGoods/Goods';
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/store" element={<MainStore />} />
       <Route path="/shopping" element={<ShoppingList />} />
+      <Route path="/Goods" element={<Goods />} />
       <Route path="/login" element={<Sign_in />}/>
+      <Route path="/purchase" element={<Purchase />}/>
       <Route path="/register" element={<Sign_up />}/>
       <Route path="/modeling" element={<ImageAIPage />}/>
       <Route path="/brands" element={<Listing />}/>

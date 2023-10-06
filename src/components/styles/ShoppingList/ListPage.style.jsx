@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 
-export const ListPageBG = styled.div`
-    width: 100%;
-    height: 1000px;
-    position: relative;
+export const ListPageContainer = styled.div`
+    width: 65vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #212529;
+    margin: 10vh auto;
 `
 
-export const ListPageContainer = styled.div`
+export const ListPageRow = styled.div`
     width: 100%;
-    height: 100%;
     display: flex;
-    flex-flow: column wrap;
+    justify-content: space-between;
 `

@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const GoodsBG = styled.div`
-    width: 100%;
-    height: 2000px;
+    width: 100vw;
+    height: 105vh;
     position: relative;
     margin: 0 auto;
     display: flex;
@@ -13,20 +13,20 @@ export const GoodsBG = styled.div`
 `
 
 export const DescriptionBox = styled.div`
-    width: 80%;
-    height: 50%;
+    width: 55vw;
+    height: 80vh;
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-top: 100px;
-    margin-bottom: 20px;
+    margin-top: 8vw;
+    margin-bottom: 8vw;
     border: 1px solid white;
 `
 
 export const SetsumeBox = styled.div`
     width: 100%;
-    height: 70%;
+    height: 70vh;
     margin-top: 5%;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@ export const SetsumeBox = styled.div`
 `
 
 export const ImgBox = styled.div`
-    width: 37%;
+    width: 25vw;
     height: 100%;
     margin-left: 5%;
     margin-right: 9%;
@@ -48,7 +48,7 @@ export const IMG = styled.img`
 
 export const TextBox = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -79,7 +79,7 @@ export const TitleBox = styled.div`
 `
 
 export const Title = styled.h3`
-    font-size: 15px;
+    font-size: 20px;
     font-weight: border;
     color: white;
 `
@@ -126,10 +126,12 @@ export const DeliveryBox = styled.div`
 
 export const ButtonContainer = styled.div`
     width: 100%;
-    height: 20%;
-    border: 1px solid white;
-    align-items: stretch;
+    height: 10vh;
+    position: relative;
+    top: 24.5%;
     display: flex;
+    border: 2px solid white;
+    align-items: stretch;
     flex-direction: row;
 `
 
@@ -180,12 +182,11 @@ export const CategoryButton = styled.div`
 `
 
 export const TextureBox = styled.div`
-    width: 45%;
+    width: 30vw;
     height: 100%;
     margin-right: 5%;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: center;
     border: 1px solid white;
 `

@@ -14,20 +14,21 @@ import CategoryObj from './CategoryObj';
 
 function CategoryBox() {
     const navi = useNavigate()
-    const onClickCategory = (e) => {
-        const CategoryID = e.target.key
+    const onClickCategory = (CategoryID) => {
         navi(`/shopping/${CategoryID}`)
     }
 
-    const product = CategoryList.map((item, i) => (
-        <CategoryObj
-            src={item.src}
-            key={i}
-            title={item.title}
-            subtitle={item.subtitle}
-            onClick={onClickCategory}
-        />
-    ));
+    const product = CategoryList.map((item, i) => {
+        return (
+        <div onClick={()=>{onClickCategory(i)}}>
+            <CategoryObj
+                src={item.src}
+                key={i}
+                title={item.title}
+                subtitle={item.subtitle}
+            />
+        </div>
+    )});
 
     return (
         <Scrollerdiv>

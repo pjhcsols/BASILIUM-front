@@ -82,7 +82,7 @@ export default function Basket() {
   );
 }
 
-function BasketItem({ item }) {
+export function BasketItem({ item }) {
   useEffect(() => {
     fetch(`${baseURL}/products/downloadProductPhotos/${item.productId}?num=1`, {
       responseType: "arraybuffer",

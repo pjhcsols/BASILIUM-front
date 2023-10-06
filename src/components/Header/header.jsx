@@ -25,7 +25,8 @@ import {
   UserContainer,
   ExpendedMenu,
   Submenu,
-  Mymenu
+  Mymenu,
+  HeaderLinkContainer
 } from '../styles/Header.style.jsx';
 
 function Header(props) {
@@ -68,38 +69,42 @@ function Header(props) {
             </CategoryBar>
         }
       </OpenLinkButton>
-      <HeaderLeftLinkContainer>
-        <IndividualLinkContainer>
-          <NavLink to={"/"} style={{"text-decoration": "none"}}>
-            <SpanContainer>About</SpanContainer>
-          </NavLink> 
-        </IndividualLinkContainer>
-        <IndividualLinkContainer>
-          <NavLink to={"/"} style={{"text-decoration": "none"}}>
-            <SpanContainer>Store</SpanContainer>
+
+      <HeaderLinkContainer>
+        <HeaderLeftLinkContainer>
+          <IndividualLinkContainer>
+            <NavLink to={"/"} style={{"text-decoration": "none"}}>
+              <SpanContainer>About</SpanContainer>
+            </NavLink> 
+          </IndividualLinkContainer>
+          <IndividualLinkContainer>
+            <NavLink to={"/"} style={{"text-decoration": "none"}}>
+              <SpanContainer>Store</SpanContainer>
+            </NavLink>
+          </IndividualLinkContainer>
+        </HeaderLeftLinkContainer>
+        <LogoContainer>
+          <NavLink to={"/"}>
+            <Logo
+              src={LOGO} 
+              alt="logo" 
+            />
           </NavLink>
-        </IndividualLinkContainer>
-      </HeaderLeftLinkContainer>
-      <LogoContainer>
-        <NavLink to={"/"}>
-          <Logo
-            src={LOGO} 
-            alt="logo" 
-          />
-        </NavLink>
-      </LogoContainer>
-      <HeaderRightLinkContainer>
-        <IndividualLinkContainer>
-          <NavLink to={"/"} style={{"text-decoration": "none"}}>
-            <SpanContainer>Store</SpanContainer>
-          </NavLink>
-        </IndividualLinkContainer>
-        <IndividualLinkContainer>
-          <NavLink to={"/"} style={{"text-decoration": "none"}}>
-            <SpanContainer>Search</SpanContainer> 
-          </NavLink>
-        </IndividualLinkContainer>
-      </HeaderRightLinkContainer>
+        </LogoContainer>
+        <HeaderRightLinkContainer>
+          <IndividualLinkContainer>
+            <NavLink to={"/"} style={{"text-decoration": "none"}}>
+              <SpanContainer>Store</SpanContainer>
+            </NavLink>
+          </IndividualLinkContainer>
+          <IndividualLinkContainer>
+            <NavLink to={"/"} style={{"text-decoration": "none"}}>
+              <SpanContainer>Search</SpanContainer> 
+            </NavLink>
+          </IndividualLinkContainer>
+        </HeaderRightLinkContainer>
+      </HeaderLinkContainer>
+
       <UserContainer onClick={onClickUser}>
         <UserIMG />
         {

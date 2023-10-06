@@ -9,8 +9,9 @@ import {
 } from '../../styles/Store/Category/CategoryObj.style'
 
 function CategoryObj(props) {
+    console.log(props)
     return (
-        <Card onClick={props.onClick}>
+        <Card>
             <CardContent>
                 <CardBg
                     src={props.src}

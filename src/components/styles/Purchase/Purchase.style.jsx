@@ -47,6 +47,8 @@ export const ShopObj = styled.div`
     flex-wrap: no-wrap;
     justify-content: center;
     align-items: center;
+
+    background-color: white;
 `
 
 export const ShopImgBox = styled.div`
