@@ -75,7 +75,16 @@ export const ListAPI = axios.create({
         "Content-Type" : "application/json; charset=UTF-8"
     },
     timeout: 5000
-})
+});
+
+export const PaginationAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type" : "application/json; charset=UTF-8"
+    },
+    timeout: 5000
+});
+
 
 export const UploadShoppingCartAPI = axios.create({
     BASE_URL: base_url,

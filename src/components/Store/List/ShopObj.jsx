@@ -21,7 +21,6 @@ function ShopObj(props) {
         "GoodsPrice": "",
         "GoodsHeart": false,
     })
-    const PropsObj = props
     
     const [UserData, setUserData] = useState({
         "UserID" : 0,
@@ -55,9 +54,7 @@ function ShopObj(props) {
     }
     
     useEffect(() => {
-        console.log(props.obj)
         setGoodsObj(props.obj)
-        console.log(GoodsObj)
     }, [])
 
     return (

@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const HeaderContainer = styled.nav`
+    z-index: 100;
     position: fixed;
     display: flex;
     align-items: center;
@@ -109,6 +110,7 @@ export const CategoryBox = styled.div`
 export const XBox = styled.div`
     width: 10%;
     height: 10%;
+    z-index: 5;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -187,6 +189,7 @@ export const UserContainer = styled.div`
     position: absolute;
     right: 16%;
     background: none;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;

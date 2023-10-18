@@ -9,7 +9,6 @@ import {
 } from '../../styles/Store/Category/CategoryObj.style'
 
 function CategoryObj(props) {
-    console.log(props)
     return (
         <Card>
             <CardContent>

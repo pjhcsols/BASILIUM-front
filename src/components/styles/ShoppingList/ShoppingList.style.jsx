@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const MainContainer = styled.div`
     width: 100vw;
-    height: 90vh;
+    display: table;
     margin: 0 auto;
     justify-content: center;
     align-items: center;

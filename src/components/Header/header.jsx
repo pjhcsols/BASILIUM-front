@@ -28,6 +28,7 @@ import {
   Mymenu,
   HeaderLinkContainer
 } from '../styles/Header.style.jsx';
+import S_Category from './S_Category'
 
 function Header(props) {
   const [extendHeader, setExtendHeader] = useState(false)
@@ -42,6 +43,7 @@ function Header(props) {
   const onClickCart = () => {
     navi('/shopCart')
   }
+  
   return (
     <HeaderContainer
       isScroll={props.isScroll}
@@ -57,15 +59,16 @@ function Header(props) {
         {
           extendHeader ? 
             <CategoryBar>
-              <CategoryBox>
-                <Category />
-              </CategoryBox>
+              <XBox>
+                <Xbar /> 
+                <S_Category />
+              </XBox>
             </CategoryBar>
             :
             <CategoryBar>
-              <XBox>
-                <Xbar /> 
-              </XBox>
+              <CategoryBox>
+                <Category />
+              </CategoryBox>
             </CategoryBar>
         }
       </OpenLinkButton>
@@ -121,7 +124,7 @@ function Header(props) {
         }
       </UserContainer>
       <CartContainer onClick={onClickCart}>
-        <CartIMG />
+        <CartIMG style={{"color":"white"}}/>
       </CartContainer>
     </HeaderContainer>
   )

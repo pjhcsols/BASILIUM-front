@@ -7,9 +7,10 @@ export const BG = styled.div`
     width: 220px;
     height: 380px;
     margin-bottom: 20px;
+    cursor: pointer;
     /* min-width: 100%;
     min-height: 300px; */
-    background-color: #252129;
+    background-color: #212529;
 `
 
 export const Carddiv = styled.div`

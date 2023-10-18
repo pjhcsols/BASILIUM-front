@@ -25,14 +25,46 @@ function App() {
       <Route path="/" element={<MainHome />} />
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/store" element={<MainStore />} />
-      <Route path="/shopping" element={<ShoppingList />} />
-      <Route path="/Goods" element={<Goods />} />
-      <Route path="/login" element={<Sign_in />}/>
-      <Route path="/purchase" element={<Purchase />}/>
-      <Route path="/register" element={<Sign_up />}/>
-      <Route path="/modeling" element={<ImageAIPage />}/>
-      <Route path="/brands" element={<Listing />}/>
-      <Route path="*" element={<NotFound />} />
+      <Route 
+        exact 
+        path="/shopping" 
+        element={<ShoppingList />} 
+      />
+      <Route 
+        exact 
+        path="/Goods/:index" 
+        element={<Goods />} 
+      />
+      <Route 
+        exact
+        path="/login" 
+        element={<Sign_in />}
+      />
+      <Route 
+        exact
+        path="/purchase" 
+        element={<Purchase />}
+      />
+      <Route 
+        exact
+        path="/register" 
+        element={<Sign_up />}
+      />
+      <Route 
+        exact
+        path="/modeling" 
+        element={<ImageAIPage />}
+      />
+      <Route 
+        exact
+        path="/brands" 
+        element={<Listing />}
+      />
+      <Route 
+        exact
+        path="*" 
+        element={<NotFound />} 
+      />
     </Routes>
   );
 }
