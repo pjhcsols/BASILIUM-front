@@ -27,7 +27,6 @@ const CtListObj = CategoryList.map((item, i) => {
 )});
 
 function S_Category() {
-    const navi = useNavigate()
     return (
         <CtContainer>
             <CtBox>

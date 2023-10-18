@@ -18,22 +18,17 @@ import {
   CategoryExp,
   ContentBox,
   CtgSpan,
-  ExitBtn,
   ListPageContainer, 
   ListPageRow, 
-  ModalBG, 
-  ModalBackDrop, 
-  ModalBtn, 
-  ModalContainer,
-  ModalView
 } from '../../styles/ShoppingList/ListPage.style'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { 
-  ReactComponent as CategorySVG 
-} from '../../../assets/SVG/category.svg'
 import Pagination from './Pagination/Pagination'
 
 const Category = [
+  {
+    "CategoryID" : 0,
+    "CategoryName" : "Undefined"
+  },
   {
     "CategoryID" : 1,
     "CategoryName" : "Jacket"
@@ -221,35 +216,9 @@ function ListPage(props) {
     return list;
   }
 
-  /* Modal 관련 컴포넌트 */
-  const [isOpen, setIsOpen] = useState(false);
-  const openModalHandler = () => {
-    setIsOpen(!isOpen)
-  }
-
-  function renderModal(){
-    return (
-      <>
-        { isOpen ?
-          <ModalBG onClick={openModalHandler}>
-            <ModalBackDrop onClick={openModalHandler}>
-              <ModalView onClick={(e)=> e.stopPropagation()}>
-                <ExitBtn onClick={openModalHandler}>
-                  x
-                </ExitBtn>
-              </ModalView>
-            </ModalBackDrop>
-          </ModalBG>
-          : null
-        }
-      </>
-    )
-  }
-
   // Category 관련 컴포넌트
   function renderCategory(){
     let ctg = props.id;
-    console.log(ctg)
     let list = [];
     list.push(
       <CategoryBox>

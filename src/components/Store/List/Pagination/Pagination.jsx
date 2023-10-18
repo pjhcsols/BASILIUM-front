@@ -47,13 +47,13 @@ function Pagination() {
         if(totalpage === 0){
             list.push(
                 <MidText>
-                    0/0
+                    페이지 0/0
                 </MidText>
             )
         }else{
             list.push(
                 <MidText>
-                    {currpage}/{totalpage}
+                    페이지 {currpage}/{totalpage}
                 </MidText>
             )
         }

@@ -16,14 +16,13 @@ function CategoryBox() {
     const product = CategoryList.map((item, i) => {
         return (
         <div>
-            <Link to={`/shopping?categoryid=${i}`}>
-                <CategoryObj
-                    src={item.src}
-                    key={i}
-                    title={item.title}
-                    subtitle={item.subtitle}
-                />
-            </Link>
+            <CategoryObj
+                key={i}
+                src={item.src}
+                title={item.title}
+                subtitle={item.subtitle}
+                id={item.id}
+            />
         </div>
     )});
 

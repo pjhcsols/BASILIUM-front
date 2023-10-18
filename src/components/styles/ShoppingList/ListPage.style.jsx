@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const ContentBox = styled.div`
     width: 100vw;
+    position: relative;
+    top: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,8 +13,6 @@ export const ContentBox = styled.div`
 
 export const ListPageContainer = styled.div`
     width: 60vw;
-    position: relative;
-    top: 10vh;
     display: flex;
     flex-direction: column;
     background-color: #212529;
@@ -27,6 +27,7 @@ export const ListPageRow = styled.div`
 export const CategoryBox = styled.div`
     width: 20vw;
     position: absolute;
+    bottom: 120px;
 `
 
 export const CtgSpan = styled.span`

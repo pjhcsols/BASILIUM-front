@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const PaginationBG = styled.div`
     width: 100vw;
     height: 10vh;
-    position: relative;
+    background-color: #212529;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -12,11 +12,10 @@ export const PaginationBG = styled.div`
 `
 
 export const RArrow = styled.div`
-    width: 5vw;
-    height: 5vh;
-    margin: 0 auto;
+    width: 3vw;
+    height: 7vh;
     position: absolute;
-    right: 40vw;
+    right: 43vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,11 +23,11 @@ export const RArrow = styled.div`
 `
 
 export const LArrow = styled.div`
-    width: 5vw;
-    height: 5vh;
+    width: 3vw;
+    height: 7vh;
     margin: 0 auto;
     position: absolute;
-    left: 40vw;
+    left: 43vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,11 +35,12 @@ export const LArrow = styled.div`
 `
 
 export const MidBox = styled.div`
-    width: 6vw;
+    width: 7vw;
     height: 5vh;
     margin: 0 auto;
     position: absolute;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: nowrap;
 `
@@ -48,6 +48,8 @@ export const MidBox = styled.div`
 export const MidText = styled.span`
     font-family: "Noto Sans KR", sans-serif;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
+    position: absolute;
+    bottom: 20px;
 `
