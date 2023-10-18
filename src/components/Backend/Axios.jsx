@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 //test : https://my-json-server.typicode.com/typicode/demo/posts
-export const base_url = "http://172.20.30.37:8080";
+export const base_url = "http://172.20.56.248:8080";
 
 const API = axios.create({
     BASE_URL: base_url,

@@ -48,6 +48,14 @@ function Header(props) {
     SetIsClick((prev)=>!prev)
   }
   
+  const isLogin = () =>{
+    navi('/mypage');
+  }
+
+
+  const isLogout = () =>{
+    localStorage.removeItem("key");
+  }
   return (
     <HeaderContainer
       isScroll={props.isScroll}
@@ -124,10 +132,10 @@ function Header(props) {
         {
           IsMyMenu && (
             <ExpendedMenu>
-              <Mymenu onClick={navi('/mypage')}>
+              <Mymenu onClick={isLogin}>
                 My Page
               </Mymenu>
-              <Submenu>
+              <Submenu onClick={isLogout}>
                 Logout
               </Submenu>
             </ExpendedMenu>

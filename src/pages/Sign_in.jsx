@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import "../styles/sign_in.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { baseURL } from "./myPage/constatns";
+
 const Sign_in = () => {
   const [inputs, setInputs] = useState({
     email: "",
     pwd: "",
   });
+
+  const [errorM, setErrorM] = useState("");
 
   const { email, pwd } = inputs;
   const navigate = useNavigate();
@@ -22,14 +26,20 @@ const Sign_in = () => {
   };
 
   const signUp = () => {
-    navigate("/sign_up");
+    navigate("/register");
   };
 
-const serverUrl="http://172.30.1.65:8080/v1/normalUser/signup";
-  const Login = () => {
-        const request =axios.post(serverUrl,inputs).then(response => {
-          console.log('응답 데이터:', response.data); })
-
+const serverUrl= baseURL+"/v1/normalUser/login";
+  const Login = async() => {
+        await axios.post(serverUrl,{"userId":inputs.email,"userPassword": inputs.pwd}).then(response => {
+         
+              localStorage.setItem("key",response.data);
+              navigate("/");
+          
+              
+        }).catch(err =>{console.log(err);
+          setErrorM(err.response.data);
+        });
   };
 
   return (
@@ -73,7 +83,6 @@ const serverUrl="http://172.30.1.65:8080/v1/normalUser/signup";
             <div className="pwdSet">
               <div>
                 <p className="pwdTxt">비밀번호</p>
-                <button className="pwdReset">비밀번호 재설정</button>
               </div>
 
               <div className="pwdBox">
@@ -93,7 +102,7 @@ const serverUrl="http://172.30.1.65:8080/v1/normalUser/signup";
             </div>
 
             <div className="errorDiv">
-              <p className="errorTxt">※이메일이나 비밀번호가 틀립니다.</p>
+              <p className="errorTxt">{errorM}</p>
             </div>
 
             <button className="loginBtn" onClick={Login}>
