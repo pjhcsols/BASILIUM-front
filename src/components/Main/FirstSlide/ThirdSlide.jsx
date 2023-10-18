@@ -1,14 +1,16 @@
 import React from 'react'
 import { 
   AIPostContainer,
+  IMG,
+  IMG2,
   IMGBox,
+  IMGContainer,
   Subscription,
   SubscriptionBox,
   ThirdContainer,
   TitleContainer,
   TitleSpan
 } from '../../styles/ThirdSlide.style'
-
 import { motion } from 'framer-motion'
 
 function ThirdSlide() {
@@ -36,7 +38,11 @@ function ThirdSlide() {
             </Subscription>
           </TitleContainer>
           <IMGBox>
-            <SubscriptionBox>
+            <SubscriptionBox
+              style={{
+                "right":"60%"
+              }}
+            >
               <Subscription>
                 360 view of clothes<br/>
               </Subscription>
@@ -45,6 +51,14 @@ function ThirdSlide() {
               </Subscription>
             </SubscriptionBox>
           </IMGBox>
+          <IMGContainer
+            style={{
+              "bottom" : "32%",
+              "left" : "16%"
+            }}
+          >
+            <IMG />
+          </IMGContainer>
           <IMGBox>
             <SubscriptionBox>
               <Subscription>
@@ -55,6 +69,14 @@ function ThirdSlide() {
               </Subscription>
             </SubscriptionBox>
           </IMGBox>
+          <IMGContainer
+            style={{
+              "bottom" : "32%",
+              "right" : "46%"
+            }}
+          >
+            <IMG2 />
+          </IMGContainer>
         </AIPostContainer>
       </ThirdContainer>
     </motion.div>

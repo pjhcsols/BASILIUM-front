@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Card = styled.div`
@@ -8,24 +7,17 @@ export const Card = styled.div`
     display: block;
     width: 170px;
     height: 300px;
+    cursor: pointer;
+    transition: 0.5s ease;
 `
 
 export const CardBg = styled.div`
     width: 100%;
     height: 100%;
     background-image: url(${props => props.src});
-`
-
-export const Linkdiv = styled(NavLink)`
-    cursor: pointer;
-    text-decoration: none;
-    z-index: 1;
-    &:hover{
-        background: #212530;
-    }
-    &:after{
-        background: #D9D9D9;
-    }
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 37%;
 `
 
 export const CardContent = styled.div`
@@ -37,35 +29,32 @@ export const CardContent = styled.div`
     height: 50%;
     white-space: normal;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
-    transition: all .3s ;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0,0,.5,1);
     transition-delay: 0s;
     transition-property: all;
+    &:hover{
+        transform: scale(1.1);
+        background: #D9D9D9;
+    };
 `
 
 export const Spandiv = styled.div`
     position: absolute;
+    display: flex;
     left: 0;
-    padding: 30px;
-    width: 20rem;
+    padding: 20px;
+    width: 20vw;
 `
 
-export const Titlediv = styled.div`
-    line-height: 1.25;
+export const CategoryTitle = styled.span`
+    padding-right: 10px;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: bolder;
-    font-size: 10px;
+    font-size: 15px;
 `
 
-export const CategoryTitle = styled.h3`
-    width: 100%;
-    height: 100%;
-`
-
-export const Subtitle = styled.a`
-    display: inline-block;
-    text-decoration: none;
+export const Subtitle = styled.span`
     text-align: center;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: lighter;

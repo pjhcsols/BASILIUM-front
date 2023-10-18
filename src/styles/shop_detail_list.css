@@ -1,0 +1,274 @@
+/* 쇼핑 리스트 전체 컨테이너 */
+
+
+
+.deliveryContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.shopListdetailContainer {
+  width: 1283px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 73px;
+}
+
+.shopListdetailContainer .title {
+  color: #000000;
+  font-size: 40px;
+  font-weight: bold;
+
+  width: 1283px;
+}
+
+.shopListdetailContainer .thickDivider {
+  width: 1280px;
+  background-color: #000000;
+  height: 3px;
+}
+
+.shopListdetailContainer .indexBox {
+  width: 1283px;
+  height: 73px;
+
+  display: flex;
+  align-items: center;
+}
+
+.shopListdetailContainer .indexProductInfo {
+  width: 220px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 30px;
+  margin-right: 170px;
+  text-align: center;
+}
+
+.shopListdetailContainer .indexShopDate {
+  width: 220px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+
+  margin-right: 123px;
+  text-align: center;
+}
+
+.shopListdetailContainer .indexInvoice {
+  width: 220px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+
+  margin-right: 123px;
+  text-align: center;
+}
+
+.shopListdetailContainer .indexPrice {
+  width: 220px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+
+  margin-right: 117px;
+  text-align: center;
+}
+
+
+.shopListdetailContainer .indexStatus {
+  width: 220px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.shopListdetailContainer .thinDivider {
+  width: 1280px;
+  background-color: #000000;
+  height: 1px;
+}
+
+/* 쇼핑 목록 */
+
+.shopItemDetailContainer {
+  width: 1283px;
+  height: 443px;
+
+  display: flex;
+  align-items: center;
+}
+
+.shopItemDetailContainer .productInfoDetailBox {
+  width: 223px;
+  height: 390px;
+  margin-right: 115px;
+}
+
+.shopItemDetailContainer .productInfoDetailBox .image {
+  width: 180px;
+  height: 260px;
+  background-color: #d9d9d9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shopItemDetailContainer .productInfoDetailBox .description {
+  color: #000000;
+  font-size: 25px;
+  font-weight: light;
+}
+
+.shopItemDetailContainer .shopDate {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 85px;
+  text-align: center;
+}
+
+
+.shopItemDetailContainer .t_invoice {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+
+  margin-right: 80px;
+  text-align: center;
+}
+
+
+.shopItemDetailContainer .orderQuantity {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+
+  margin-right: 117px;
+  text-align: center;
+}
+.shopItemDetailContainer .price {
+  width: 220px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+
+  margin-right: 117px;
+  text-align: center;
+}
+
+.shopItemDetailContainer .status {
+  width: 220px;
+  color: #000000;
+  font-size: 22px;
+  font-weight: bold;
+  margin-right: 30px;
+  text-align: center;
+}
+
+
+.shopItemDetailContainer .status .searchDelivery{
+  width: 80px;
+  height: 30px;
+  color: #000000;
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+.deliveryTruckContainer{
+  width: 1283px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 73px;
+}
+
+
+.destinationMainContainer .userNameContainer{
+  width: 1283px;
+  height: 73px;
+
+  display: flex;
+  align-items: center;
+}
+
+.destinationMainContainer .userNameContainer .nameTitle{
+  width: 150px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 60px;
+  margin-right: 50px;
+}
+
+
+.destinationMainContainer .userNameContainer .userName{
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.destinationMainContainer .destinationContainer{
+  width: 1283px;
+  height: 73px;
+
+  display: flex;
+  align-items: center;
+}
+
+.destinationMainContainer .destinationContainer .destinationTitle{
+  width: 150px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: 90px;
+}
+
+
+.destinationMainContainer .destinationContainer .destinationName{
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.destinationMainContainer .phoneNumberContainer{
+  width: 1283px;
+  height: 73px;
+
+  display: flex;
+  align-items: center;
+}
+
+.destinationMainContainer .phoneNumberContainer .phoneNumberTitle{
+  width: 150px;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 48px;
+  margin-right: 63px;
+}
+
+
+.destinationMainContainer .phoneNumberContainer .phoneNumberName{
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+}

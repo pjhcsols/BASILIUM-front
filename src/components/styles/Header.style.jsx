@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const HeaderContainer = styled.nav`
+    z-index: 100;
     position: fixed;
     display: flex;
     align-items: center;
@@ -27,6 +28,15 @@ export const HeaderContainer = styled.nav`
     z-index: 5;
 `
 
+export const HeaderLinkContainer = styled.div`
+    width: 1320px;
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+
+    margin: 0px auto;
+`
 
 export const HeaderLeftLinkContainer = styled.div`
     width: 30%;
@@ -47,7 +57,7 @@ export const HeaderRightLinkContainer = styled.div`
     position: absolute;
     align-items: center;
     justify-content: center;
-    left: 50%;
+    right: 20%;
 `
 
 export const IndividualLinkContainer = styled.li`
@@ -100,6 +110,7 @@ export const CategoryBox = styled.div`
 export const XBox = styled.div`
     width: 10%;
     height: 10%;
+    z-index: 5;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -129,7 +140,8 @@ export const LogoContainer = styled.div`
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 47%;
+    left: 50%;
+    transform: translateX(-50%);
 `
 
 export const Logo = styled.img`
@@ -146,4 +158,96 @@ export const OpenLinkButton = styled.button`
     color: white;
     cursor: pointer;
     z-index: 5;
+`
+
+export const CartContainer = styled.div`
+    width: 60px;
+    height: 55px;
+    position: absolute;
+    right: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    object-fit: cover;
+    transition: 0.5s ease;
+    transform: ${(props) => {
+        if(props.isScroll === true){
+            return 'scale(0.7)';
+        }else{
+            return 'none';
+        }
+    }};
+    &:hover{
+        transform: scale(1.1);
+    }
+`
+
+export const UserContainer = styled.div`
+    width: 60px;
+    height: 55px;
+    position: absolute;
+    right: 16%;
+    background: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    object-fit: cover;
+    transition: 0.5s ease;
+    transform: ${(props) => {
+        if(props.isScroll === true){
+            return 'scale(0.7)';
+        }else{
+            return 'none';
+        }
+    }};
+    &:hover{
+        transform: scale(1.1);
+    }
+`
+
+export const ExpendedMenu = styled.div`
+    width: 5vw;
+    height: 4vw;
+    position: absolute;
+    right: 16%;
+    top: 100%;
+    border: 3px solid #fff;
+    border-radius: 15px 15px 15px 15px;
+`
+
+export const Mymenu = styled.div`
+    width: 5vw;
+    height: 2vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 13px 13px 0px 0px;
+    align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: lighter;
+    color: white;
+    transition: 0.5s ease;
+    &:hover{
+        background: #09599b;
+    }
+`
+
+export const Submenu = styled.div`
+    width: 5vw;
+    height: 2vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 0px 13px 13px;
+    align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: lighter;
+    color: white;
+    transition: 0.5s ease;
+    &:hover{
+        background: #09599b;
+    }
 `

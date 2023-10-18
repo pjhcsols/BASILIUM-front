@@ -2,8 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 //test : https://my-json-server.typicode.com/typicode/demo/posts
-//const real = http://172.28.80.1:8080 
-export const base_url = "http://172.20.19.195:8080";
+export const base_url = "http://172.20.30.37:8080";
 
 const API = axios.create({
     BASE_URL: base_url,
@@ -24,16 +23,16 @@ export const FileAPI = axios.create({
 
 export const UploadImageAPI = axios.create({
     BASE_URL: base_url,
-    // headers: { 
-    //     'Content-Type': 'application/json; multipart/form-data; charset=UTF-8' 
-    // },
+    headers: { 
+        'Content-Type': 'multipart/form-data; charset=UTF-8' 
+    },
     timeout: 50000,
 });
 
 export const DownloadFiles = axios.create({
     BASE_URL: base_url,
     headers: { 
-        "Content-Type": "multipart/form-data; charset=UTF-8" ,
+        "Content-Type": "multipart/form-data; charset=UTF-8" 
     },
     timeout: 50000,
 });
@@ -76,7 +75,16 @@ export const ListAPI = axios.create({
         "Content-Type" : "application/json; charset=UTF-8"
     },
     timeout: 5000
-})
+});
+
+export const PaginationAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type" : "application/json; charset=UTF-8"
+    },
+    timeout: 5000
+});
+
 
 export const UploadShoppingCartAPI = axios.create({
     BASE_URL: base_url,
@@ -94,28 +102,36 @@ export const UploadBuyingAPI = axios.create({
     timeout: 5000
 });
 
+export const ExplainAPI = axios.create({
+    BASE_URL: base_url,
+    headers: {
+        "Content-Type": "multipart/form-data; charset=UTF-8" 
+    },
+    timeout: 5000
+});
+
+export const QnaAPI = axios.create({
+    BASE_URL: base_url,
+    headers:{
+        "Content-Type": "multipart/form-data; charset=UTF-8"
+    },
+    timeout: 5000
+});
+
 export const ReviewAPI = axios.create({
     BASE_URL: base_url,
-    headers: {
-        "Content-Type": "multipart/form-data; charset=UTF-8" 
+    headers:{
+        "Content-Type" : "multipart/form-data; charset=UTF-8"
     },
     timeout: 5000
 });
 
-export const DetailGoodsAPI = axios.create({
+export const RequestInfoAPI = axios.create({
     BASE_URL: base_url,
     headers: {
-        "Content-Type": "multipart/form-data; charset=UTF-8" 
+        "Content-Type" : "multipart/form-data; charset=UTF-8"
     },
     timeout: 5000
 });
-
-export const QandAAPI = axios.create({
-    BASE_URL: base_url,
-    headers: {
-        "Content-Type": "application/json; charset=UTF-8; multipart/form-data;" 
-    },
-    timeout: 5000
-})
 
 export default API

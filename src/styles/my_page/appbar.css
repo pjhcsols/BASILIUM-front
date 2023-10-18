@@ -1,0 +1,72 @@
+.appBarContainer {
+  width: 100%;
+  height: 450px;
+  background-color: #212529;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appBarContainer .title {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  width: 1275px;
+  margin-bottom: 71px;
+}
+
+.appBarContainer .innerBox {
+  width: 1275px;
+  display: flex;
+}
+
+.appBarContainer .profileImage {
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  margin-right: 122px;
+  background-color: #d9d9d9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appBarContainer .profileBox {
+  display: flex;
+  flex-direction: column;
+  margin-right: 56px;
+}
+
+.appBarContainer .nickName {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ffffff;
+
+  margin-bottom: 17px;
+}
+
+.appBarContainer .email {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 41px;
+}
+
+.appBarContainer .name {
+  font-size: 25px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.appBarContainer .button {
+  font-size: 25px;
+  font-weight: bold;
+  color: #000000;
+  border: none;
+  border-radius: 20px;
+  height: 60px;
+
+  padding: 12px 33px;
+}

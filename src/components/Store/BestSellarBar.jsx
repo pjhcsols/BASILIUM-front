@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 import BestSellarContent from './BestSellarContent'
-import BestSellarAPI, { DownloadFiles } from '../Backend/Axios'
+import BestSellarAPI, { DownloadFiles, base_url } from '../Backend/Axios'
 import Loading from '../Loading'
 
 import { Swiper } from "swiper/react"
@@ -38,12 +38,16 @@ function BestSellarBar() {
         "productPrice" : 0,
         "productDesc": '',
     }])
+    const [BestSellarLen, setBestSellarLen] = useState(0)
 
     const GetBestSellar = () => {
         BestSellarAPI
             .get('/products/bestSelling')
             .then(data => {
                 setBestSellarList(data.data)
+                data.data.forEach((item, i)=>(
+                    UploadImageFile(item)
+                ))
             })
             .catch(error => {
                 console.log(error)
@@ -51,7 +55,6 @@ function BestSellarBar() {
     }
 
     // ImagesList 
-    const [ImagesList, setImagesList] = useState([])
     const [ShowImageList, SetShowImageList] = useState()
 
     // According to Axios, Post some Image data.
@@ -67,31 +70,19 @@ function BestSellarBar() {
         setIsLoading(false)
     }
 
-    const UploadImageFile = () => {
-        const ListLength = BestSellarList.length
-        DownloadFiles
-            .get(`/products/downloadProductPhotos/${1}?num=1`,{
-                responsetype: 'arraybuffer'
-            })
-            .then(res => {
-                console.log(res)
-                const blob = new Blob([res.data], {type: "text/plain"})
-                return blob
-            })
-            .then(data => {
-                let file = new File([data], data.type)
-                ImageEncoding(file)
-            })
-            .catch(error => {
-                console.log("useEffect DownloadFiles Error")
-                console.log(error)
-            }
-        )
+    const UploadImageFile = (item) => {
+        fetch(`${base_url}/products/downloadProductPhotos/${item.productId}?num=1`, {
+            responseType: "arraybuffer",
+          })
+            .then((res) => res.blob())
+            .then((res) => {
+              var file = new File([res], res.type);
+              ImageEncoding(file);
+         });
     }
     
     useEffect(()=>{
         GetBestSellar()
-        UploadImageFile()
     }, [])
 
     return (

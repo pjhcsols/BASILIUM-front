@@ -1,27 +1,138 @@
 import React, { 
-  useEffect, 
-  useRef, 
+  useEffect,
   useState
 } from 'react'
 
-import { ListPageContainer } from '../../styles/ShoppingList/ListPage.style'
-import { CountingAPI, DownloadFiles } from '../../Backend/Axios'
-import Loading from '../../Loading'
+import { 
+  base_url
+} from '../../Backend/Axios'
 import ShopObj from './ShopObj'
+import { 
+  SkeletonDesign, 
+  SkeletonPrice, 
+  SkeletonTitle, 
+  Skeletondiv
+} from '../../styles/List/ShopObj.style'
+import { 
+  CategoryBox,
+  CategoryExp,
+  ContentBox,
+  CtgSpan,
+  ExitBtn,
+  ListPageContainer, 
+  ListPageRow, 
+  ModalBG, 
+  ModalBackDrop, 
+  ModalBtn, 
+  ModalContainer,
+  ModalView
+} from '../../styles/ShoppingList/ListPage.style'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { 
+  ReactComponent as CategorySVG 
+} from '../../../assets/SVG/category.svg'
+import Pagination from './Pagination/Pagination'
+
+const Category = [
+  {
+    "CategoryID" : 1,
+    "CategoryName" : "Jacket"
+  },
+  {
+    "CategoryID": 2,
+    "CategoryName" : "Pants"
+  },
+  {
+    "CategoryID": 3,
+    "CategoryName" : "Hat"
+  },
+  {
+    "CategoryID": 4,
+    "CategoryName" : "Shoes"
+  },
+  {
+    "CategoryID": 5,
+    "CategoryName" : "Bag"
+  },
+  {
+    "CategoryID": 6,
+    "CategoryName" : "Skirt"
+  },
+  {
+    "CategoryID": 7,
+    "CategoryName" : "Underwear"
+  }
+];
 
 function ListPage(props) {
   // Related with loading
-  const [isLoading, setIsLoading] = useState(null)
-  
+  const [isLoading, setIsLoading] = useState(false)
   // Related with Object List
-  const [ObjList, setObjList] = useState([])
-
-  const SelectShop = useRef()
-
-  // formData and reader 
-  const formData = new FormData()
-  const reader = new FileReader()
-
+  const [ObjList, setObjList] = useState([
+    {
+      "ImageUrl": "",
+      "GoodsName": "청자켓",
+      "ProductID" : -1,
+      "GoodsCategory": 1,
+      "GoodsPrice": "45000",
+      "GoodsHeart": false,
+    },
+    {
+      "ImageUrl": "none",
+      "GoodsName": "블라우스",
+      "ProductID" : -1,
+      "GoodsCategory": 2,
+      "GoodsPrice": 50000,
+      "GoodsHeart": false,
+    },
+    {
+      "ImageUrl": "none",
+      "GoodsName" : "신발",
+      "ProductID" : -1,
+      "GoodsCategory" : 3,
+      "GoodsPrice": 35000,
+      "GoodsHeart": false,
+    },
+    {
+      "ImageUrl" : "none",
+      "GoodsName": "흰 셔츠",
+      "ProductID" : -1,
+      "GoodsCategory": 4,
+      "GoodsPrice" : 37000,
+      "GoodsHeart": false,
+    },
+    {
+      "ImageUrl" : "none",
+      "GoodsName": "블랙 티셔츠",
+      "ProductID" : -1,
+      "GoodsCategory": 5,
+      "GoodsPrice" : 33000,
+      "GoodsHeart": false,
+    },
+    {
+      "ImageUrl" : "none",
+      "GoodsName": "흰색 박스티",
+      "ProductID" : -1,
+      "GoodsCategory" : 6,
+      "GoodsPrice" : 56000,
+      "GoodsHeart": false,
+    },
+    {
+      "ImageUrl" : "none",
+      "GoodsName": "블랙 박스티",
+      "ProductID" : -1,
+      "GoodsCategory": 7,
+      "GoodsPrice" : 65000,
+      "GoodsHeart": false,
+    },
+    {
+      "ImageUrl" : "none",
+      "GoodsName": "져지",
+      "GoodsCategory": 8,
+      "GoodsPrice" : 55000,
+      "GoodsHeart": false,
+    },
+  ])
   // Related to Images
   const [ImageCount, setImageCount] = useState(0)
   const [ImagesList, setImagesList] = useState([])
@@ -33,72 +144,139 @@ function ListPage(props) {
   // Related with ProductID
   const [ProductID, setProductID] = useState(0)
 
-  // Image Encoding and Showing List
-  const ImageEncoding = (images) =>{
-    for(let i = 0;i<ImagesList.length;i++){
-      reader.readAsDataUrl(ImagesList[i])
-      new Promise((resolve)=>{
-          reader.onload = () => {
-              SetShowImageList(reader.result)
-              resolve()
-          }
+  function GetItemImage({ item }){
+     // ImageURL Change
+    useEffect(() => {
+      fetch(`${base_url}/products/downloadProductPhotos/${item.productId}?num=1`, {
+        responseType: "arraybuffer",
       })
-      setIsLoading(false)
-    }
-  }
+        .then((res) => res.blob())
+        .then((res) => {
+          var file = new File([res], res.type);
+          onImageDownload(file);
+        });
+      // .then((res) => res.json())
+      // .then((res) => {});
+    }, [item.productId]);
 
-  const CountingGoods = () => {
-    CountingAPI
-      .get(`countPhotos/${ProductID}`)
-      .then(count => {
-        setImageCount(count)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
+    const [imageSrc, setImageSrc] = useState(null);
 
-  const DownloadImageFunction = () => {
-    DownloadFiles
-      .get(`/downloadProductPhotos/${ProductID}`, {
-          num : 1
-      })
-      .then(data => {
-          console.log(data)
-          const DataArr = Array.from(data)
-          DataArr.forEach(element => {
-              console.log(element)
-              SetShowImageList([...element])
-          })
-      })
-      .catch(error => {
-          console.log("useEffect DownloadFiles Error")
-          console.log(error)
-      }
+    const onImageDownload = (file) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        setImageSrc(reader.result || null); // 파일의 컨텐츠
+      };
+    };
+    return(
+      <img
+        src={imageSrc}
+        alt="product"
+      />
     )
-    ImageEncoding()
   }
 
-  useEffect(()=>{
-    setIsLoading(true)
-    DownloadImageFunction()
-    setObjList(Array(ImageCount).fill(null).map((_,index) => index))
-    ImageEncoding()
-  }, [])
+  /* 페이지 렌더링 함수 */
+  function renderListPage(){
+    const SkeletonBox = () => {
+      return (
+        <Skeletondiv>
+          <SkeletonDesign />
+          <SkeletonTitle />
+          <SkeletonPrice />
+        </Skeletondiv>
+      )
+    }
+    var list = [];
+    const count = 2;
+    const repeatedSkeleton = Array.from({ length: count }, (v, index) => (
+      <ListPageRow>
+        <SkeletonBox />
+      </ListPageRow>
+    ))
+
+    if(isLoading){
+      list.push(
+        <>
+          { repeatedSkeleton }
+        </>
+      )
+    }else{
+      for(let i = 0; i < ObjList.length; i += 4){
+        list.push(
+        <>
+          <ListPageRow>
+            {ObjList.slice(i, i + 4).map((index,i)=>(
+              <ShopObj
+                key={index}
+                obj={ObjList[i]}
+              />
+            ))}
+          </ListPageRow>
+        </>
+        )
+      }
+    }
+    return list;
+  }
+
+  /* Modal 관련 컴포넌트 */
+  const [isOpen, setIsOpen] = useState(false);
+  const openModalHandler = () => {
+    setIsOpen(!isOpen)
+  }
+
+  function renderModal(){
+    return (
+      <>
+        { isOpen ?
+          <ModalBG onClick={openModalHandler}>
+            <ModalBackDrop onClick={openModalHandler}>
+              <ModalView onClick={(e)=> e.stopPropagation()}>
+                <ExitBtn onClick={openModalHandler}>
+                  x
+                </ExitBtn>
+              </ModalView>
+            </ModalBackDrop>
+          </ModalBG>
+          : null
+        }
+      </>
+    )
+  }
+
+  // Category 관련 컴포넌트
+  function renderCategory(){
+    let ctg = props.id;
+    console.log(ctg)
+    let list = [];
+    list.push(
+      <CategoryBox>
+          <CtgSpan>
+            {
+              Category[ctg].CategoryName
+            }
+          </CtgSpan>
+      </CategoryBox>
+    )
+    return list;
+  }
 
   return (
-    <>
-      { isLoading ? 
-        <Loading /> : 
-        <ListPageContainer>
-          {ObjList.map((index)=>(
-            <ShopObj 
-              obj={ShowImageList[index]}
-            />
-          ))}
-        </ListPageContainer>
+    <ContentBox>
+      <CategoryExp>
+      {
+        renderCategory()
       }
-    </>
+      </CategoryExp>
+      <ListPageContainer>
+        {
+          renderListPage()
+        }
+      </ListPageContainer>
+      <Pagination />
+    </ContentBox>
   )
 }
 

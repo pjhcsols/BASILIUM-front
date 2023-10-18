@@ -9,6 +9,11 @@ import API, {
 } from '../../Backend/Axios'
 import Loading from '../../Loading'
 import Subscription from './Subscription'
+import Explain from './Explain'
+import { 
+  GoodsBG 
+} from '../../styles/IndividualGoods/Goods.style'
+import ShopHeader from '../../Header/ShopHeader'
 
 
 function Goods() {
@@ -106,14 +111,15 @@ function Goods() {
 
   return (
     <>
+      <ShopHeader />
       {
         isLoading ? 
         <Loading />
         :
-        <>
+        <GoodsBG>
           <Detail data={shopobj} />
-          <Subscription />
-        </>
+          <Explain />
+        </GoodsBG>
       }
     </>
   )

@@ -1,10 +1,6 @@
-import React, { useState } from 'react'
-
-import { Route, Routes } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import{
-    MainContainer,  
-    GridContainer,
-    HeaderBox,
+    MainContainer,
     LogoContainer,
     ShopLogo,
 } from '../../styles/ShoppingList/ShoppingList.style'
@@ -12,39 +8,39 @@ import{
 import Logo from '../../../assets/LOGO.jpg'
 import { NavLink } from 'react-router-dom'
 import ListPage from './ListPage'
-import Upper from './Upper/Upper'
-import Under1 from './Under/Under1'
-import Shoes from './Shoes/Shoes'
-import Hat from './Hat/Hat'
-import Bag from './Bag/Bag'
-import Underwear from './Underwear/Underwear'
-import Outer from './Outer/Outer'
-import Skirt from './Skirt/Skirt'
+import Header from '../../Header/header'
 
-function ShoppingList({matches}) {
-  return (
-    <MainContainer>
-        <LogoContainer>
-            <NavLink to={"/"}>
-                <ShopLogo
-                    src={Logo}
-                    alt="ShopLogo"
-                />
-            </NavLink>
-        </LogoContainer>
-        <ListPage />
-        <Routes>
-            <Route exact path="/shop" component={<Upper />}/> 
-            <Route path="/shop/under" component={<Under1 />} />
-            <Route path="/shop/shoes" component={<Shoes />}/>
-            <Route path="/shop/hat" component={<Hat />}/>
-            <Route path="/shop/bag" component={<Bag />}/>
-            <Route path="/shop/underwear" component={<Underwear />}/>
-            <Route path="/shop/outer" component={<Outer />}/>
-            <Route path="/shop/skirt" component={<Skirt />}/>
-        </Routes>
-    </MainContainer>
-  )
+function ShoppingList() {
+    const [isScrollingDown, setIsScrollingDown] = useState(false)
+
+    const [postid, setPostId] = useState(0);
+    useEffect(() => {
+        const urlParam = new URLSearchParams(window.location.search);
+        const newPostID = urlParam.get('categoryid')
+        setPostId(newPostID);
+        const handleScroll = () => {
+            if(window.scrollY > 1){
+                setIsScrollingDown(true);
+            }else{
+                setIsScrollingDown(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [postid])
+    return (
+        <MainContainer>
+            <Header 
+                isScroll={isScrollingDown}
+            />
+            <ListPage 
+                id={postid}
+            />
+        </MainContainer>
+    )
 }
 
 export default ShoppingList

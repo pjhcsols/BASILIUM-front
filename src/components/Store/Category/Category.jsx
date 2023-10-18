@@ -27,43 +27,43 @@ export const responsive = {
 export const CategoryList = [
     {
         id: 1,
-        src: { jacket },
+        src: jacket,
         title: "Jacket",
         subtitle: "상의 전용"
     },
     {
         id: 2,
-        src: { pants },
+        src: pants,
         title: "Pants",
         subtitle: "하의 전용"
     },
     {
         id: 3,
-        src: { hat },
+        src: hat,
         title: "Hat",
         subtitle: "모자",
     },
     {
         id: 4,
-        src: { shoes },
+        src: shoes,
         title: "Shoes",
         subtitle: "신발"
     },
     {
         id: 5,
-        src: { backpack },
+        src: backpack,
         title: "Bag",
         subtitle: "가방"
     },
     {
         id: 6,
-        src: { skirt },
+        src: skirt,
         title: "skirt",
         subtitle: "스커트"
     },
     {
         id: 7,
-        src: { underwear },
+        src: underwear,
         title: "UnderWear",
         subtitle: "속옷"
     }

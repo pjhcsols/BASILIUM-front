@@ -4,7 +4,6 @@ import {
   CardBg,
   CardContent,
   CategoryTitle,
-  Linkdiv,
   Spandiv,
   Subtitle,
 } from '../../styles/Store/Category/CategoryObj.style'
@@ -12,21 +11,19 @@ import {
 function CategoryObj(props) {
     return (
         <Card>
-            <Linkdiv to={props.ref}>
-                <CardContent>
-                    <CardBg
-                        src={props.src}
-                    />
-                    <Spandiv>
-                        <CategoryTitle>
-                            {props.title}
-                        </CategoryTitle>
-                        <Subtitle>
-                            {props.subtitle}
-                        </Subtitle>
-                    </Spandiv>
-                </CardContent>
-            </Linkdiv>
+            <CardContent>
+                <CardBg
+                    src={props.src}
+                />
+                <Spandiv>
+                    <CategoryTitle>
+                        {props.title}
+                    </CategoryTitle>
+                    <Subtitle>
+                        {props.subtitle}
+                    </Subtitle>
+                </Spandiv>
+            </CardContent>
         </Card>
     )
 }

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const SubscriptionContainer = styled.div`
-    width: 80%;
-    height: 70%;
+    width: 80vw;
+    height: 70vh;
     position: relative;
     display: flex;
     justify-content: center;
@@ -12,8 +12,8 @@ export const SubscriptionContainer = styled.div`
 `
 
 export const ButtonNav = styled.div`
-    width: 100%;
-    height: 7%;
+    width: 100vw;
+    height: 7vh;
     margin-bottom: 3%;
     display: flex;
     flex-direction: row;
@@ -21,18 +21,34 @@ export const ButtonNav = styled.div`
     align-items: stretch;
 `
 
-export const ButtonText = styled.p`
+export const ButtonText = styled.span`
     color: white;
     font-family: "Noto Sans KR", sans-serif;
     font-size: 15px;
     font-weight: bolder;
+    &:hover, active{
+        color: greenyellow;
+    }
+    &:hover::after, active:after{
+        content: "";
+        width: 20%;
+        height: 2px;
+        background: greenyellow;
+        position: absolute;
+        bottom: 25px;
+        left: 40%;
+    }
+    
 `
 
 export const DetailInfo = styled.div`
     width: 25%;
     height: 100%;
     &::hover{
-
+        background-color: white;
+    };
+    &::after{
+        background-color: white;
     }
 `
 
@@ -40,7 +56,10 @@ export const ReviewInfo = styled.div`
     width: 25%;
     height: 100%;
     &::hover{
-
+        background-color: white;
+    };
+    &::after{
+        background-color: white;
     }
 `
 
@@ -48,7 +67,10 @@ export const QnaInfo = styled.div`
     width: 25%;
     height: 100%;
     &::hover{
-
+        background-color: white;
+    };
+    &::after{
+        background-color: white;
     }
 `
 
@@ -56,7 +78,10 @@ export const RequestInfo = styled.div`
     width: 25%;
     height: 100%;
     &::hover{
-
+        background-color: white;
+    };
+    &::after{
+        background-color: white;
     }
 `
 
@@ -71,12 +96,16 @@ export const ExplainBox = styled.div`
 
 export const ExplainIMG = styled.div`
     width: 100%;
-    height: 30%;
     background-image: url(${props => props.src});
 `
 
-export const ExpandButton = styled.button`
-    width: 50%;
-    height: 5%;
-    
+export const ExpandButton = styled.div`
+    width: 400px;
+    height: 50px;
+    &::hover{
+        background-color: white;
+    };
+    &::after{
+        background-color: white;
+    }
 `

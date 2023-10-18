@@ -17,7 +17,14 @@ import {
 
 function Purchase() {
     const [IsLoading, SetIsLoading] = useState(true)
-    const [ShopListObj, SetShopListObj] = useState([])
+    const [ShopListObj, SetShopListObj] = useState([
+        {
+            src: "https://velog.velcdn.com/images/heelieben/post/87bbb462-dbd5-49a5-a9e9-70ed2007cdaf/image.png",
+            productName: "test",
+            productPrice : 10000,
+            isSelected: false,
+        }
+    ])
     const [SelectedObj, SetSelectedObj] = useState([])
     const [TotalPrice, SetTotalPrice] = useState(0)
     const [TotalGoods, SetTotalGoods] = useState(0)
@@ -63,7 +70,7 @@ function Purchase() {
     }
 
     useEffect(()=>{
-        GetBuyObj()
+        // GetBuyObj()
     }, [])
 
     return (
@@ -75,20 +82,22 @@ function Purchase() {
                 <ShopObjContainer>
                     <ShopObjBox>
                         { 
-                            ShopListObj.map((item, index)=>(
+                            ShopListObj.map((item, index)=>{
+                                console.log(item);
+                                return (
                                 <ShopObj key={index}>
                                     <ShopImgBox />
                                     <ObjText>
-                                        {item.Objname}
+                                        {item.productName}
                                     </ObjText>
                                     <ObjText>
-                                        {item.Objprice}
+                                        {item.productPrice}
                                     </ObjText>
                                     <CollectBtn 
-                                        onClick={onClickSelect()}
+                                        // onClick={onClickSelect()}
                                     />
                                 </ShopObj>
-                            ))
+                            )})
                         }
                     </ShopObjBox>
                 </ShopObjContainer>
@@ -102,10 +111,10 @@ function Purchase() {
                         </ObjText>
                     </Textdiv>
                     <BuyBtn
-                        onClick={onClickBuyBtn()}
+                        onClick={onClickBuyBtn}
                     />
                     <CancelBtn 
-                        onClick={onClickCanceclObj()}
+                        onClick={onClickCanceclObj}
                     />
                 </ButtonContainer>
             </BuyingPageBG>

@@ -5,8 +5,10 @@ import React, {
 
 import { ReactComponent as Category } from '../../assets/SVG/category.svg'
 import { ReactComponent as Xbar } from '../../assets/SVG/Xbar.svg'
+import { ReactComponent as UserIMG } from '../../assets/Header/User.svg'
+import { ReactComponent as CartIMG } from '../../assets/SVG/ShoppingCartIMG.svg' 
 import LOGO from '../../assets/LOGO.jpg'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { 
   HeaderContainer,
   OpenLinkButton,
@@ -18,12 +20,30 @@ import {
   SpanContainer,
   CategoryBar,
   CategoryBox,
-  XBox
+  XBox,
+  CartContainer,
+  UserContainer,
+  ExpendedMenu,
+  Submenu,
+  Mymenu,
+  HeaderLinkContainer
 } from '../styles/Header.style.jsx';
+import S_Category from './S_Category'
 
 function Header(props) {
   const [extendHeader, setExtendHeader] = useState(false)
+  const [IsMyMenu, setIsMyMenu] = useState(false)
 
+  const navi = useNavigate()
+
+  const onClickUser = () => {
+    setIsMyMenu((prevState) => !prevState)
+  }
+
+  const onClickCart = () => {
+    navi('/shopCart')
+  }
+  
   return (
     <HeaderContainer
       isScroll={props.isScroll}
@@ -39,50 +59,73 @@ function Header(props) {
         {
           extendHeader ? 
             <CategoryBar>
+              <XBox>
+                <Xbar /> 
+                <S_Category />
+              </XBox>
+            </CategoryBar>
+            :
+            <CategoryBar>
               <CategoryBox>
                 <Category />
               </CategoryBox>
             </CategoryBar>
-            :
-            <CategoryBar>
-              <XBox>
-                <Xbar /> 
-              </XBox>
-            </CategoryBar>
         }
       </OpenLinkButton>
-      <HeaderLeftLinkContainer>
-        <IndividualLinkContainer>
-          <NavLink to={"/about"} style={{"text-decoration": "none"}}>
-            <SpanContainer>About</SpanContainer>
-          </NavLink> 
-        </IndividualLinkContainer>
-        <IndividualLinkContainer>
-          <NavLink to={"/store"} style={{"text-decoration": "none"}}>
-            <SpanContainer>Store</SpanContainer>
+
+      <HeaderLinkContainer>
+        <HeaderLeftLinkContainer>
+          <IndividualLinkContainer>
+            <NavLink to={"/"} style={{"text-decoration": "none"}}>
+              <SpanContainer>About</SpanContainer>
+            </NavLink> 
+          </IndividualLinkContainer>
+          <IndividualLinkContainer>
+            <NavLink to={"/"} style={{"text-decoration": "none"}}>
+              <SpanContainer>Store</SpanContainer>
+            </NavLink>
+          </IndividualLinkContainer>
+        </HeaderLeftLinkContainer>
+        <LogoContainer>
+          <NavLink to={"/"}>
+            <Logo
+              src={LOGO} 
+              alt="logo" 
+            />
           </NavLink>
-        </IndividualLinkContainer>
-      </HeaderLeftLinkContainer>
-      <LogoContainer>
-        <NavLink to={"/"}>
-          <Logo
-            src={LOGO} 
-            alt="logo" 
-          />
-        </NavLink>
-      </LogoContainer>
-      <HeaderRightLinkContainer>
-        <IndividualLinkContainer>
-          <NavLink to={"/store"} style={{"text-decoration": "none"}}>
-            <SpanContainer>Store</SpanContainer>
-          </NavLink>
-        </IndividualLinkContainer>
-        <IndividualLinkContainer>
-          <NavLink to={"/search"} style={{"text-decoration": "none"}}>
-            <SpanContainer>Search</SpanContainer>
-          </NavLink>
-        </IndividualLinkContainer>
-      </HeaderRightLinkContainer>
+        </LogoContainer>
+        <HeaderRightLinkContainer>
+          <IndividualLinkContainer>
+            <NavLink to={"/"} style={{"text-decoration": "none"}}>
+              <SpanContainer>Store</SpanContainer>
+            </NavLink>
+          </IndividualLinkContainer>
+          <IndividualLinkContainer>
+            <NavLink to={"/"} style={{"text-decoration": "none"}}>
+              <SpanContainer>Search</SpanContainer> 
+            </NavLink>
+          </IndividualLinkContainer>
+        </HeaderRightLinkContainer>
+      </HeaderLinkContainer>
+
+      <UserContainer onClick={onClickUser}>
+        <UserIMG />
+        {
+          IsMyMenu && (
+            <ExpendedMenu>
+              <Mymenu onClick={navi('/mypage')}>
+                My Page
+              </Mymenu>
+              <Submenu>
+                Logout
+              </Submenu>
+            </ExpendedMenu>
+          )
+        }
+      </UserContainer>
+      <CartContainer onClick={onClickCart}>
+        <CartIMG style={{"color":"white"}}/>
+      </CartContainer>
     </HeaderContainer>
   )
 }
