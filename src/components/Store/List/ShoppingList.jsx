@@ -29,11 +29,12 @@ function ShoppingList() {
     
         return () => {
             window.removeEventListener('scroll', handleScroll);
-        };
-    }, [postid])
+        }; 
+    }, [])
     return (
         <MainContainer>
-            <Header 
+            <Header
+                setPostId={setPostId}
                 isScroll={isScrollingDown}
             />
             <ListPage 

@@ -9,24 +9,31 @@ import {
 import { Link, useNavigate } from 'react-router-dom'
 import { CategoryList } from '../Store/Category/Category';
 
-const CtListObj = CategoryList.map((item, i) => {
-    return (
-    <div>
-        <Link 
-            to={`/shopping?categoryid=${i}`}
-            style={{
-                "text-decoration" : "none",
-                "color": "white"
-            }}
-        >
+
+function S_Category(props) {
+    const CtListObj = CategoryList.map((item, i) => {
+        return (
+        props.setPostId === undefined ? 
+        <div>
+            <Link 
+                to={`/shopping?categoryid=${i}`}
+                style={{
+                    "text-decoration" : "none",
+                    "color": "white"
+                }}
+            >
+                <CtSpan>
+                    {item.title}
+                </CtSpan>
+            </Link>
+        </div>
+        :
+        <div onClick={()=>{props.setPostId(i)}}>
             <CtSpan>
                 {item.title}
             </CtSpan>
-        </Link>
-    </div>
-)});
-
-function S_Category() {
+        </div>
+    )});
     const navi = useNavigate()
     return (
         <CtContainer>
