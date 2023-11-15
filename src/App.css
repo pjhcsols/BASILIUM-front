@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 div{
   box-sizing: border-box;
 }
@@ -12,6 +11,10 @@ div{
   border-bottom: 1px solid gray;
 }
 
+/* 화면에서 스크롤바 안보이게 하기 */
+.outer::-webkit-scrollbar {
+  display: none;
+}
 
 .black-nav{
   display: flex;

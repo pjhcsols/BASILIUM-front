@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/sign_in.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BasiliumAPI } from "../components/Backend/Axios";
 const Sign_in = () => {
   const [inputs, setInputs] = useState({
     email: "",
@@ -25,9 +26,10 @@ const Sign_in = () => {
     navigate("/sign_up");
   };
 
-const serverUrl="http://172.30.1.65:8080/v1/normalUser/signup";
   const Login = () => {
-        const request =axios.post(serverUrl,inputs).then(response => {
+        const request = 
+        BasiliumAPI
+          .post('v1/normalUser/signup',inputs).then(response => {
           console.log('응답 데이터:', response.data); })
 
   };

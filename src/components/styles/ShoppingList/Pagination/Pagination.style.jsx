@@ -1,22 +1,18 @@
 import styled from 'styled-components'
+import { ReactComponent as LeftArrow } from '../../../../assets/SVG/Go.svg'
+import { ReactComponent as RightArrow } from '../../../../assets/SVG/Back.svg'
 
 export const PaginationBG = styled.div`
-    width: 100vw;
-    height: 10vh;
-    position: relative;
+    width: 30vw;
+    height: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
 `
 
 export const RArrow = styled.div`
-    width: 5vw;
-    height: 5vh;
-    margin: 0 auto;
-    position: absolute;
-    right: 40vw;
+    width: 40px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,25 +20,35 @@ export const RArrow = styled.div`
 `
 
 export const LArrow = styled.div`
-    width: 5vw;
-    height: 5vh;
-    margin: 0 auto;
-    position: absolute;
-    left: 40vw;
+    width: 40px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 `
 
-export const MidBox = styled.div`
-    width: 6vw;
-    height: 5vh;
+export const LeftBtn = styled(LeftArrow)`
+    width: 30px;
+    height: 30px;
     margin: 0 auto;
-    position: absolute;
+    color: white;
+`
+
+export const RightBtn = styled(RightArrow)`
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    color: white;
+`
+
+export const MidBox = styled.div`
+    width: 30%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
 `
 
 export const MidText = styled.span`

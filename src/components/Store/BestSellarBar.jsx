@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 import BestSellarContent from './BestSellarContent'
-import BestSellarAPI, { DownloadFiles, base_url } from '../Backend/Axios'
+import BestSellarAPI, { BasiliumAPI, DownloadFiles, base_url } from '../Backend/Axios'
 import Loading from '../Loading'
 
 import { Swiper } from "swiper/react"
@@ -18,6 +18,7 @@ import 'swiper/css/navigation'
 
 import { 
     BSlide,
+    BestSellarBG,
     ButtonContainer, 
     LeftButtonContainer, 
     RightButtonContainer, 
@@ -27,27 +28,29 @@ import {
 import { ReactComponent as LeftButton } from '../../assets/SVG/arrow-back-outline.svg'
 import { ReactComponent as RightButton } from '../../assets/SVG/arrow-forward-outline.svg'
 
-
 function BestSellarBar() {
     const [isLoading, setIsLoading] = useState(true)
     
     const [BestSellarList, setBestSellarList] = useState([{
-        "productID" : null,
+        "productId" : null,
         "productCategoryId" : '',
         "productName": '',
         "productPrice" : 0,
         "productDesc": '',
     }])
-    const [BestSellarLen, setBestSellarLen] = useState(0)
 
     const GetBestSellar = () => {
-        BestSellarAPI
-            .get('/products/bestSelling')
+        BasiliumAPI
+            .get(`/products/allproduct`)
             .then(data => {
+                console.log(data);
                 setBestSellarList(data.data)
+                /*
                 data.data.forEach((item, i)=>(
                     UploadImageFile(item)
                 ))
+                */
+                setIsLoading(false);
             })
             .catch(error => {
                 console.log(error)
@@ -55,7 +58,7 @@ function BestSellarBar() {
     }
 
     // ImagesList 
-    const [ShowImageList, SetShowImageList] = useState()
+    const [ShowImageList, SetShowImageList] = useState([])
 
     // According to Axios, Post some Image data.
     const reader = new FileReader()
@@ -64,8 +67,7 @@ function BestSellarBar() {
     const ImageEncoding = (images) =>{
         reader.readAsDataURL(images)
         reader.onload = () => {
-            console.log(reader.result)
-            SetShowImageList(reader.result || null)
+            SetShowImageList(...reader.result || null)
         }
         setIsLoading(false)
     }
@@ -86,7 +88,7 @@ function BestSellarBar() {
     }, [])
 
     return (
-        <>
+        <BestSellarBG>
             {
             isLoading ?
             <Loading />
@@ -121,7 +123,7 @@ function BestSellarBar() {
                                 <SwiperContainer key={index}>
                                     <BSlide>
                                         <BestSellarContent
-                                            src={ShowImageList}
+                                            //src={URL.createObjectURL(ShowImageList[index])}
                                             title={bestSellarList.productName}
                                             contnet={bestSellarList.productDesc}
                                             price={bestSellarList.productPrice}
@@ -151,7 +153,7 @@ function BestSellarBar() {
                 </Swiper>
             </SlideBar>
             }
-        </>
+        </BestSellarBG>
         
     )
 }

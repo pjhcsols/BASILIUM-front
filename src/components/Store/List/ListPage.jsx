@@ -4,8 +4,10 @@ import React, {
 } from 'react'
 
 import { 
+  BasiliumAPI,
   base_url
 } from '../../Backend/Axios'
+
 import ShopObj from './ShopObj'
 import { 
   SkeletonDesign, 
@@ -18,20 +20,13 @@ import {
   CategoryExp,
   ContentBox,
   CtgSpan,
-  ExitBtn,
   ListPageContainer, 
-  ListPageRow, 
-  ModalBG, 
-  ModalBackDrop, 
-  ModalBtn, 
-  ModalContainer,
-  ModalView
+  ListPageRow,
+  PaginationBox,
 } from '../../styles/ShoppingList/ListPage.style'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { 
-  ReactComponent as CategorySVG 
-} from '../../../assets/SVG/category.svg'
 import Pagination from './Pagination/Pagination'
+import { useParams } from 'react-router-dom'
 
 const Category = [
   {
@@ -65,74 +60,42 @@ const Category = [
 ];
 
 function ListPage(props) {
+  const CategoryId = useParams();
+
   // Related with loading
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+
   // Related with Object List
-  const [ObjList, setObjList] = useState([
-    {
-      "ImageUrl": "",
-      "GoodsName": "청자켓",
-      "ProductID" : -1,
-      "GoodsCategory": 1,
-      "GoodsPrice": "45000",
-      "GoodsHeart": false,
-    },
-    {
-      "ImageUrl": "none",
-      "GoodsName": "블라우스",
-      "ProductID" : -1,
-      "GoodsCategory": 2,
-      "GoodsPrice": 50000,
-      "GoodsHeart": false,
-    },
-    {
-      "ImageUrl": "none",
-      "GoodsName" : "신발",
-      "ProductID" : -1,
-      "GoodsCategory" : 3,
-      "GoodsPrice": 35000,
-      "GoodsHeart": false,
-    },
-    {
-      "ImageUrl" : "none",
-      "GoodsName": "흰 셔츠",
-      "ProductID" : -1,
-      "GoodsCategory": 4,
-      "GoodsPrice" : 37000,
-      "GoodsHeart": false,
-    },
-    {
-      "ImageUrl" : "none",
-      "GoodsName": "블랙 티셔츠",
-      "ProductID" : -1,
-      "GoodsCategory": 5,
-      "GoodsPrice" : 33000,
-      "GoodsHeart": false,
-    },
-    {
-      "ImageUrl" : "none",
-      "GoodsName": "흰색 박스티",
-      "ProductID" : -1,
-      "GoodsCategory" : 6,
-      "GoodsPrice" : 56000,
-      "GoodsHeart": false,
-    },
-    {
-      "ImageUrl" : "none",
-      "GoodsName": "블랙 박스티",
-      "ProductID" : -1,
-      "GoodsCategory": 7,
-      "GoodsPrice" : 65000,
-      "GoodsHeart": false,
-    },
-    {
-      "ImageUrl" : "none",
-      "GoodsName": "져지",
-      "GoodsCategory": 8,
-      "GoodsPrice" : 55000,
-      "GoodsHeart": false,
-    },
-  ])
+  const [ObjList, setObjList] = useState([]);
+  const [ProductObj, setProductObj] = useState({
+    'ProductId' : 0,
+    'ProductCategoryId' : 0,
+    'ProductName' : '',
+    'ProductPrice' : 0,
+    'ProductDesc' : '',
+  })
+
+  useEffect(()=>{
+    setIsLoading(true);
+    console.log(props.id);
+    BasiliumAPI
+      .get(`/products/productsInfo?values=${props.id}`)
+      .then(data => {
+        setProductObj({
+          'ProductId': data.productId,
+          'ProductCategoryId': data.productCategoryId,
+          'ProductName' : data.productName,
+          'ProductPrice': data.productPrice,
+          'ProductDesc' : data.productDesc,
+        })
+        setObjList(...ProductObj)
+        setIsLoading(false);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+  },[CategoryId])
+
   // Related to Images
   const [ImageCount, setImageCount] = useState(0)
   const [ImagesList, setImagesList] = useState([])
@@ -141,11 +104,19 @@ function ListPage(props) {
   // Related with Pagination
   const [contentInfo, setContentInfo] = useState([])
 
-  // Related with ProductID
-  const [ProductID, setProductID] = useState(0)
-
   function GetItemImage({ item }){
-     // ImageURL Change
+    
+    // ImageURL Change
+    const [imageSrc, setImageSrc] = useState(null);
+
+    const onImageDownload = (file) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        setImageSrc(reader.result || null); // 파일의 컨텐츠
+      };
+    };
+
     useEffect(() => {
       fetch(`${base_url}/products/downloadProductPhotos/${item.productId}?num=1`, {
         responseType: "arraybuffer",
@@ -155,20 +126,8 @@ function ListPage(props) {
           var file = new File([res], res.type);
           onImageDownload(file);
         });
-      // .then((res) => res.json())
-      // .then((res) => {});
     }, [item.productId]);
 
-    const [imageSrc, setImageSrc] = useState(null);
-
-    const onImageDownload = (file) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-
-      reader.onload = () => {
-        setImageSrc(reader.result || null); // 파일의 컨텐츠
-      };
-    };
     return(
       <img
         src={imageSrc}
@@ -192,6 +151,9 @@ function ListPage(props) {
     const count = 2;
     const repeatedSkeleton = Array.from({ length: count }, (v, index) => (
       <ListPageRow>
+        <SkeletonBox />
+        <SkeletonBox />
+        <SkeletonBox />
         <SkeletonBox />
       </ListPageRow>
     ))
@@ -221,35 +183,9 @@ function ListPage(props) {
     return list;
   }
 
-  /* Modal 관련 컴포넌트 */
-  const [isOpen, setIsOpen] = useState(false);
-  const openModalHandler = () => {
-    setIsOpen(!isOpen)
-  }
-
-  function renderModal(){
-    return (
-      <>
-        { isOpen ?
-          <ModalBG onClick={openModalHandler}>
-            <ModalBackDrop onClick={openModalHandler}>
-              <ModalView onClick={(e)=> e.stopPropagation()}>
-                <ExitBtn onClick={openModalHandler}>
-                  x
-                </ExitBtn>
-              </ModalView>
-            </ModalBackDrop>
-          </ModalBG>
-          : null
-        }
-      </>
-    )
-  }
-
   // Category 관련 컴포넌트
   function renderCategory(){
     let ctg = props.id;
-    console.log(ctg)
     let list = [];
     list.push(
       <CategoryBox>
@@ -275,7 +211,9 @@ function ListPage(props) {
           renderListPage()
         }
       </ListPageContainer>
-      <Pagination />
+      <PaginationBox>
+        <Pagination />
+      </PaginationBox>
     </ContentBox>
   )
 }

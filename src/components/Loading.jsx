@@ -3,24 +3,25 @@ import {
     PacmanLoader
   } from 'react-spinners'
 import { 
-  loadingdiv,
-  loadinglogo ,
+  Loadingdiv,
+  Loadinglogo,
+  Loadingtitle,
 } from './styles/Loading.style'
 
 function Loading() {
   return (
-    <loadingdiv>
-      <loadinglogo>
+    <Loadingdiv>
+      <Loadinglogo>
         <PacmanLoader 
             color="#D9D9D9"
             loading
             speedMultiplier={2}
         />
-        <loadingtitle>
+        <Loadingtitle>
           loading...
-        </loadingtitle>
-      </loadinglogo>
-    </loadingdiv>
+        </Loadingtitle>
+      </Loadinglogo>
+    </Loadingdiv>
   )
 }
 

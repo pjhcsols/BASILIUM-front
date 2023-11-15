@@ -42,7 +42,7 @@ function MainHome() {
   }, []);
 
   return (
-    <Homepage>
+    <Homepage className="outer">
       <FullPage>
         <Header 
           isScroll={isScrollingDown}

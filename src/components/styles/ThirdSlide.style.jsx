@@ -21,7 +21,7 @@ export const TitleContainer = styled.div`
     height: 30%;
     position: absolute;
     left: 25%;
-    top: 20%;
+    top: 21%;
     color: white;
 `
 
