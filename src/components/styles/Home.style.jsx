@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import BG from '../../assets/BG_modified.png'
 
 export const Homepage = styled.div`
-    width: 100%;
+    width: 100vw;
+    max-width: 95vw;
     height: 200vh;
     margin: 0 auto;
     padding: 0;
@@ -13,8 +14,8 @@ export const Homepage = styled.div`
 
 export const Background = styled.div`
     position: relative;
-    width: 1920px;
-    height: 1000px;
+    width: 100vw;
+    height: 100vh;
     background-image: url(${BG});
     background-position: top center;
     background-size: cover;
@@ -24,7 +25,7 @@ export const Background = styled.div`
 `
 
 export const Section2 = styled.div`
-    width: 1920px;
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;

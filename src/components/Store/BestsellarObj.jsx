@@ -4,16 +4,22 @@ import {
   SubscriptionText,
   IMGBox,
   TitleTexture,
-  SubscriptionBox
+  SubscriptionBox,
+  TextBox
 } from '../styles/Store/BestSellar/BestSellarObj.style'
 
 function BestsellarObj(props) {
-  useEffect(()=>{
-    console.log(props)
-  },[])
+  console.log(props);
   return (
     <BestSellarBox>
-      <IMGBox src={props.src}/> 
+      <IMGBox>
+        <img 
+          src={props.src} 
+          alt="bestsellarimg"
+          className="bestsellar"
+        />
+      </IMGBox> 
+      <TextBox>
         <TitleTexture>
             {props.title}
         </TitleTexture>
@@ -25,6 +31,7 @@ function BestsellarObj(props) {
               {props.price}
           </SubscriptionText>
         </SubscriptionBox>
+      </TextBox>
     </BestSellarBox>
   )
 }

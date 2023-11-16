@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
-import { PaginationAPI } from '../../../Backend/Axios'
+import { 
+    BasiliumAPI
+} from '../../../Backend/Axios'
 import { 
     LArrow, 
+    LeftBtn, 
     MidBox, 
     MidText, 
     PaginationBG, 
-    RArrow 
+    RArrow, 
+    RightBtn
 } from '../../../styles/ShoppingList/Pagination/Pagination.style'
-import { ReactComponent as LeftArrow } from '../../../../assets/SVG/Go.svg'
-import { ReactComponent as RightArrow } from '../../../../assets/SVG/Back.svg'
 
 function Pagination() {
     const [TotalPage, setTotalPage] = useState(0)
@@ -31,14 +33,14 @@ function Pagination() {
     }
 
     const GetTotalPage = () => {
-        PaginationAPI
+        BasiliumAPI
             .get()
             .then(data => {
-                console.log(data)
-                setTotalPage(data)
+                console.log(data);
+                setTotalPage(data);
             })
             .error(err => {
-                console.log(err)
+                console.log(err);
             })
     }
 
@@ -47,7 +49,7 @@ function Pagination() {
         if(totalpage === 0){
             list.push(
                 <MidText>
-                    0/0
+                    Undefined
                 </MidText>
             )
         }else{
@@ -62,17 +64,17 @@ function Pagination() {
 
     return (
         <PaginationBG>
-            <RArrow onClick={LeftonClick}>
-                <LeftArrow />
-            </RArrow>
             <LArrow onClick={RightonClick}>
-                <RightArrow />
+                <RightBtn />
             </LArrow>
             <MidBox>
             {
                 ShowPage(CurrPage, TotalPage)
             }
             </MidBox>
+            <RArrow onClick={LeftonClick}>
+                <LeftBtn />
+            </RArrow>
         </PaginationBG>
     )
 }

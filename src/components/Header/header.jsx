@@ -1,5 +1,4 @@
 import React, { 
-  useEffect, 
   useState 
 } from 'react'
 
@@ -61,7 +60,7 @@ function Header(props) {
             <CategoryBar>
               <XBox>
                 <Xbar /> 
-                <S_Category />
+                <S_Category setPostId={props.setPostId}/>
               </XBox>
             </CategoryBar>
             :

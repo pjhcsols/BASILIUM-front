@@ -1,19 +1,21 @@
 import styled from 'styled-components'
 
-export const loadingdiv = styled.div`
-    width: 500px;
-    height: 500px;
-    background: #212529; 
+export const Loadingdiv = styled.div`
+    width: 100vw;
+    height: 50vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
-export const loadinglogo = styled.div`
-    position: relative;
+export const Loadinglogo = styled.div`
     display: flex;
     flex-direction: column;
     transform: translate(-50%, -50%);
 `
 
-export const loadingtitle = styled.h3`
-    position: relative;
+export const Loadingtitle = styled.h3`
     color: white;
+    font-weight: 15px;
 `

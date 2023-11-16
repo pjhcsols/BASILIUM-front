@@ -2,11 +2,10 @@ import styled from 'styled-components'
 
 export const Card = styled.div`
     position: relative;
-    top: 20%;
     margin: 0 auto;
     display: block;
     width: 170px;
-    height: 300px;
+    height: 150px;
     cursor: pointer;
     transition: 0.5s ease;
 `
@@ -26,7 +25,7 @@ export const CardContent = styled.div`
     overflow: hidden;
     background-color: #fff;
     border-radius: 18px;
-    height: 50%;
+    height: 100%;
     white-space: normal;
     box-shadow: 2px 4px 12px rgba(0,0,0,.08);
     transition-duration: 0.3s;
@@ -52,11 +51,13 @@ export const CategoryTitle = styled.span`
     font-family: "Noto Sans KR", sans-serif;
     font-weight: bolder;
     font-size: 15px;
+    color: black;
 `
 
 export const Subtitle = styled.span`
     text-align: center;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: lighter;
-    font-size: 5px;
+    font-size: 10px;
+    color: #D9D9D9;
 `
