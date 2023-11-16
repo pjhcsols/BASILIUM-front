@@ -7,6 +7,7 @@ import {
   TextureBox
 } from '../styles/Button.style'
 import { ReactComponent as PlayBar } from '../../assets/SVG/ButtonPlay.svg'
+
 import { useNavigate } from 'react-router-dom'
 
 function ButtonContainer(props) { 
@@ -15,7 +16,7 @@ function ButtonContainer(props) {
     navi("/")
   }
   return (
-    <ButtonStyle onClick={NavigatetoStore}>
+    <ButtonStyle>
       <ButtonBox>
         <PlayBar style={{
           "width": "15%",

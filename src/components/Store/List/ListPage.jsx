@@ -30,6 +30,10 @@ import { useParams } from 'react-router-dom'
 
 const Category = [
   {
+    "CategoryID" : 0,
+    "CategoryName" : "Undefined"
+  },
+  {
     "CategoryID" : 1,
     "CategoryName" : "Jacket"
   },

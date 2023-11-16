@@ -3,11 +3,14 @@ import "../styles/sign_in.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BasiliumAPI } from "../components/Backend/Axios";
+
 const Sign_in = () => {
   const [inputs, setInputs] = useState({
     email: "",
     pwd: "",
   });
+
+  const [errorM, setErrorM] = useState("");
 
   const { email, pwd } = inputs;
   const navigate = useNavigate();
@@ -23,7 +26,7 @@ const Sign_in = () => {
   };
 
   const signUp = () => {
-    navigate("/sign_up");
+    navigate("/register");
   };
 
   const Login = () => {
@@ -75,7 +78,6 @@ const Sign_in = () => {
             <div className="pwdSet">
               <div>
                 <p className="pwdTxt">비밀번호</p>
-                <button className="pwdReset">비밀번호 재설정</button>
               </div>
 
               <div className="pwdBox">
@@ -95,7 +97,7 @@ const Sign_in = () => {
             </div>
 
             <div className="errorDiv">
-              <p className="errorTxt">※이메일이나 비밀번호가 틀립니다.</p>
+              <p className="errorTxt">{errorM}</p>
             </div>
 
             <button className="loginBtn" onClick={Login}>

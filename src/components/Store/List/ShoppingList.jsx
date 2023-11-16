@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import{
     MainContainer,
 } from '../../styles/ShoppingList/ShoppingList.style'
-
 import ListPage from './ListPage'
 import Header from '../../Header/header'
 
@@ -21,11 +20,11 @@ function ShoppingList() {
             }
         };
         window.addEventListener('scroll', handleScroll);
-    
         return () => {
             window.removeEventListener('scroll', handleScroll);
-        }; 
-    }, [])
+        };
+    }, [postid])
+    
     return (
         <MainContainer>
             <ListPage 

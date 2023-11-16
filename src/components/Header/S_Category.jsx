@@ -34,22 +34,6 @@ function S_Category(props) {
             </CtSpan>
         </div>
     )});
-    const navi = useNavigate()
-    return (
-        <CtContainer>
-            <CtBox>
-                <CtList>
-                    { CtListObj }
-                    <BrandSpan>
-                        Chanel
-                    </BrandSpan>
-                    <BrandSpan>
-                        Genzo
-                    </BrandSpan>
-                </CtList>
-            </CtBox>
-        </CtContainer>
-    )
 }
 
 export default S_Category

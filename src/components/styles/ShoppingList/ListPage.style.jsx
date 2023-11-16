@@ -28,6 +28,7 @@ export const ListPageRow = styled.div`
 export const CategoryBox = styled.div`
     width: 20vw;
     position: absolute;
+    bottom: 120px;
 `
 
 export const CtgSpan = styled.span`

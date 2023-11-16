@@ -28,11 +28,12 @@ import {
   HeaderLinkContainer
 } from '../styles/Header.style.jsx';
 import S_Category from './S_Category'
+import SearchBar from './SearchBar'
 
 function Header(props) {
   const [extendHeader, setExtendHeader] = useState(false)
   const [IsMyMenu, setIsMyMenu] = useState(false)
-
+  const [IsClick, SetIsClick] = useState(false)
   const navi = useNavigate()
 
   const onClickUser = () => {
@@ -42,7 +43,19 @@ function Header(props) {
   const onClickCart = () => {
     navi('/shopCart')
   }
+
+  const onClickSearchBar = () => {
+    SetIsClick((prev)=>!prev)
+  }
   
+  const isLogin = () =>{
+    navi('/mypage');
+  }
+
+
+  const isLogout = () =>{
+    localStorage.removeItem("key");
+  }
   return (
     <HeaderContainer
       isScroll={props.isScroll}
@@ -81,7 +94,9 @@ function Header(props) {
           </IndividualLinkContainer>
           <IndividualLinkContainer>
             <NavLink to={"/"} style={{"text-decoration": "none"}}>
-              <SpanContainer>Store</SpanContainer>
+              <SpanContainer>
+                Store
+              </SpanContainer>
             </NavLink>
           </IndividualLinkContainer>
         </HeaderLeftLinkContainer>
@@ -99,10 +114,15 @@ function Header(props) {
               <SpanContainer>Store</SpanContainer>
             </NavLink>
           </IndividualLinkContainer>
-          <IndividualLinkContainer>
-            <NavLink to={"/"} style={{"text-decoration": "none"}}>
-              <SpanContainer>Search</SpanContainer> 
-            </NavLink>
+          <IndividualLinkContainer >
+            <SpanContainer onClick={onClickSearchBar}>
+              Search
+            </SpanContainer> 
+            {
+              IsClick && (
+                <SearchBar />
+              )
+            }
           </IndividualLinkContainer>
         </HeaderRightLinkContainer>
       </HeaderLinkContainer>
@@ -112,10 +132,10 @@ function Header(props) {
         {
           IsMyMenu && (
             <ExpendedMenu>
-              <Mymenu onClick={navi('/mypage')}>
+              <Mymenu onClick={isLogin}>
                 My Page
               </Mymenu>
-              <Submenu>
+              <Submenu onClick={isLogout}>
                 Logout
               </Submenu>
             </ExpendedMenu>

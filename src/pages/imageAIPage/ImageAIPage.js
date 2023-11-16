@@ -50,8 +50,8 @@ export default function ImageAIPage() {
   }
 
   const [ProductObj, setProductObj]= useState({
-    "userid": "1",
-    "productId": 1,
+    'userid': "1",
+    'productId': 1,
   });
   formData.append('strInfos',JSON.stringify(ProductObj));
   const [userid, setuserid] = useState('1');

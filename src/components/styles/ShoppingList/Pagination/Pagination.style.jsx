@@ -54,6 +54,8 @@ export const MidBox = styled.div`
 export const MidText = styled.span`
     font-family: "Noto Sans KR", sans-serif;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
+    position: absolute;
+    bottom: 20px;
 `
