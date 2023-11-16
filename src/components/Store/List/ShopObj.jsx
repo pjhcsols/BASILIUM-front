@@ -18,8 +18,9 @@ function ShopObj(props) {
     // 이거 BackEnd class 랑 나열
     const [GoodsObj, setGoodsObj] = useState({
         "ImageUrl": "",
+        "ProductId": 0,
         "GoodsName": "",
-        "GoodsCategory": 0,
+        "GoodsCategoryId": 0,
         "GoodsPrice": "",
         "GoodsHeart": false,
     })
@@ -60,8 +61,15 @@ function ShopObj(props) {
     }
     
     useEffect(() => {
-        setGoodsObj(props.obj)
-    }, [])
+        setGoodsObj({
+            "ImageUrl": props.src,
+            "ProductId": props.obj.ProductId,
+            "GoodsName" : props.obj.ProductName,
+            "GoodsCategoryId": props.obj.ProductCategoryId,
+            "GoodsPrice": props.obj.ProductPrice,
+            "GoodsHeart": false,
+        })
+    }, [props])
 
     return (
         <BG

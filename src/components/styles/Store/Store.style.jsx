@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Backgroundiv = styled.div`
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     margin: 0 auto;
     position: relative;
@@ -13,12 +13,13 @@ export const Backgroundiv = styled.div`
 export const StoreContainer = styled.div`
     height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
 `
 
 export const SlideBarContainer = styled.div`
-    width: 75vw;
+    width: 70vw;
     height: 50vh;
     margin: 0 auto;
 `

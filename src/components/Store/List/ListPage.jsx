@@ -77,18 +77,23 @@ function ListPage(props) {
 
   useEffect(()=>{
     setIsLoading(true);
-    console.log(props.id);
+    console.log(CategoryId);
     BasiliumAPI
-      .get(`/products/productsInfo?values=${props.id}`)
+      .get(`/products/allproduct`)
       .then(data => {
-        setProductObj({
-          'ProductId': data.productId,
-          'ProductCategoryId': data.productCategoryId,
-          'ProductName' : data.productName,
-          'ProductPrice': data.productPrice,
-          'ProductDesc' : data.productDesc,
-        })
-        setObjList(...ProductObj)
+        for (let i = 0; i < 4; i++) {
+          const item = data.data[i];
+          console.log(item);
+          setProductObj({
+            'ProductId': item.productId,
+            'ProductCategoryId': item.productCategoryId,
+            'ProductName' : item.productName,
+            'ProductPrice': item.productPrice,
+            'ProductDesc' : item.productDesc,
+          })
+          setObjList(values => [...values,ProductObj])
+          GetItemImage(item.productId);
+        }
         setIsLoading(false);
       })
       .catch(err=>{
@@ -99,41 +104,25 @@ function ListPage(props) {
   // Related to Images
   const [ImageCount, setImageCount] = useState(0)
   const [ImagesList, setImagesList] = useState([])
-  const [ShowImageList, SetShowImageList] = useState([])
+  const [ShowImageList, setShowImageList] = useState([])
 
-  // Related with Pagination
-  const [contentInfo, setContentInfo] = useState([])
+  const onImageDownload = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setShowImageList(...reader.result || null); // 파일의 컨텐츠
+    };
+  };
 
   function GetItemImage({ item }){
-    
-    // ImageURL Change
-    const [imageSrc, setImageSrc] = useState(null);
-
-    const onImageDownload = (file) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        setImageSrc(reader.result || null); // 파일의 컨텐츠
-      };
-    };
-
-    useEffect(() => {
-      fetch(`${base_url}/products/downloadProductPhotos/${item.productId}?num=1`, {
-        responseType: "arraybuffer",
-      })
-        .then((res) => res.blob())
-        .then((res) => {
-          var file = new File([res], res.type);
-          onImageDownload(file);
-        });
-    }, [item.productId]);
-
-    return(
-      <img
-        src={imageSrc}
-        alt="product"
-      />
-    )
+    fetch(`${base_url}/products/downloadProductPhotos/${item}?num=1`, {
+      responseType: "arraybuffer",
+    })
+      .then((res) => res.blob())
+      .then((res) => {
+        var file = new File([res], res.type);
+        onImageDownload(file);
+      });
   }
 
   /* 페이지 렌더링 함수 */
@@ -173,6 +162,7 @@ function ListPage(props) {
               <ShopObj
                 key={index}
                 obj={ObjList[i]}
+                src={ShowImageList[i]}
               />
             ))}
           </ListPageRow>

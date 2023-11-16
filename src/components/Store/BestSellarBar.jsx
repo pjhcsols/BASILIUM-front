@@ -45,11 +45,14 @@ function BestSellarBar() {
             .then(data => {
                 console.log(data);
                 setBestSellarList(data.data)
-                /*
-                data.data.forEach((item, i)=>(
-                    UploadImageFile(item)
-                ))
-                */
+                for (let i = 0; i < 4; i++) {
+                    const item = data.data[i];
+                    UploadImageFile(item.productId);
+                
+                    if (i === 3) {
+                        break;
+                    }
+                }
                 setIsLoading(false);
             })
             .catch(error => {
@@ -60,15 +63,15 @@ function BestSellarBar() {
     // ImagesList 
     const [ShowImageList, SetShowImageList] = useState([])
 
-    // According to Axios, Post some Image data.
-    const reader = new FileReader()
-
     // Using blob
-    const ImageEncoding = (images) =>{
+    const ImageEncoding = (images) =>{    
+        // According to Axios, Post some Image data.
+        const reader = new FileReader()
         reader.readAsDataURL(images)
         reader.onload = () => {
-            SetShowImageList(...reader.result || null)
+            SetShowImageList(enter => [...enter, reader.result] || null)
         }
+        console.log(ShowImageList);
         setIsLoading(false)
     }
 
@@ -123,9 +126,9 @@ function BestSellarBar() {
                                 <SwiperContainer key={index}>
                                     <BSlide>
                                         <BestSellarContent
-                                            //src={URL.createObjectURL(ShowImageList[index])}
+                                            src={ShowImageList[index]}
                                             title={bestSellarList.productName}
-                                            contnet={bestSellarList.productDesc}
+                                            content={bestSellarList.productDesc}
                                             price={bestSellarList.productPrice}
                                         />
                                     </BSlide>
