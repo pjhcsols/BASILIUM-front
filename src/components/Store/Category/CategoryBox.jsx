@@ -1,5 +1,6 @@
 import React from 'react'
 import { 
+    CarouselBox,
     Carouseldiv,
     Scrollerdiv,
 } from '../../styles/Store/Category/CategoryBox.style'
@@ -15,8 +16,10 @@ import { Link } from 'react-router-dom';
 function CategoryBox() {
     const product = CategoryList.map((item, i) => {
         return (
-        <div>
-            <Link to={`/shopping?categoryid=${i}`}>
+        <CarouselBox>
+            <Link
+                to={`/shopping?categoryid=${i}`}
+            >
                 <CategoryObj
                     src={item.src}
                     key={i}
@@ -24,13 +27,14 @@ function CategoryBox() {
                     subtitle={item.subtitle}
                 />
             </Link>
-        </div>
+        </CarouselBox>
     )});
 
     return (
         <Scrollerdiv>
             <Carouseldiv
                 responsive={responsive}
+                dots={true}
                 draggable={false}
                 stopOnHover={true}
                 itemCount={5}

@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import{
     MainContainer,
-    LogoContainer,
-    ShopLogo,
 } from '../../styles/ShoppingList/ShoppingList.style'
-
-import Logo from '../../../assets/LOGO.jpg'
-import { NavLink } from 'react-router-dom'
 import ListPage from './ListPage'
 import Header from '../../Header/header'
 
 function ShoppingList() {
     const [isScrollingDown, setIsScrollingDown] = useState(false)
-
     const [postid, setPostId] = useState(0);
     useEffect(() => {
         const urlParam = new URLSearchParams(window.location.search);
@@ -26,18 +20,19 @@ function ShoppingList() {
             }
         };
         window.addEventListener('scroll', handleScroll);
-    
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [postid])
+    
     return (
         <MainContainer>
-            <Header 
-                isScroll={isScrollingDown}
-            />
             <ListPage 
                 id={postid}
+            />
+            <Header
+                setPostId={setPostId}
+                isScroll={isScrollingDown}
             />
         </MainContainer>
     )

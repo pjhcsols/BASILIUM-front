@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
-
-export const MainContainer = styled.div`
+export const GoodsBack = styled.div`
     width: 100vw;
     max-width: 95vw;
+    position: relative;
+    top: 130px;
+    background-color: #212529;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    flex-wrap: nowrap;
 `

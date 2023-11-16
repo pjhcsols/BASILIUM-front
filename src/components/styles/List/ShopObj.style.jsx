@@ -2,6 +2,8 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import styled from 'styled-components'
+import { ReactComponent as Hearts } from '../../../assets/SVG/hearts.svg'
+import { ReactComponent as Shop } from '../../../assets/SVG/ShopCard.svg'
 
 export const BG = styled.div`
     width: 220px;
@@ -102,4 +104,34 @@ export const SkeletonTitle = styled(Skeleton)`
 export const SkeletonPrice = styled(Skeleton)`
     width: 50px;
     height: 10px;
+`
+
+export const HeartIMG = styled(Hearts)`
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: 0.5s ease;
+    &:hover{
+        transform: scale(1.1)
+    }
+`
+/*
+export const NotHeart = styled(NotHeart)`
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: 0.5s ease;
+    &:hover{
+        transform: scale(1.1)
+    }
+`
+*/
+
+export const ShopCard = styled(Shop)`
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.1)
+    }
 `

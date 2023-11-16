@@ -5,6 +5,7 @@ export const FirstSlideBlock = styled.div`
 `
 
 export const MainTextureContainer = styled.span`
+    margin: 250px 0 0 0;
     font-family: "Noto Sans KR", sans-serif;
     color: white;
     font-size: 90px;

@@ -11,6 +11,7 @@
     "express": "^4.18.2",
     "framer-motion": "^10.15.1",
     "fullpage.js": "^4.0.20",
+    "http-proxy-middleware": "^2.0.6",
     "popmotion": "^11.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,7 +22,7 @@
     "react-multi-carousel": "^2.8.4",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
-    "react-scroll": "^1.8.9",
+    "react-scroll": "^1.9.0",
     "react-scroll-motion": "^0.3.2",
     "react-spinners": "^0.13.8",
     "styled-components": "^6.0.7",
@@ -55,6 +56,6 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
-  "proxy": "http://172.20.19.195:8080",
+  "proxy": "http://211.229.27.126:8080",
   "secure": false
 }

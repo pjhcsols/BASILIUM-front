@@ -1,15 +1,23 @@
 import styled from 'styled-components'
 import { SwiperSlide } from 'swiper/react'
 
+export const BestSellarBG = styled.div`
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 export const SlideBar = styled.div`
-    position: absolute;
     width: 100%;
     height: 100%;
 `
 
 export const BSlide = styled.div`
     width: 100%;
-    height: 50%;
+    height: 100%;
 `
 
 export const SwiperContainer = styled(SwiperSlide)`

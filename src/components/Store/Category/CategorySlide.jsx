@@ -6,11 +6,9 @@ import {
 
 function CategorySlide() {
   return (
-    <>
-        <ExBg>
-            <CategoryBox />
-        </ExBg>
-    </>
+    <ExBg>
+        <CategoryBox />
+    </ExBg>
   )
 }
 

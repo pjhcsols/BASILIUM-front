@@ -6,7 +6,7 @@ export default function Likes() {
   const [likesIdList, setLikesIdList] = useState([]);
   useEffect(() => {
     //userId로 장바구니 id목록 가져오기
-    fetch(`${baseURL}/like/likeInfos?userId=${"aassdd123"}`)
+    fetch(`${baseURL}/like/likeInfos?userId=${"dn3522@naver.com"}`)
       .then((res) => res.json())
       .then((res) => {
         setLikesIdList(

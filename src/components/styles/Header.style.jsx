@@ -65,6 +65,7 @@ export const IndividualLinkContainer = styled.li`
     height: 100%;
     list-style: none;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -75,6 +76,8 @@ export const SpanContainer = styled.span`
     font-size: 15px;
     font-weight: 100;
     color: #fff;
+    display: flex;
+    flex-direction: row;
     transition: 0.5 ease-in-out;
     &:hover, active{
         color: #9b9b9f;

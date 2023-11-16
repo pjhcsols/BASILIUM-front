@@ -18,6 +18,7 @@ import ImageAIPage from './pages/imageAIPage/ImageAIPage';
 import MyPage from './pages/myPage/myPage'
 import Purchase from './components/Buying/Purchase';
 import Goods from './components/Store/IndividualGoods/Goods';
+import PrivateGoods from './pages/PrivateGoods/PrivateGoods';
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
       <Route 
         exact 
         path="/Goods/:index" 
-        element={<Goods />} 
+        element={<PrivateGoods />} 
       />
       <Route 
         exact

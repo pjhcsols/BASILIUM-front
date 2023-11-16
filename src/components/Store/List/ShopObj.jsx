@@ -5,19 +5,22 @@ import {
     Carddiv, 
     Cart,
     Heart, 
+    HeartIMG, 
+    ShopCard, 
     Subscription,
     Textdiv,
     Title
 } from '../../styles/List/ShopObj.style'
-import { ReactComponent as HeartIMG } from '../../../assets/SVG/hearts.svg'
-import { ReactComponent as ShopCard } from '../../../assets/SVG/ShopCard.svg'
+import { useNavigate } from 'react-router-dom'
 
 function ShopObj(props) {
+    const navi = useNavigate();
     // 이거 BackEnd class 랑 나열
     const [GoodsObj, setGoodsObj] = useState({
         "ImageUrl": "",
+        "ProductId": 0,
         "GoodsName": "",
-        "GoodsCategory": 0,
+        "GoodsCategoryId": 0,
         "GoodsPrice": "",
         "GoodsHeart": false,
     })
@@ -28,6 +31,10 @@ function ShopObj(props) {
         "OnHeart": false,
         "OnCart": false,
     }); 
+
+    const onClickProduct = () => {
+        navi(`/Goods/${props.obj.ProductId}`);
+    }
 
     const OnclickHeart = (e) => {
         e.preventDefault()
@@ -54,11 +61,20 @@ function ShopObj(props) {
     }
     
     useEffect(() => {
-        setGoodsObj(props.obj)
-    }, [])
+        setGoodsObj({
+            "ImageUrl": props.src,
+            "ProductId": props.obj.ProductId,
+            "GoodsName" : props.obj.ProductName,
+            "GoodsCategoryId": props.obj.ProductCategoryId,
+            "GoodsPrice": props.obj.ProductPrice,
+            "GoodsHeart": false,
+        })
+    }, [props])
 
     return (
-        <BG>
+        <BG
+            onClick={onClickProduct}
+        >
             <Carddiv>
                 <Card
                     src={GoodsObj.ImageUrl}

@@ -4,10 +4,10 @@ import {
   BestSellarContainer
 } from '../styles/Store/BestSellar/BestSellarContent.style'
 
-import ManToMan from '../../assets/Goods/ManToMan.jpg'
 import BestsellarObj from './BestsellarObj'
 
 function BestSellarContent(props) {
+  console.log(props);
   return (
     <BestSellarContainer>
         <BestsellarObj

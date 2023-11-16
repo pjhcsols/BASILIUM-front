@@ -40,7 +40,7 @@ function ThirdSlide() {
           <IMGBox>
             <SubscriptionBox
               style={{
-                "right":"60%"
+                "right":"49%"
               }}
             >
               <Subscription>
@@ -54,13 +54,17 @@ function ThirdSlide() {
           <IMGContainer
             style={{
               "bottom" : "32%",
-              "left" : "16%"
+              "left" : "21%"
             }}
           >
             <IMG />
           </IMGContainer>
           <IMGBox>
-            <SubscriptionBox>
+            <SubscriptionBox
+              style={{
+                "right":"19%"
+              }}
+            >
               <Subscription>
                 3D Modeling<br/>
               </Subscription>
@@ -72,7 +76,7 @@ function ThirdSlide() {
           <IMGContainer
             style={{
               "bottom" : "32%",
-              "right" : "46%"
+              "right" : "53%"
             }}
           >
             <IMG2 />
