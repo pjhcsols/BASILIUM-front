@@ -1,6 +1,8 @@
 # Basilium Front Web
 
-This Website made by `React`, `Axios`, `JS`, `Styled-components`
+Skills
+`React`
+`Styled-components`
 
 ## Available Command
 
