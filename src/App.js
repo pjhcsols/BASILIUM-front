@@ -6,6 +6,10 @@ import {
   Route,
 } from 'react-router-dom';
 import Mainpage from './pages/MainPage/Mainpage';
+import BestSellar from './pages/BestSellar/BestSellar';
+import Registration from './pages/Admin/Registration';
+import ShopingList from './pages/Shopping/ShopingList';
+import Product from './pages/Product/Product';
 
 function App() {
   return (
@@ -16,7 +20,19 @@ function App() {
       />
       <Route 
         path="/store"
-        element={<Mainpage />}
+        element={<BestSellar />}
+      />
+      <Route 
+        path="/store/categoryid=?num"
+        element={<ShopingList />}
+      />
+      <Route 
+        path="/store/categoryid=?num/*"
+        element={<Product />}
+      />
+      <Route 
+        path="/Admin"
+        element={<Registration />}
       />
     </Routes>
   );

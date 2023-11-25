@@ -29,6 +29,7 @@ function ShopingList() {
         'productName': '',
         'productPrice': 0,
         'productDesc': '',
+        'imagePath': '',
     });
 
     const [ProductCount, setProductCount] = useState(0);

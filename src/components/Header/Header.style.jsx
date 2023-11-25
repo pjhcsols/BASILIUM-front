@@ -65,5 +65,7 @@ export const LogoBox = styled.div`
 export const Logo = styled(Logo)`
     width: 75px;
     height: 80px;
+    position: fixed;
     margin: 0 auto;
+    cursor: pointer;
 `
