@@ -1,24 +1,38 @@
 import './App.css';
 
 import { 
-  BrowserRouter as 
   Routes,
   Route,
 } from 'react-router-dom';
+import Header from './components/Header/Header';
 import Mainpage from './pages/MainPage/Mainpage';
+import BestSellar from './pages/BestSellar/BestSellar';
+import ShopingList from './pages/Shopping/ShopingList';
+import Product from './pages/Product/Product';
 
 function App() {
   return (
-    <Routes>
-      <Route 
-        path="/"
-        element={<Mainpage />}
-      />
-      <Route 
-        path="/store"
-        element={<Mainpage />}
-      />
-    </Routes>
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route 
+          path="/"
+          element={<Mainpage />}
+        />
+        <Route 
+          path="/bestsellar"
+          element={<BestSellar />}
+        />
+        <Route 
+          path="/store/ct/:num"
+          element={<ShopingList />}
+        />
+        <Route 
+          path="/store/ct/:num/pd/:value"
+          element={<Product />}
+        />
+      </Routes>
+    </div>
   );
 }
 

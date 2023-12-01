@@ -35,7 +35,7 @@ function ShopingList() {
 
     const ProductShow = () => {
         let list = [];
-        for(let i = 0;i < ProductCount/4; i++){
+        for(let i = 0;i < ProductCount/4; i++){ 
             if(Max_count > ProductCount)
                 break;
 

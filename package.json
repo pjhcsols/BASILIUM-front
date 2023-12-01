@@ -20,11 +20,8 @@
     "react-icons": "^4.10.1",
     "react-loading-skeleton": "^3.3.1",
     "react-multi-carousel": "^2.8.4",
-    "react-router-dom": "^6.15.0",
+    "react-router-dom": "^6.20.0",
     "react-scripts": "5.0.1",
-    "react-scroll": "^1.8.9",
-    "react-scroll-motion": "^0.3.2",
-    "react-spinners": "^0.13.8",
     "styled-components": "^6.0.7",
     "swiper": "^10.2.0",
     "web-vitals": "^2.1.4"
@@ -56,6 +53,6 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
-  "proxy": "http://211.229.27.126:8080",
+  "proxy": "http://172.20.38.192:8080",
   "secure": false
 }

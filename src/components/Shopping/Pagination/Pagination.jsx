@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { 
     NextBtn,
     PaginationBox, 
-    PaginationText
+    PaginationText,
+    PrevBtn
 } from './Pagination.style';
 
 function Pagination(props) {
@@ -16,7 +17,7 @@ function Pagination(props) {
     const onClickPrev = (e) => {
         e.preventDefault();
         if(CurrPage < 1){
-            alarm("현재 페이지가 첫 번째 페이지입니다.");
+            alert("현재 페이지가 첫 번째 페이지입니다.");
         }else{
             setCurrPage(CurrPage-1);
         }
@@ -24,7 +25,7 @@ function Pagination(props) {
     const onClickNext = (e) => {
         e.preventDefault();
         if(CurrPage > TotalPage-1){
-            alarm("현재 페이지가 마지막 페이지입니다.")
+            alert("현재 페이지가 마지막 페이지입니다.")
         }else{
             setCurrPage(CurrPage+1);
         }
@@ -44,7 +45,9 @@ function Pagination(props) {
                     Error :\
                 </PaginationText>
             }
-            <NextBtn />
+            <NextBtn 
+                onClick={onClickNext}
+            />
         </PaginationBox>
     )
 }
