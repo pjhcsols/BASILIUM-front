@@ -23,10 +23,26 @@ export const ImageUploadBox = styled.div`
     align-items: center;
 `
 
+export const ShowImageBox = styled.div`
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    background-image: url(${(props)=>props.src});
+`
+
+export const ImageUploadBtn = styled.button`
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+`
+
 export const ImageUpload = styled.input`
     width: 90%;
     height: 90%;
-    cursor: pointer;
+    display: none;
 `
 
 export const DescriptionBox = styled.div`

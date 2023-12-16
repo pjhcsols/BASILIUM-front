@@ -3,10 +3,12 @@ import {
     DescriptionBox,
     ImageUpload,
     ImageUploadBox,
+    ImageUploadBtn,
     InputBox,
     InputLine,
     RegistrationContainer, 
     RegistrationUploadBox, 
+    ShowImageBox, 
     UploadBtn, 
     UploadText
 } from './Registration.style'
@@ -16,6 +18,7 @@ import {
 } from '../../Backend/Axios';
 
 function Registration() {
+    const [ShowImage, setShowImage] = useState(false);
 
     const productNameRef = useRef();
     const productPriceRef = useRef();
@@ -57,6 +60,19 @@ function Registration() {
             'ref': productCategoryIdRef
         },
     ]
+
+    const ImageControlBtn = () => {
+        productImageRef.current?.click();
+    };
+
+    /* 다중으로 안해도 되는지? */
+    const ImageInputChange = (e) => {
+        const filepath = e.target.file;
+        setProduct({
+            'imagePath': filepath
+        });
+        setShowImage(true);
+    };
 
     const InputColumn = () => {
         let list = [];
@@ -101,11 +117,26 @@ function Registration() {
     return (
         <RegistrationContainer>
             <RegistrationUploadBox>
-                <ImageUploadBox>
-                    <ImageUpload 
-
-                    />
-                </ImageUploadBox>
+                {
+                    ShowImage ?
+                    <ImageUploadBox>
+                        <ShowImageBox
+                            src={Product.imagePath}
+                        />
+                    </ImageUploadBox>
+                    :
+                    <ImageUploadBox>
+                        <ImageUploadBtn 
+                            onClick={ImageControlBtn}
+                        />
+                        <ImageUpload 
+                            type="file"
+                            name="imagefile"
+                            ref={productImageRef}
+                            onChange={ImageInputChange}
+                        />
+                    </ImageUploadBox>
+                }
             </RegistrationUploadBox>
             <DescriptionBox>
                 {
