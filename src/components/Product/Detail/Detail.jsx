@@ -1,47 +1,76 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { 
-    DetailBox, DetailSource 
+    DetailBox, 
+    DetailBtn, 
+    DetailBtnBox, 
+    DetailImg, 
+    DetailImgBox 
 } from './Detail.style'
 import { BasiliumAPI } from '../../../Backend/Axios';
 
-function Detail(props) {
-    const [DetailImageList, setDetailImageList] = useState(['']);
-    const GetDetailImage = () => {
-        BasiliumAPI
-            .get(`/${props.productId}`)
-            .then(data=>{
-                /* if data is one */
-                const definedImage = URL.createObjectURL(data);
-                setDetailImageList(val=>[...val, definedImage]);
+function Detail() {
+    const [Product, setProduct] = useState({
+        'productId': 0,
+        'productCategoryId' : 0,
+        'productName': '',
+        'productPrice': 0,
+        'productDesc': '',
+        'imagePath': '',
+    });
+    const [DetailImgPaths, setDetailImgPaths] = useState([''])
 
-                /* if data is multiple. */
-                data.forEach((value, i)=>{
-                    const definedImage = URL.createObjectURL(value);
-                    setDetailImageList(val=>[...val, definedImage]);                
-                });
-            })
-            .catch(err=>{
-                console.log(err);
-            });
-
+    const BtnRow = () => {
         let list = [];
-        DetailImageList.forEach((value, i)=>{
+        let BtnName = ['세부사항', 'Review', 'QnA', '문의사항'];
+        
+        BtnName.forEach((value, i)=>{
             list.push(
-                <DetailSource
+                <DetailBtn
                     key={i}
-                    src={value}
-                />
+                >
+                    {value}
+                </DetailBtn>
             )
         });
 
         return list;
     }
 
+    const CreatingDetail = () => {
+        let list = [];
+
+        BasiliumAPI
+            .get(`/${Product.productId}`)
+            .then(data=>{
+                setDetailImgPaths(value=>[...value, data]);
+            })
+            .catch(err=>{
+                console.log(err);
+            })
+
+        DetailImgPaths.forEach((value, i)=>{
+            list.push(
+                <DetailImg 
+                    src={value}
+                    key={i}
+                />
+            )
+        })
+        return list;
+    }
+
     return (
         <DetailBox>
-        {
-            GetDetailImage()
-        }
+            <DetailBtnBox>
+            {
+                BtnRow()
+            }
+            </DetailBtnBox>
+            <DetailImgBox>
+            {
+                CreatingDetail()
+            }
+            </DetailImgBox>
         </DetailBox>
     )
 }

@@ -7,6 +7,7 @@ import {
 import Header from './components/Header/Header';
 import Mainpage from './pages/MainPage/Mainpage';
 import BestSellar from './pages/BestSellar/BestSellar';
+import Registration from './pages/Admin/Registration';
 import ShopingList from './pages/Shopping/ShopingList';
 import Product from './pages/Product/Product';
 
