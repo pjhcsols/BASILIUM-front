@@ -1,12 +1,20 @@
 import React, { useEffect, useRef } from 'react'
+import * as S from './Slide.style'
+import BestSellarObj from '../BestSellarObj/BestSellarObj';
 
-/* MainPage Style */
-import * as S from './Mainpage.style'
-
-function Mainpage() {
+function Slide({props}) {
     const SlideRef = useRef(null);
-    const slidecount = 2;
-    
+    const slidecount = props.slidecount;
+    const BestSellarContent = () => {
+        let list = [];
+        for(let i=0;i<slidecount;i++){
+            list.push(
+                <BestSellarObj obj={props} />
+            )
+        }
+
+        return list;
+    };
     useEffect(()=>{
         const wheelHandler = (e) => {
             e.preventDefault();
@@ -56,13 +64,16 @@ function Mainpage() {
             console.log("reference error..");
         }
     }, []);
-    return (
-        <S.MainContainer>
-            <S.SlideContainer>
 
-            </S.SlideContainer>
-        </S.MainContainer>
+    return (
+        <S.SlideBox>
+            <S.SlideBox className="slide-bg" ref={SlideRef}>
+            {
+                BestSellarContent()
+            }
+            </S.SlideBox>
+        </S.SlideBox>
     )
 }
 
-export default Mainpage
+export default Slide

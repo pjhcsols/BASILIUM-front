@@ -1,9 +1,31 @@
-import React, { useState, useEffect } from "react";
-import "../components/styles/sign_in.css";
+import React, { useState } from "react";
+
+/* Styles */
+
+/* Using react Package */
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { BasiliumAPI } from "../../Backend/Axios";
-const Sign_in = () => {
+import { useDispatch } from "react-redux";
+
+/* Get API to Communicate with Server */
+import { BasiliumAPI } from "../../utils/Axios";
+
+/* Using context to show user information */
+import { ADD } from "../../context/AppStateContext";
+
+const Signin = () => {
+  const dispatch = useDispatch();
+
+  const [User, setUser] = useState({
+    Id: '',
+    Email: '',
+    Password: '',
+    Liked: [],
+    Shopcart: [],
+    IsLogin: false,
+    IsMemberout: false,
+    IsTryToModify: false,
+  })
+
   const [inputs, setInputs] = useState({
     email: "",
     pwd: "",
@@ -15,7 +37,6 @@ const Sign_in = () => {
   const onChange = (e) => {
     const value = e.target.value;
     const id = e.target.id;
-
     setInputs({
       ...inputs,
       [id]: value,
@@ -27,10 +48,25 @@ const Sign_in = () => {
   };
 
   const Login = () => {
-        const request = 
-        BasiliumAPI
-          .post('v1/normalUser/signup',inputs).then(response => {
-          console.log('응답 데이터:', response.data); })
+    const request = BasiliumAPI
+      .post('v1/normalUser/signup',inputs)
+      .then(response => {
+        setUser({
+          Id: null,
+          Email: inputs.email,
+          Password: inputs.pwd,
+          Liked: [],
+          Shopcart: [],
+          IsLogin: true,
+          IsMemberout: false,
+          IsTryToModify: false,
+        })
+        dispatch(ADD(User));
+        console.log('응답 데이터:', response.data); 
+      })
+      .catch(err => {
+        console.log(err);
+      })
 
   };
 
@@ -130,4 +166,4 @@ const Sign_in = () => {
   );
 };
 
-export default Sign_in;
+export default Signin;

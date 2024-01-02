@@ -18,8 +18,9 @@ import BestSellar from './pages/BestSellar/BestSellar';
 import Errorpage from './pages/Errorpage/Errorpage';
 import ShopingList from './pages/Shopping/ShopingList';
 import Product from './pages/Product/Product';
-import Sign_in from './pages/Login/Sign_in';
-import Sign_up from './pages/Login/Sign_up';
+import Signin from './pages/Login/Signin';
+import Signup from './pages/Login/Signup';
+import Login from './pages/Login/Login';
 
 const router = createBrowserRouter([
   {
@@ -31,19 +32,17 @@ const router = createBrowserRouter([
       {
         id: "Mainpage",
         element: <Mainpage></Mainpage>,
-        // loader 추가 예정
+      },
+      {
+        id: "BestSellar",
+        element: <BestSellar></BestSellar>,
       },
     ]
   },
   {
     path: "/login",
     id: "login",
-    element: <Sign_in></Sign_in>,
-  },
-  {
-    path: "/signup",
-    id: "signup",
-    element: <Sign_up></Sign_up>,
+    element: <Login></Login>,
   },
   {
     path: "/bestsellar",
@@ -66,9 +65,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <Provider store={configureStore}>
+    // <Provider store={configureStore}>
       <RouterProvider router={router}></RouterProvider>
-    </Provider>
+    // </Provider>
   );
 }
 

@@ -14,7 +14,7 @@ import ShoppingProductObj from '../../components/Shopping/ProductObj/ShoppingPro
 /* API */
 import { 
     BasiliumAPI
-} from '../../Backend/Axios';
+} from '../../utils/Axios';
 import Pagination from '../../components/Shopping/Pagination/Pagination';
 
 const Max_count = 16;

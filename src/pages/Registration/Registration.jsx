@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { 
     DescriptionBox,
     ImageUpload,
@@ -15,7 +15,7 @@ import {
 
 import { 
     BasiliumAPI 
-} from '../../Backend/Axios';
+} from '../../utils/Axios';
 
 function Registration() {
     const [ShowImage, setShowImage] = useState(false);
@@ -107,12 +107,12 @@ function Registration() {
                 alert('상품 등록에 실패하였습니다.');
             })
     };
-
+    /*
     const onClickUpload = (e) => {
         e.preventDefault();
         UploadProduct();
     };
-    
+    */
     
     return (
         <RegistrationContainer>

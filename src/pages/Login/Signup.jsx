@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import "../components/styles/sign_up.css";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Sign_up = () => {
+const Signup = () => {
   const [inputs, setInputs] = useState({
     id: "",
     password: "",
@@ -14,7 +13,16 @@ const Sign_up = () => {
     age:0,
     address:"",
   });
-  const { id,password,emailaddress,phoneNumber,userGrade,name,age,address } = inputs;
+  const { 
+    id,
+    password,
+    emailaddress,
+    phoneNumber,
+    userGrade,
+    name,
+    age,
+    address 
+  } = inputs;
   const onChange = (e) => {
     const value = e.target.value;
     const id = e.target.id;
@@ -193,4 +201,4 @@ const Sign_up = () => {
   );
 };
 
-export default Sign_up;
+export default Signup;
