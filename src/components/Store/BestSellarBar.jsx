@@ -37,22 +37,17 @@ function BestSellarBar() {
         "productName": '',
         "productPrice" : 0,
         "productDesc": '',
+        "imagePath": '',
     }])
 
     const GetBestSellar = () => {
         BasiliumAPI
             .get(`/products/allproduct`)
             .then(data => {
-                console.log(data);
                 setBestSellarList(data.data)
-                for (let i = 0; i < 4; i++) {
-                    const item = data.data[i];
-                    UploadImageFile(item.productId);
-                
-                    if (i === 3) {
-                        break;
-                    }
-                }
+                data.data.forEach((item, i)=>(
+                    UploadImageFile(item.productId)
+                ))
                 setIsLoading(false);
             })
             .catch(error => {
@@ -63,15 +58,15 @@ function BestSellarBar() {
     // ImagesList 
     const [ShowImageList, SetShowImageList] = useState([])
 
+    // According to Axios, Post some Image data.
+
     // Using blob
-    const ImageEncoding = (images) =>{    
-        // According to Axios, Post some Image data.
+    const ImageEncoding = (images) =>{
         const reader = new FileReader()
         reader.readAsDataURL(images)
         reader.onload = () => {
-            SetShowImageList(enter => [...enter, reader.result] || null)
+            SetShowImageList(...reader.result || null)
         }
-        console.log(ShowImageList);
         setIsLoading(false)
     }
 
@@ -87,7 +82,7 @@ function BestSellarBar() {
     }
     
     useEffect(()=>{
-        GetBestSellar()
+        GetBestSellar();
     }, [])
 
     return (
@@ -128,8 +123,9 @@ function BestSellarBar() {
                                         <BestSellarContent
                                             src={ShowImageList[index]}
                                             title={bestSellarList.productName}
-                                            content={bestSellarList.productDesc}
+                                            contnet={bestSellarList.productDesc}
                                             price={bestSellarList.productPrice}
+                                            productId={bestSellarList.productId}
                                         />
                                     </BSlide>
                                 </SwiperContainer>

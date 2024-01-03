@@ -54,8 +54,8 @@ export default function ImageAIPage() {
     'productId': 1,
   });
   formData.append('strInfos',JSON.stringify(ProductObj));
-  const [userid, setuserid] = useState('1');
-  const [productId, setProductId] = useState(1);
+  const [userid, setuserid] = useState("1");
+  const [productId, setProductId] = useState("1");
 
   const AISendingImage = (e) => {
     e.preventDefault();

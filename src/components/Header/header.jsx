@@ -2,7 +2,6 @@ import React, {
   useState 
 } from 'react'
 
-import { ReactComponent as Category } from '../../assets/SVG/category.svg'
 import { ReactComponent as Xbar } from '../../assets/SVG/Xbar.svg'
 import { ReactComponent as UserIMG } from '../../assets/Header/User.svg'
 import { ReactComponent as CartIMG } from '../../assets/SVG/ShoppingCartIMG.svg' 
@@ -25,7 +24,8 @@ import {
   ExpendedMenu,
   Submenu,
   Mymenu,
-  HeaderLinkContainer
+  HeaderLinkContainer,
+  CategorySelect
 } from '../styles/Header.style.jsx';
 import S_Category from './S_Category'
 import SearchBar from './SearchBar'
@@ -79,7 +79,7 @@ function Header(props) {
             :
             <CategoryBar>
               <CategoryBox>
-                <Category />
+                <CategorySelect />
               </CategoryBox>
             </CategoryBar>
         }

@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { ReactComponent as CategoryBarcord } from '../../assets/SVG/category.svg'
+
 
 export const HeaderContainer = styled.nav`
     z-index: 100;
@@ -26,6 +28,12 @@ export const HeaderContainer = styled.nav`
     opacity: 100%;
     transition: all 0.3s ease-out;
     z-index: 5;
+`
+
+export const CategorySelect = styled(CategoryBarcord)`
+    width: 50px;
+    height: 50px;
+    margin : 0 auto;
 `
 
 export const HeaderLinkContainer = styled.div`

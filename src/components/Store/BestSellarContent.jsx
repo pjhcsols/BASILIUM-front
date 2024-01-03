@@ -7,7 +7,7 @@ import {
 import BestsellarObj from './BestsellarObj'
 
 function BestSellarContent(props) {
-  console.log(props);
+  console.log(props.productId)
   return (
     <BestSellarContainer>
         <BestsellarObj

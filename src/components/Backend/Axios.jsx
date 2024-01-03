@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-export const base_url = "http://172.20.38.178:8080";
+export const base_url = "http://172.20.38.115:8080";
 export const Ai_url = "http://211.229.27.126:8080"
 
 
@@ -57,9 +57,9 @@ export const CountingAPI = axios.create({
 export const BasiliumAPI = axios.create({
     BASE_URL: base_url,
     headers: {
-        "Content-Type": "application/json; charset=UTF-8"
+        "Content-Type": "application/json; charset=UTF-8;"
     },
-    timeout: 5000
+    timeout: 50000
 });
 
 export const BestSellarAPI = axios.create({

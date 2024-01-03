@@ -19,6 +19,9 @@ import MyPage from './pages/myPage/myPage'
 import Purchase from './components/Buying/Purchase';
 import Goods from './components/Store/IndividualGoods/Goods';
 import PrivateGoods from './pages/PrivateGoods/PrivateGoods';
+import BlockIMG from './components/Test/BlockIMG';
+import Test from './pages/Test';
+import Test2 from './pages/Test2';
 
 function App() {
   return (
@@ -29,7 +32,7 @@ function App() {
       <Route 
         exact 
         path="/shopping" 
-        element={<ShoppingList />} 
+        element={<Test2 />} 
       />
       <Route 
         exact 
@@ -59,7 +62,12 @@ function App() {
       <Route 
         exact
         path="/brands" 
-        element={<Listing />}
+        element={<Test />}
+      />
+      <Route 
+        exact
+        path="/testing" 
+        element={<BlockIMG />} 
       />
       <Route 
         exact
